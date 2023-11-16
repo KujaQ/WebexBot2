@@ -2,7 +2,7 @@ const app = new window.Webex.Application();
 
 
 async function gibher(){
-  const sidebar = await app.getSidebar();
+  const sidebar = await app.context.getSidebar();
   const calls = await sidebar.getCalls();
   const isBadgeSet = await sidebar.clearBadge();
   const isBadgeSet2 = await sidebar.showBadge({
