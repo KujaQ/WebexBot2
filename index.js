@@ -7,12 +7,11 @@ function debug(key, value) {
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify(
+      body:
           {
               "roomId": 'Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL1JPT00vM2JhNDYzOTAtODIxNC0xMWVlLTkyNWEtYWZhNzM0MTZmNGM5',
               "text": "hello Kev"
           }
-      )
   })
       .then(response => response.text())
       .then(response => console.log(JSON.stringify(response)));
