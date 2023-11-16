@@ -15,31 +15,35 @@ app.onReady().then(() => {
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen().then(() => {
 
-    log("Banan 4 scale", {message: "listener läuft 1"})
+    log("Banan 4 scale", {message: "listener läuft 2"})
+
+    app.on("sidebar:callStateChanged", (call) => {
+      log("Call state changed. New call object:", call);
+    })
 
 
-    app.on("sidebar:callStateChanged", (payload) =>
-      log("Call state changed. New call object:", payload)
-    );
+    // app.on("sidebar:callStateChanged", (payload) =>
+    //   log("Call state changed. New call object:", payload)
+    // );
 
-    app.on("application:displayContextChanged", (payload) =>
-      log("application:displayContextChanged", payload)
-    );
+    // app.on("application:displayContextChanged", (payload) =>
+    //   log("application:displayContextChanged", payload)
+    // );
 
-    app.on("application:shareStateChanged", (payload) =>
-      log("application:shareStateChanged", payload)
-    );
-    app.on("application:themeChanged", (payload) =>
-      log("application:themeChanged", payload)
-    );
-    app.on("meeting:infoChanged", (payload) =>
-      log("meeting:infoChanged", payload)
-    );
-    app.on("meeting:roleChanged", (payload) =>
-      log("meeting:roleChanged", payload)
-    );
-    app.on("space:infoChanged", (payload) =>
-      log("space:infoChanged", payload));
+    // app.on("application:shareStateChanged", (payload) =>
+    //   log("application:shareStateChanged", payload)
+    // );
+    // app.on("application:themeChanged", (payload) =>
+    //   log("application:themeChanged", payload)
+    // );
+    // app.on("meeting:infoChanged", (payload) =>
+    //   log("meeting:infoChanged", payload)
+    // );
+    // app.on("meeting:roleChanged", (payload) =>
+    //   log("meeting:roleChanged", payload)
+    // );
+    // app.on("space:infoChanged", (payload) =>
+    //   log("space:infoChanged", payload));
   });
 });
 
