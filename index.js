@@ -36,12 +36,11 @@ app.onReady().then(() => {
   debug("onReady", "active")
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen().then(() => {
-    debug("applisten", "active")
-
-    log("Banan 4 scale", {message: "listener läuft 3"})
+    debug("applisten", "active");
+    log("Banan 4 scale", {message: "listener läuft 3"});
 
     app.on("sidebar:callStateChanged", (call) => {
-      debug("event", "triggerd")
+      debug("event", "triggerd");
       log("Call state changed. New call object:", call);
     })
 
@@ -68,6 +67,10 @@ app.onReady().then(() => {
     // );
     // app.on("space:infoChanged", (payload) =>
     //   log("space:infoChanged", payload));
+  })
+  .catch((reason) =>{
+    debug("eventerror", "triggerd");
+    log("Call state changed. New call object:", call);
   });
 });
 
