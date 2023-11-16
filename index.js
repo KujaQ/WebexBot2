@@ -1,12 +1,22 @@
 const app = new window.Webex.Application();
 var id = "";
+var connected = false;
+
 
 function debug(key, value, data) {
   const obj = JSON.parse(data);
 
   if (obj.data.id !== id) {
-    id = obj.data.id;
-    log("anruf", obj);
+    if (obj.data.state === 'Connected'){
+      connected = true;
+      id = obj.data.id;
+      log("anruf", obj);
+    }
+    if ((obj.data.state === 'disconnected') & (connected === false)){
+      connected = true;
+      id = obj.data.id;
+      log("anruf", obj);
+    }
   }
 
 
