@@ -32,7 +32,7 @@ console.log("themechanged");
     })
     .catch((reason) => {
       console.log(
-        "test fehler amena"
+        "test fehler amena", reason
       );
     });
 });
