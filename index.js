@@ -15,7 +15,7 @@ app.onReady().then(() => {
     })
     .catch((reason) => {
       console.error(
-        "listen: fail reason=" + webex.Application.ErrorCodes[reason]
+        "test fehler amena"
       );
     });
 });
