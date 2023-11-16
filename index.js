@@ -2,18 +2,23 @@ const app = new window.Webex.Application();
 
 
 async function gibher(){
-  const sidebar = await app.context.getSidebar();
-  const calls = await sidebar.getCalls();
-  const isBadgeSet = await sidebar.clearBadge();
-  const isBadgeSet2 = await sidebar.showBadge({
-    badgeType: 'count',
-    count: 100
-  });
+  const sidebar = await app.context.getSidebar().then((sidebar) => {
+    console.log("ich habe sidebar gemacht!");
+  })
 
-  console.log(sidebar);
-  console.log(calls);
-  console.log(isBadgeSet);
-  console.log(isBadgeSet2);
+
+
+  // const calls = await sidebar.getCalls();
+  // const isBadgeSet = await sidebar.clearBadge();
+  // const isBadgeSet2 = await sidebar.showBadge({
+  //   badgeType: 'count',
+  //   count: 100
+  // });
+
+  // console.log(sidebar);
+  // console.log(calls);
+  // console.log(isBadgeSet);
+  // console.log(isBadgeSet2);
 
 }
 
