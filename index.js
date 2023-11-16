@@ -33,7 +33,7 @@ app.onReady().then(() => {
   app.listen()
     .then(() => {
       debug("applisten", "active");
-      log("Banan 4 scale", { message: "listener läuft 4" });
+      log("Banan 4 scale", { message: "listener läuft xO" });
       app.on("sidebar:callStateChanged", (call) => {
         debug("event", "triggerd");
         log("Call state changed. New call object:", call);
