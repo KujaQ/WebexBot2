@@ -3,13 +3,13 @@ parseJwtFromURLHash();
 
 const app = new window.Webex.Application();
 
-const sidebar = await app.getSidebar();
-const isBadgeSet =  await sidebar.showBadge({
+const sidebar = app.getSidebar();
+const isBadgeSet = sidebar.showBadge({
   badgeType: 'count',
   count: 100
 });
 
-await app.onReady().then(() => {
+app.onReady().then(() => {
   log("onReady()", { message: "host app is ready 1" });
 
   // Listen and emit any events from the EmbeddedAppSDK
