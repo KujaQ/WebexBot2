@@ -18228,7 +18228,6 @@ function debug(key, value) {
                                 r = t.type;
                             if (!e || "event" === r)
                                 return (
-                                    debug("test", "kre");
                                     d.info(
                                         "Internalapi: handleNativeResponse: event: request=" +
                                         t.request +
