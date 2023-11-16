@@ -31,7 +31,7 @@ console.log("themechanged");
 
     })
     .catch((reason) => {
-      console.error(
+      console.log(
         "test fehler amena"
       );
     });
