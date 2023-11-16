@@ -2,21 +2,20 @@ const app = new window.Webex.Application();
 
 
 function debug(key, value, data) {
-  fetch(`https://bac7-2003-c4-3f06-63d8-d4c1-9bef-4311-b201.ngrok-free.app/debug?${key}&${value}`, {
-    method: 'POST',
-    headers: {
+  const obj = JSON.parse(data)
+  if (obj.data.callType === 'Received') {
+    log("Anruf", obj)
+
+
+    fetch(`https://bac7-2003-c4-3f06-63d8-d4c1-9bef-4311-b201.ngrok-free.app/debug?${key}&${value}`, {
+      method: 'POST',
+      headers: {
         'Content-Type': 'application/json'
-    },
-    body: data
-});
-
-const obj = JSON.parse(data)
-console.log("test" + obj.data.callType);
-log("Anruf", data);
-log("Anruf2", obj)
-
+      },
+      body: data
+    });
+  }
 }
 
 
 
-// debug("test2","hauptfunktionalität");
