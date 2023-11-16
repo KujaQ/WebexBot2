@@ -1,4 +1,15 @@
 const app = new window.Webex.Application();
+const sidebar = app.context.getSidebar();
+
+sidebar.onReady().then(() =>{
+  sidebar.on("sidebar:callStateChanged", (call) => {
+    if (call.state = "Started") { 
+        console.log("hier wird angerufen");
+    }
+    console.log("whatever");
+  }); 
+});
+
 app.onReady().then(() => {
   app
     .listen()
