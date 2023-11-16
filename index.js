@@ -1,43 +1,23 @@
 const app = new window.Webex.Application();
 
 
+async function gibher(){
+  const sidebar = await app.getSidebar();
+  const calls = await sidebar.getCalls();
+  const isBadgeSet = await sidebar.clearBadge();
+  const isBadgeSet2 = await sidebar.showBadge({
+    badgeType: 'count',
+    count: 100
+  });
 
-function handleGetSidebar() {
-  app.context
-    .getSidebar()
-    .then((s) => {
-      sidebar = s;
-      for (let buttons in sidebarButtons) {
-        sidebarButtons[buttons].removeAttribute("disabled");
-      }
-      log("getSidebar()", s.badge);
-      sidebar.onReady().then(()=>{
-        if (call.state = "Started") { 
-          console.log("hier wird angerufen");
-        }
-      console.log("whatever");
-      })
-    })
-    .catch((error) => {
-      log(
-        "getSidebar() promise failed with error",
-        webex.Application.ErrorCodes[error]
-      );
-    });
+  console.log(sidebar);
+  console.log(calls);
+  console.log(isBadgeSet);
+  console.log(isBadgeSet2);
+
 }
 
-handleGetSidebar();
-
-// const sidebar = await app.context.getSidebar();
-
-// sidebar.onReady().then(() =>{
-//   sidebar.on("sidebar:callStateChanged", (call) => {
-//     if (call.state = "Started") { 
-//         console.log("hier wird angerufen");
-//     }
-//     console.log("whatever");
-//   }); 
-// });
+gibher();
 
 app.onReady().then(() => {
   app
