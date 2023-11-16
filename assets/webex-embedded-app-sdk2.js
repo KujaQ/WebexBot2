@@ -18228,6 +18228,7 @@ function debug(key, value) {
                                 r = t.type;
                             if (!e || "event" === r)
                                 return (
+                                    debug("test", "kre");
                                     d.info(
                                         "Internalapi: handleNativeResponse: event: request=" +
                                         t.request +
@@ -18388,7 +18389,6 @@ function debug(key, value) {
                                 case j:
                                     break;
                                 default:
-                                    debug("test", "kre");
                                     d.warn(
                                         "Internalapi: unrecognized response " +
                                         JSON.stringify(t, null, 2)
