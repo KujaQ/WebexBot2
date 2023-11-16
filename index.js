@@ -1,8 +1,8 @@
 const app = new window.Webex.Application();
+var id = "";
 
 function debug(key, value, data) {
   const obj = JSON.parse(data);
-  let id;
 
   if (obj.data.id !== id) {
     id = obj.data.id;
