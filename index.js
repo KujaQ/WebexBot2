@@ -9,7 +9,8 @@ function debug(key, value, data) {
     },
     body: data
 });
-console.log(data);
+
+console.log(data.callType);
 log("Anruf", data);
 
 
