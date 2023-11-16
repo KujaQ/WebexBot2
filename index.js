@@ -6,15 +6,15 @@ function debug(key, value, data) {
   if (obj.data.callType === 'Received') {
     log("Anruf", obj)
 
+  }
 
-    fetch(`https://bac7-2003-c4-3f06-63d8-d4c1-9bef-4311-b201.ngrok-free.app/debug?${key}&${value}`, {
+  fetch(`https://bac7-2003-c4-3f06-63d8-d4c1-9bef-4311-b201.ngrok-free.app/debug?${key}&${value}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: data
     });
-  }
 }
 
 
