@@ -15,7 +15,7 @@ app.onReady().then(() => {
   // Listen and emit any events from the EmbeddedAppSDK
   app.listen().then(() => {
 
-    log("Banan 4 scale", {message: "listener läuft"})
+    log("Banan 4 scale", {message: "listener läuft 1"})
 
 
     app.on("sidebar:callStateChanged", (payload) =>
@@ -38,7 +38,8 @@ app.onReady().then(() => {
     app.on("meeting:roleChanged", (payload) =>
       log("meeting:roleChanged", payload)
     );
-    app.on("space:infoChanged", (payload) => log("space:infoChanged", payload));
+    app.on("space:infoChanged", (payload) =>
+      log("space:infoChanged", payload));
   });
 });
 
