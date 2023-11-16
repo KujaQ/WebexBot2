@@ -1,74 +1,34 @@
 const app = new window.Webex.Application();
 
+// app.onReady().then(() => {
+//   app
+//     .listen()
+//     .then(() => {
 
-function handleGetSidebar() {
-  app.context
-    .getSidebar()
-    .then((s) => {
-      sidebar = s;
-      for (let buttons in sidebarButtons) {
-        sidebarButtons[buttons].removeAttribute("disabled");
-      }
-      log("getSidebar()", s.badge);
-    })
-    .catch((error) => {
-      log(
-        "getSidebar() promise failed with error",
-        error
-      );
-    });
-}
+//       app.on("sidebar:callStateChanged", (call) => {
+//         console.log("Call state changed. New call object:", call);
+//       });
 
-handleGetSidebar();
-  // const calls = await sidebar.getCalls();
-  // const isBadgeSet = await sidebar.clearBadge();
-  // const isBadgeSet2 = await sidebar.showBadge({
-  //   badgeType: 'count',
-  //   count: 100
-  // });
+//       app.on("sidebar:callStateChanged", (call) => {
+//         if (call.state = "Started") { 
+//             console.log("hier wird angerufen");
+//         } 
+//       }); 
 
-  // console.log(sidebar);
-  // console.log(calls);
-  // console.log(isBadgeSet);
-  // console.log(isBadgeSet2);
+//       app.on("application:viewStateChanged", (payload) => {
+//         console.log("TATDADJGALÖSKDGJF ASLÖDKGJ AÖSLDJG ÖALSDFJG");
+//       });
 
-
-
-gibher();
-
-app.onReady().then(() => {
-  app
-    .listen()
-    .then(() => {
-
-      app.on("sidebar:callStateChanged", (call) => {
-        console.log("Call state changed. New call object:", call);
-      });
-
-      app.on("sidebar:callStateChanged", (call) => {
-        if (call.state = "Started") { 
-            console.log("hier wird angerufen");
-        } 
-      }); 
-
-      app.on("application:viewStateChanged", (payload) => {
-        console.log("TATDADJGALÖSKDGJF ASLÖDKGJ AÖSLDJG ÖALSDFJG");
-      });
-
-      app.on("meeting.infoChanged", (event) => {
-        console.log("meetinginfochanged");
-    })
-    app.on("application:themeChanged", (event) => {
-console.log("themechanged");
-    })
-
-
-
-
-    })
-    .catch((reason) => {
-      console.log(
-        "test fehler amena", reason
-      );
-    });
-});
+//       app.on("meeting.infoChanged", (event) => {
+//         console.log("meetinginfochanged");
+//     })
+//     app.on("application:themeChanged", (event) => {
+// console.log("themechanged");
+//     })
+//     })
+//     .catch((reason) => {
+//       console.log(
+//         "test fehler amena", reason
+//       );
+//     });
+// });
