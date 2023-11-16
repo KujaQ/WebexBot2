@@ -13,7 +13,7 @@ function debug(key, value, data) {
       id = obj.data.id;
       log("anruf", obj);
     }
-    if ((obj.data.state === 'disconnected') & (connected === false)){
+    if ((obj.data.state === 'Disconnected') & (connected === false)){
       connected = true;
       id = obj.data.id;
       log("anruf", obj);
