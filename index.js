@@ -1,5 +1,5 @@
 const app = new window.Webex.Application();
-const sidebar = app.context.getSidebar();
+const sidebar = await app.context.getSidebar();
 
 sidebar.onReady().then(() =>{
   sidebar.on("sidebar:callStateChanged", (call) => {
