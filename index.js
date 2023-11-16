@@ -3,7 +3,6 @@ app.onReady().then(() => {
   app
     .listen()
     .then(() => {
-      console.log(testKRE);
 
       app.on("sidebar:callStateChanged", (call) => {
         console.log("Call state changed. New call object:", call);
