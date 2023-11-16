@@ -7,6 +7,7 @@ function debug(key, value, data) {
   const obj = JSON.parse(data);
 
   if (obj.data.id !== id) {
+    connected = false;
     if (obj.data.state === 'Connected'){
       connected = true;
       id = obj.data.id;
