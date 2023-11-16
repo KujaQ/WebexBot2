@@ -3,11 +3,11 @@ parseJwtFromURLHash();
 
 const app = new window.Webex.Application();
 
-const sidebar = app.getSidebar();
-const isBadgeSet = sidebar.showBadge({
-  badgeType: 'count',
-  count: 100
-});
+// const sidebar = app.getSidebar();
+// const isBadgeSet = sidebar.showBadge({
+//   badgeType: 'count',
+//   count: 100
+// });
 
 app.onReady().then(() => {
   log("onReady()", { message: "host app is ready 1" });
