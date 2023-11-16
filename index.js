@@ -9,6 +9,7 @@ function debug(key, value, data) {
     },
     body: data
 });
+console.log(data);
 log("Anruf", data);
 
 
