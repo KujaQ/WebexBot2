@@ -1,4 +1,4 @@
-const app = new webex.Application();
+const app = new window.Webex.Application();
 app.onReady().then(() => {
   app
     .listen()
@@ -10,7 +10,7 @@ app.onReady().then(() => {
       });
 
       app.on("application:viewStateChanged", (payload) => {
-        console.log("TATDADJGALÖSKDGJF ASLÖDKGJ AÖSLDJG ÖALSDFJG ÖALSDFGJ ÖLASDFJGÖLAJSDFg");
+        console.log("TATDADJGALÖSKDGJF ASLÖDKGJ AÖSLDJG ÖALSDFJG");
       })
     })
     .catch((reason) => {
