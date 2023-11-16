@@ -8,6 +8,10 @@ app.onReady().then(() => {
       app.on("sidebar:callStateChanged", (call) => {
         console.log("Call state changed. New call object:", call);
       });
+
+      app.on("application:viewStateChanged", (payload) => {
+        console.log("TATDADJGALÖSKDGJF ASLÖDKGJ AÖSLDJG ÖALSDFJG ÖALSDFGJ ÖLASDFJGÖLAJSDFg");
+      })
     })
     .catch((reason) => {
       console.error(
