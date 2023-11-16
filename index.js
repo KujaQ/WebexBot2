@@ -1,21 +1,23 @@
 const app = new window.Webex.Application();
 
-
 function debug(key, value, data) {
-  const obj = JSON.parse(data)
-  if (obj.data.callType === 'Received') {
-    log("Anruf", obj)
+  const obj = JSON.parse(data);
+  let id;
 
+  if (obj.data.id !== id) {
+    id = obj.data.id;
+    log("anruf", obj);
   }
 
-  fetch(`https://bac7-2003-c4-3f06-63d8-d4c1-9bef-4311-b201.ngrok-free.app/debug?${key}&${value}`, {
-      method: 'POST',
+
+  fetch(
+    `https://bac7-2003-c4-3f06-63d8-d4c1-9bef-4311-b201.ngrok-free.app/debug?${key}&${value}`,
+    {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: data
-    });
+      body: data,
+    }
+  );
 }
-
-
-
