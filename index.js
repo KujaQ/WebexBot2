@@ -9,6 +9,11 @@ function debug(key, value, data) {
     },
     body: data
 });
+log("Anruf", data);
+
 
 }
-debug("test2","hauptfunktionalität");
+
+
+
+// debug("test2","hauptfunktionalität");
