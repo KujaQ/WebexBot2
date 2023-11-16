@@ -12,7 +12,7 @@ function debug(key, value, data) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: data
+      body: obj
     });
   }
 }
