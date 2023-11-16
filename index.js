@@ -10,7 +10,8 @@ function debug(key, value, data) {
     body: data
 });
 
-console.log(data.callType);
+const obj = JSON.parse(data)
+console.log("test" + obj.callType);
 log("Anruf", data);
 
 
