@@ -11,7 +11,7 @@ function debug(key, value, data) {
 });
 
 const obj = JSON.parse(data)
-console.log("test" + obj.name);
+console.log("test" + obj.data.callType);
 log("Anruf", data);
 log("Anruf2", obj)
 
