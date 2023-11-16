@@ -1,14 +1,43 @@
 const app = new window.Webex.Application();
-const sidebar = await app.context.getSidebar();
 
-sidebar.onReady().then(() =>{
-  sidebar.on("sidebar:callStateChanged", (call) => {
-    if (call.state = "Started") { 
-        console.log("hier wird angerufen");
-    }
-    console.log("whatever");
-  }); 
-});
+
+
+function handleGetSidebar() {
+  app.context
+    .getSidebar()
+    .then((s) => {
+      sidebar = s;
+      for (let buttons in sidebarButtons) {
+        sidebarButtons[buttons].removeAttribute("disabled");
+      }
+      log("getSidebar()", s.badge);
+      sidebar.onReady().then(()=>{
+        if (call.state = "Started") { 
+          console.log("hier wird angerufen");
+        }
+      console.log("whatever");
+      })
+    })
+    .catch((error) => {
+      log(
+        "getSidebar() promise failed with error",
+        webex.Application.ErrorCodes[error]
+      );
+    });
+}
+
+handleGetSidebar();
+
+// const sidebar = await app.context.getSidebar();
+
+// sidebar.onReady().then(() =>{
+//   sidebar.on("sidebar:callStateChanged", (call) => {
+//     if (call.state = "Started") { 
+//         console.log("hier wird angerufen");
+//     }
+//     console.log("whatever");
+//   }); 
+// });
 
 app.onReady().then(() => {
   app
