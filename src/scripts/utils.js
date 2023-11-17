@@ -32,68 +32,72 @@ function padNumber(num) {
   return num.toString().padStart(2, '0');
 }
 
-// function quickdebug(){
-//   let currentDateTime = getCurrentDateTime();
+function quickdebug(){
+  let currentDateTime = getCurrentDateTime();
 
-//   var ul = document.getElementById("console");
-//   var li = document.createElement("li");
-//   var header = document.createElement("p");
-//   var headerMessage = document.createTextNode(
-//     `${currentDateTime}: ANRUF`
-//   );
-//   header.appendChild(headerMessage);
-//   li.appendChild(header);
-//   var code = document.createElement("pre");
-//   var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
-//                                           "Name: " + "Unbekannt" + "\n" + 
-//                                           "Adresse: " + "Unbekannt" + "\n" +
-//                                           "Plz: " + "Unbekannt" + "\n" + 
-//                                           "FIN: " + "Unbekannt" + "\n"
-//   );
-//   var recallButton = document.createElement('button');
-//   recallButton.innerHTML = 'Rückruf';
+  var ul = document.getElementById("console");
+  var li = document.createElement("li");
+  var header = document.createElement("p");
+  var headerMessage = document.createTextNode(
+    `${currentDateTime}: ANRUF`
+  );
+  header.appendChild(headerMessage);
+  li.appendChild(header);
+  var code = document.createElement("pre");
+  var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
+                                          "Name: " + "Unbekannt" + "\n" + 
+                                          "Adresse: " + "Unbekannt" + "\n" +
+                                          "Plz: " + "Unbekannt" + "\n" + 
+                                          "FIN: " + "Unbekannt" + "\n"
+  );
+  var recallButton = document.createElement('button');
+  recallButton.innerHTML = 'Rückruf';
+  recallButton.classList.add("button");
+  recallButton.classList.add("is-success");
 
-//   recallButton.onclick = function(){
-//     restDebugger("recallButton", "Event");
-//   };
+  recallButton.onclick = function(){
+    restDebugger("recallButton", "Event");
+  };
 
-//   code.appendChild(payload);
-//   code.appendChild(recallButton);
-//   li.appendChild(code);
-//   ul.prepend(li);
-
-
-//   var ul = document.getElementById("console");
-//   var li = document.createElement("li");
-//   var header = document.createElement("p");
-//   var headerMessage = document.createTextNode(
-//     `${currentDateTime}: ANRUF`
-//   );
-//   header.appendChild(headerMessage);
-//   li.appendChild(header);
-//   var code = document.createElement("pre");
-//   var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
-//                                           "Name: " + "Unbekannt" + "\n" + 
-//                                           "Adresse: " + "Unbekannt" + "\n" +
-//                                           "Plz: " + "Unbekannt" + "\n" + 
-//                                           "FIN: " + "Unbekannt" + "\n"
-//   );
-//   var recallButton = document.createElement('button');
-//   recallButton.innerHTML = 'Rückruf';
-
-//   recallButton.onclick = function(){
-//     restDebugger("recallButton", "Event");
-//   };
-
-//   code.appendChild(payload);
-//   code.appendChild(recallButton);
-//   li.appendChild(code);
-//   ul.prepend(li);
-
-//   }   
+  code.appendChild(payload);
+  code.appendChild(recallButton);
+  li.appendChild(code);
+  ul.prepend(li);
 
 
-// quickdebug();
+  var ul = document.getElementById("console");
+  var li = document.createElement("li");
+  var header = document.createElement("p");
+  var headerMessage = document.createTextNode(
+    `${currentDateTime}: ANRUF`
+  );
+  header.appendChild(headerMessage);
+  li.appendChild(header);
+  var code = document.createElement("pre");
+  var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
+                                          "Name: " + "Unbekannt" + "\n" + 
+                                          "Adresse: " + "Unbekannt" + "\n" +
+                                          "Plz: " + "Unbekannt" + "\n" + 
+                                          "FIN: " + "Unbekannt" + "\n"
+  );
+  var recallButton = document.createElement('button');
+  recallButton.innerHTML = 'Rückruf';
+  recallButton.classList.add("button");
+  recallButton.classList.add("is-success");
+
+  recallButton.onclick = function(){
+    restDebugger("recallButton", "Event");
+  };
+
+  code.appendChild(payload);
+  code.appendChild(recallButton);
+  li.appendChild(code);
+  ul.prepend(li);
+
+  }   
+
+
+quickdebug();
 
 
 function log(type, data) {
