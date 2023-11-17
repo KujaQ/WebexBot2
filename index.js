@@ -1,4 +1,7 @@
 const app = new window.Webex.Application();
+
+const url = 'https://webexapis.com/v1/telephony/calls/dial';
+const bearerToken = 'MjI5OTVkNjEtY2IzNy00NGYyLTg1ZmUtMjc1ZjNiZWQxMTc1NzRjY2UyOWItYmZj_PE93_08980031-1243-47be-a32c-fd2fee9a0c3b';
 var id = "";
 var connected = false;
 
@@ -20,15 +23,36 @@ function debug(key, value, data) {
       log("Verpasster Anruf", obj);
     }
   }
+}
 
-  // fetch(
-  //   `https://bac7-2003-c4-3f06-63d8-d4c1-9bef-4311-b201.ngrok-free.app/debug?${key}&${value}`,
-  //   {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: data,
-  //   }
-  // );
+function restDebugger(key, value, data){
+  fetch(
+    ` https://cf3c-2003-c4-3f06-6373-4da6-bd65-c22-baac.ngrok-free.app/debug?${key}&${value}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // body: data,
+    }
+  );
+}
+
+function recall(destination){
+  const data = {
+    "destination": `${destination}`,
+    "endpointId": "Y2lzY29z..."
+  };
+  
+  fetch(
+    url,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${bearerToken}`
+      },
+      body: data,
+    }
+  );
 }

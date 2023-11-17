@@ -4,11 +4,6 @@
  * @param {Object} data Object that can be JSON stringified
  */
 
-
-const url = 'https://webexapis.com/v1/telephony/calls';
-const bearerToken = 'NTcxMTNmMmItNzEzMC00MzY1LWE5MzctZTNkZDg3ZDc4MjVjZGFjYzY2MzEtMWRh_PE93_08980031-1243-47be-a32c-fd2fee9a0c3b';
-
-
 function getCurrentDateTime() {
   const now = new Date();
 
@@ -37,10 +32,43 @@ function padNumber(num) {
   return num.toString().padStart(2, '0');
 }
 
+function quickdebug(){
+  let currentDateTime = getCurrentDateTime();
+
+  var ul = document.getElementById("console");
+  var li = document.createElement("li");
+  var header = document.createElement("p");
+  var headerMessage = document.createTextNode(
+    `${currentDateTime}: ANRUF`
+  );
+  header.appendChild(headerMessage);
+  li.appendChild(header);
+  var code = document.createElement("pre");
+  var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
+                                          "Name: " + "Unbekannt" + "\n" + 
+                                          "Adresse: " + "Unbekannt" + "\n" +
+                                          "Plz: " + "Unbekannt" + "\n" + 
+                                          "FIN: " + "Unbekannt" + "\n"
+  );
+  var recallButton = document.createElement('button');
+  recallButton.innerHTML = 'Rückruf';
+
+  recallButton.onclick = function(){
+    restDebugger("recallButton", "Event");
+  };
+
+  code.appendChild(payload);
+  code.appendChild(recallButton);
+  li.appendChild(code);
+  ul.prepend(li);
+
+  }   
+
+
+quickdebug();
+
 
 function log(type, data) {
-
-console.log(data);
 
   let currentDateTime = getCurrentDateTime();
 
