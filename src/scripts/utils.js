@@ -41,7 +41,7 @@ function quickdebug(){
   var li = document.createElement("li");
   var header = document.createElement("p");
   var headerMessage = document.createTextNode(
-    `${currentDateTime}: ANRUF`
+    `${currentDateTime}: Angenommener Anruf`
   );
   header.appendChild(headerMessage);
   li.appendChild(header);
@@ -66,13 +66,22 @@ function quickdebug(){
   li.appendChild(code);
   ul.prepend(li);
 
+  // let type = "Verpasster Anruf";
+  let type = "Angenommener Anruf";
 
   var ul = document.getElementById("console");
   var li = document.createElement("li");
   var header = document.createElement("p");
   var headerMessage = document.createTextNode(
-    `${currentDateTime}: ANRUF`
+    `${currentDateTime}: Verpasster Anruf`
   );
+
+  if (type === "Angenommener Anruf"){
+    header.classList.add("accepted-call");
+  } else {
+    header.classList.add("missed-call");
+  }
+
   header.appendChild(headerMessage);
   li.appendChild(header);
   var code = document.createElement("pre");
@@ -113,11 +122,13 @@ function log(type, data) {
   var headerMessage = document.createTextNode(
     `${currentDateTime}: ${type}`
   );
+  
   if (type === "Angenommener Anruf"){
-    headerMessage.classList.add("accepted-call");
+    header.classList.add("accepted-call");
   } else {
-    headerMessage.classList.add("missed-call");
+    header.classList.add("missed-call");
   }
+
   header.appendChild(headerMessage);
   li.appendChild(header);
   var code = document.createElement("pre");
