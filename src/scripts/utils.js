@@ -62,6 +62,34 @@ function padNumber(num) {
 //   li.appendChild(code);
 //   ul.prepend(li);
 
+
+//   var ul = document.getElementById("console");
+//   var li = document.createElement("li");
+//   var header = document.createElement("p");
+//   var headerMessage = document.createTextNode(
+//     `${currentDateTime}: ANRUF`
+//   );
+//   header.appendChild(headerMessage);
+//   li.appendChild(header);
+//   var code = document.createElement("pre");
+//   var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
+//                                           "Name: " + "Unbekannt" + "\n" + 
+//                                           "Adresse: " + "Unbekannt" + "\n" +
+//                                           "Plz: " + "Unbekannt" + "\n" + 
+//                                           "FIN: " + "Unbekannt" + "\n"
+//   );
+//   var recallButton = document.createElement('button');
+//   recallButton.innerHTML = 'Rückruf';
+
+//   recallButton.onclick = function(){
+//     restDebugger("recallButton", "Event");
+//   };
+
+//   code.appendChild(payload);
+//   code.appendChild(recallButton);
+//   li.appendChild(code);
+//   ul.prepend(li);
+
 //   }   
 
 
