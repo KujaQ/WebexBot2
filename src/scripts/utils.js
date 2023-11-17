@@ -133,7 +133,7 @@ function log(type, data) {
 
   var customerTel = document.createElement("p");
   var customerTelText = document.createTextNode(
-    `Tel. Nummer: : ${data.data.remoteParticipants[0].callerID}`
+    `Tel. Nummer: ${data.data.remoteParticipants[0].callerID}`
   );
   customerTel.appendChild(customerTelText);
 
