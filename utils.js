@@ -51,7 +51,8 @@ function log(type, data) {
   header.appendChild(headerMessage);
   li.appendChild(header);
   var code = document.createElement("pre");
-  var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
+  // var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
+  var payload = document.createTextNode("Tel. Nummer: " + data.remoteParticipants.name);
   code.appendChild(payload);
   li.appendChild(code);
   ul.prepend(li);
