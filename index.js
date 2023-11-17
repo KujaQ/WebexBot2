@@ -11,13 +11,13 @@ function debug(key, value, data) {
     if (obj.data.state === "Connected") {
       connected = true;
       id = obj.data.id;
-      log("anruf", obj);
+      log("Angenommener Anruf", obj);
     }
     
     if ((obj.data.state === "Disconnected") & (connected === false)) {
       connected = true;
       id = obj.data.id;
-      log("anruf", obj);
+      log("Verpasster Anruf", obj);
     }
   }
 
