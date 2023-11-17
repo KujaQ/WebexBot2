@@ -18,6 +18,14 @@ h1{
     overflow: scroll;
 }
 
+.accepted-call{
+    color: green;
+}
+
+.missed-call{
+    color: red;
+}
+
 h1{
     text-align:center;
     display: block;

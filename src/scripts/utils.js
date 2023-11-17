@@ -113,6 +113,11 @@ function log(type, data) {
   var headerMessage = document.createTextNode(
     `${currentDateTime}: ${type}`
   );
+  if (type === "Angenommener Anruf"){
+    headerMessage.classList.add("accepted-call");
+  } else {
+    headerMessage.classList.add("missed-call");
+  }
   header.appendChild(headerMessage);
   li.appendChild(header);
   var code = document.createElement("pre");
