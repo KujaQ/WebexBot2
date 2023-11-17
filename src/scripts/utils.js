@@ -141,6 +141,8 @@ function log(type, data) {
   }   
   var recallButton = document.createElement('button');
   recallButton.innerHTML = 'Rückruf';
+  recallButton.classList.add("button");
+  recallButton.classList.add("is-success");
 
   recallButton.onclick = function(){
     recall('+4915734692268');
