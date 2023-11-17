@@ -9,12 +9,44 @@ const url = 'https://webexapis.com/v1/telephony/calls';
 const bearerToken = 'NTcxMTNmMmItNzEzMC00MzY1LWE5MzctZTNkZDg3ZDc4MjVjZGFjYzY2MzEtMWRh_PE93_08980031-1243-47be-a32c-fd2fee9a0c3b';
 
 
+function getCurrentDateTime() {
+  const now = new Date();
+
+  // Datum
+  const day = now.getDate();
+  const month = now.getMonth() + 1; // Monate beginnen bei 0
+  const year = now.getFullYear();
+
+  // Uhrzeit
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  // Formatierung mit führenden Nullen
+  const formattedDate = `${padNumber(day)}.${padNumber(month)}.${year}`;
+  const formattedTime = `${padNumber(hours)}:${padNumber(minutes)}:${padNumber(seconds)}`;
+
+  // Gesamtes Datum und Uhrzeit
+  const formattedDateTime = `${formattedDate} ${formattedTime}`;
+
+  return formattedDateTime;
+}
+
+// Hilfsfunktion für führende Nullen
+function padNumber(num) {
+  return num.toString().padStart(2, '0');
+}
+
+
 function log(type, data) {
+
+  let currentDateTime = getCurrentDateTime();
+
   var ul = document.getElementById("console");
   var li = document.createElement("li");
   var header = document.createElement("p");
   var headerMessage = document.createTextNode(
-    `${new Date().toJSON()}: ${type}`
+    `${currentDateTime.toJSON()}: ${type}`
   );
   header.appendChild(headerMessage);
   li.appendChild(header);
