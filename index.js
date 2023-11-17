@@ -43,6 +43,7 @@ function recall(destination){
     "destination": `${destination}`,
     "endpointId": "Y2lzY29z..."
   };
+  datastring = JSON.stringify(data);
   
   fetch(
     url,
@@ -52,7 +53,7 @@ function recall(destination){
         "Content-Type": "application/json",
         "Authorization": `Bearer ${bearerToken}`
       },
-      body: data,
+      body: datastring,
     }
   );
 }
