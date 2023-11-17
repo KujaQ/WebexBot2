@@ -54,7 +54,7 @@ console.log(data);
   li.appendChild(header);
   var code = document.createElement("pre");
   // var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
-  var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants.callerID);
+  var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants[0].callerID);
   code.appendChild(payload);
   li.appendChild(code);
   ul.prepend(li);
