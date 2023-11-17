@@ -40,6 +40,8 @@ function padNumber(num) {
 
 function log(type, data) {
 
+console.log(data);
+
   let currentDateTime = getCurrentDateTime();
 
   var ul = document.getElementById("console");
