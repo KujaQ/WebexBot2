@@ -35,74 +35,70 @@ function padNumber(num) {
 }
 
 function quickdebug(){
-  let currentDateTime = getCurrentDateTime();
+  var currentDateTime = getCurrentDateTime();
 
   var ul = document.getElementById("console");
+
   var li = document.createElement("li");
+
   var header = document.createElement("p");
   var headerMessage = document.createTextNode(
     `${currentDateTime}: Angenommener Anruf`
   );
+  header.classList.add("missed-call");
   header.appendChild(headerMessage);
-  li.appendChild(header);
-  var code = document.createElement("pre");
-  var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
-                                          "Name: " + "Unbekannt" + "\n" + 
-                                          "Adresse: " + "Unbekannt" + "\n" +
-                                          "Plz: " + "Unbekannt" + "\n" + 
-                                          "FIN: " + "Unbekannt" + "\n"
+
+  var infoUl = document.createElement("ul");
+  var infoIl = document.createElement("il");
+
+  var customerTel = document.createElement("p");
+  var customerTelText = document.createTextNode(
+    `Tel. Nummer: : +4917615206382`
   );
+  customerTel.appendChild(customerTelText);
+
+  var customerName = document.createElement("p");
+  var customerNameText = document.createTextNode(
+    `Name: Karl Heinz`
+  );
+  customerName.appendChild(customerNameText);
+
+  var customerStreet = document.createElement("p");
+  var customerStreetText = document.createTextNode(
+    `Adresse: Bachstraße 17`
+  );
+  customerStreet.appendChild(customerStreetText);
+
+  var customerPlz = document.createElement("p");
+  var customerPlzText = document.createTextNode(
+    `Plz: 56659`
+  );
+  customerPlz.appendChild(customerPlzText);
+
+  var customerVin = document.createElement("p");
+  var customerVinText = document.createTextNode(
+    `VIN: WAUZZZ1234567899`
+  );
+  customerVin.appendChild(customerVinText);
+  
   var recallButton = document.createElement('button');
   recallButton.innerHTML = 'Rückruf';
   recallButton.classList.add("button");
   recallButton.classList.add("is-success");
-
   recallButton.onclick = function(){
     restDebugger("recallButton", "Event");
   };
 
-  code.appendChild(payload);
-  code.appendChild(recallButton);
-  li.appendChild(code);
-  ul.prepend(li);
-
-  // let type = "Verpasster Anruf";
-  let type = "Angenommener Anruf";
-
-  var ul = document.getElementById("console");
-  var li = document.createElement("li");
-  var header = document.createElement("p");
-  var headerMessage = document.createTextNode(
-    `${currentDateTime}: Verpasster Anruf`
-  );
-
-  if (type === "Angenommener Anruf"){
-    header.classList.add("accepted-call");
-  } else {
-    header.classList.add("missed-call");
-  }
-
-  header.appendChild(headerMessage);
+  infoIl.appendChild(customerTel);
+  infoIl.appendChild(customerName);
+  infoIl.appendChild(customerStreet);
+  infoIl.appendChild(customerPlz);
+  infoIl.appendChild(customerVin);
+  infoIl.appendChild(recallButton);
+  infoUl.appendChild(infoIl);
+  
   li.appendChild(header);
-  var code = document.createElement("pre");
-  var payload = document.createTextNode("Tel. Nummer: " + '+4917615206382' + "\n" + 
-                                          "Name: " + "Unbekannt" + "\n" + 
-                                          "Adresse: " + "Unbekannt" + "\n" +
-                                          "Plz: " + "Unbekannt" + "\n" + 
-                                          "FIN: " + "Unbekannt" + "\n"
-  );
-  var recallButton = document.createElement('button');
-  recallButton.innerHTML = 'Rückruf';
-  recallButton.classList.add("button");
-  recallButton.classList.add("is-success");
-
-  recallButton.onclick = function(){
-    restDebugger("recallButton", "Event");
-  };
-
-  code.appendChild(payload);
-  code.appendChild(recallButton);
-  li.appendChild(code);
+  li.appendChild(infoUl);
   ul.prepend(li);
 
   }   
@@ -122,7 +118,7 @@ function log(type, data) {
   var headerMessage = document.createTextNode(
     `${currentDateTime}: ${type}`
   );
-  
+
   if (type === "Angenommener Anruf"){
     header.classList.add("accepted-call");
   } else {
@@ -130,43 +126,59 @@ function log(type, data) {
   }
 
   header.appendChild(headerMessage);
-  li.appendChild(header);
-  var code = document.createElement("pre");
-  // var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
-  if (data.data.remoteParticipants[0].callerID === '+4917615206382'){
-    var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants[0].callerID + "\n" + 
-                                          "Name: " + "Kevin Redlich" + "\n" + 
-                                          "Adresse: " + "Bachstraße 21" + "\n" +
-                                          "Plz: " + "53474" + "\n" + 
-                                          "FIN: " + "WAUZZZ12345667789" + "\n"
-                                          );
-  }else if (data.data.remoteParticipants[0].callerID === '+4915734692268'){
-    var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants[0].callerID + "\n" + 
-                                          "Name: " + "Max Mustermann" + "\n" + 
-                                          "Adresse: " + "Musterstraße 47" + "\n" +
-                                          "Plz: " + "4711" + "\n" + 
-                                          "FIN: " + "WAUZZZ98765641232" + "\n"
-                                          );        
-  }else{
-    var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants[0].callerID + "\n" + 
-                                          "Name: " + "Unbekannt" + "\n" + 
-                                          "Adresse: " + "Unbekannt" + "\n" +
-                                          "Plz: " + "Unbekannt" + "\n" + 
-                                          "FIN: " + "Unbekannt" + "\n"
-    );
-  }   
+
+
+  var infoUl = document.createElement("ul");
+  var infoIl = document.createElement("il");
+
+  var customerTel = document.createElement("p");
+  var customerTelText = document.createTextNode(
+    `Tel. Nummer: : ${data.data.remoteParticipants[0].callerID}`
+  );
+  customerTel.appendChild(customerTelText);
+
+  var customerName = document.createElement("p");
+  var customerNameText = document.createTextNode(
+    `Name: Max Mustermann`
+  );
+  customerName.appendChild(customerNameText);
+
+  var customerStreet = document.createElement("p");
+  var customerStreetText = document.createTextNode(
+    `Adresse: Musterstraße 17`
+  );
+  customerStreet.appendChild(customerStreetText);
+
+  var customerPlz = document.createElement("p");
+  var customerPlzText = document.createTextNode(
+    `Plz: 4711`
+  );
+  customerPlz.appendChild(customerPlzText);
+
+  var customerVin = document.createElement("p");
+  var customerVinText = document.createTextNode(
+    `VIN: WAUZZZ1234567899`
+  );
+  customerVin.appendChild(customerVinText);
+  
   var recallButton = document.createElement('button');
   recallButton.innerHTML = 'Rückruf';
   recallButton.classList.add("button");
   recallButton.classList.add("is-success");
-
   recallButton.onclick = function(){
     recall('+4915734692268');
   };
 
-  code.appendChild(payload);
-  code.appendChild(recallButton);
-  li.appendChild(code);
+  infoIl.appendChild(customerTel);
+  infoIl.appendChild(customerName);
+  infoIl.appendChild(customerStreet);
+  infoIl.appendChild(customerPlz);
+  infoIl.appendChild(customerVin);
+  infoIl.appendChild(recallButton);
+  infoUl.appendChild(infoIl);
+  
+  li.appendChild(header);
+  li.appendChild(infoUl);
   ul.prepend(li);
 }
 
