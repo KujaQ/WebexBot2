@@ -87,14 +87,14 @@ function log(type, data) {
                                           "Name: " + "Kevin Redlich" + "\n" + 
                                           "Adresse: " + "Bachstraße 21" + "\n" +
                                           "Plz: " + "53474" + "\n" + 
-                                          "FIN: " + "WAUZZZ12345667789"
+                                          "FIN: " + "WAUZZZ12345667789" + "\n"
                                           );
   }else if (data.data.remoteParticipants[0].callerID === '+4915734692268'){
     var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants[0].callerID + "\n" + 
                                           "Name: " + "Max Mustermann" + "\n" + 
                                           "Adresse: " + "Musterstraße 47" + "\n" +
                                           "Plz: " + "4711" + "\n" + 
-                                          "FIN: " + "WAUZZZ98765641232"
+                                          "FIN: " + "WAUZZZ98765641232" + "\n"
                                           );        
   }else{
     var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants[0].callerID + "\n" + 
