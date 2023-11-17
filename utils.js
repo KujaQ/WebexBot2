@@ -101,7 +101,7 @@ function log(type, data) {
                                           "Name: " + "Unbekannt" + "\n" + 
                                           "Adresse: " + "Unbekannt" + "\n" +
                                           "Plz: " + "Unbekannt" + "\n" + 
-                                          "FIN: " + "Unbekannt"
+                                          "FIN: " + "Unbekannt" + "\n"
     );
   }   
   var recallButton = document.createElement('button');
