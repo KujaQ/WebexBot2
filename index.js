@@ -8,6 +8,8 @@ var connected = false;
 function debug(key, value, data) {
   const obj = JSON.parse(data);
 
+  if (obj.data.callType !== "Received") return
+  
   if (obj.data.id !== id) {
     connected = false;
 
