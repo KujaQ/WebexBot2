@@ -4,6 +4,8 @@
  * @param {Object} data Object that can be JSON stringified
  */
 
+var debugMode = false;
+
 function getCurrentDateTime() {
   const now = new Date();
 
@@ -97,8 +99,9 @@ function quickdebug(){
   }   
 
 
-quickdebug();
-
+if (debugMode === true){
+  quickdebug();
+}
 
 function log(type, data) {
 
