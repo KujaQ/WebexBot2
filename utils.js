@@ -61,7 +61,7 @@ console.log(data);
                                         "Plz: " + "53474" + "\n" + 
                                         "FIN: " + "WAUZZZ12345667789"
                                         );
-  }else{
+  }else if (data.data.remoteParticipants[0].callerID === '+4917615206382'){
   var payload = document.createTextNode("Tel. Nummer: " + data.data.remoteParticipants[0].callerID + "\n" + 
                                         "Name: " + "'Max Mustermann" + "\n" + 
                                         "Adresse: " + "Musterstraße 47" + "\n" +
