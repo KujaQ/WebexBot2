@@ -10,3 +10,22 @@
     height: 500px;
     overflow: scroll;
 }
+
+p {
+    padding-left: 10px;
+
+}
+
+li {
+    border: 1px solid;
+}
+
+pre {
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    margin-left: 1px;
+
+}
