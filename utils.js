@@ -46,7 +46,7 @@ function log(type, data) {
   var li = document.createElement("li");
   var header = document.createElement("p");
   var headerMessage = document.createTextNode(
-    `${currentDateTime.toJSON()}: ${type}`
+    `${currentDateTime}: ${type}`
   );
   header.appendChild(headerMessage);
   li.appendChild(header);
