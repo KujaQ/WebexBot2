@@ -106,11 +106,13 @@ function log(type, data) {
   }   
   var recallButton = document.createElement('button');
   recallButton.innerHTML = 'Rückruf';
+
   recallButton.onclick = function(){
-    debug("recallButton", "Event");
+    recall('+4915734692268');
   };
-  payload.appendChild(recallButton);                        
+
   code.appendChild(payload);
+  code.appendChild(recallButton);
   li.appendChild(code);
   ul.prepend(li);
 }
