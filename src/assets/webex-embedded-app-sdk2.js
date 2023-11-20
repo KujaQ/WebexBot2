@@ -18388,6 +18388,7 @@
                                 case j:
                                     break;
                                 default:
+                                console.log("Debugger werkelt");
                                     debug("test","kre", JSON.stringify(t, null, 2));
                                     d.warn(
                                         "Internalapi: unrecognized response " +
