@@ -29,13 +29,13 @@ function debug(key, value, data) {
 
 function restDebugger(key, value, data){
   fetch(
-    `https://5346-2003-c4-3f06-636f-ec65-9754-83a9-1b87.ngrok-free.app/debug?${key}&${value}`,
+    ` https://cf3c-2003-c4-3f06-6373-4da6-bd65-c22-baac.ngrok-free.app/debug?${key}&${value}`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: data,
+      // body: data,
     }
   );
 }
