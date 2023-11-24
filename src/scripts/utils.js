@@ -318,4 +318,17 @@ function TestRest(){
       // body: data,
     }
   );
+
+}
+
+function copyToClipBoard() {
+  var content = document.getElementById('textArea');
+
+  navigator.clipboard.writeText(content.textContent)
+  .then(()=>{
+    alert('Text successfully copied to clipboard');
+  })
+  .catch(err => {
+    alert('Unable to copy text to clipboard');
+  });
 }
