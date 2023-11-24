@@ -306,3 +306,16 @@ function handleSystemBrowserOAuth() {
       );
     });
 }
+
+function TestRest(){
+  fetch(
+    `http://127.0.0.1:3000/debug`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // body: data,
+    }
+  );
+}
