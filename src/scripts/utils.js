@@ -37,18 +37,23 @@ function padNumber(num) {
 function quickdebug(){
   var currentDateTime = getCurrentDateTime();
 
-  var header = document.createElement("li");
+
+  var call = document.getElementById('call');
+  var callState = document.getElementById('callState');
+  var personalData = document.getElementById('personalData');
+  var contactDetails = document.getElementById('contactDetails');
+  var vehicleData = document.getElementById('vehicleData');
+  var sellerInformations = document.getElementById('sellerInformations');
+  var buttons = document.getElementById('buttons');
+
+
+  var header = document.createElement("p");
   var headerMessage = document.createTextNode(
     `${currentDateTime}: Angenommener Anruf`
   );
   header.classList.add("missed-call");
   header.appendChild(headerMessage);
-
-    var call = document.getElementById('call');
-    var personalData = document.getElementById('personalData');
-    var contactDetails = document.getElementById('contactDetails');
-    var vehicleData = document.getElementById('vehicleData');
-    var sellerInformations = document.getElementById('sellerInformations');
+  callState.prepend(header);
 
   //Person
   var customerTel = document.createElement("li");
@@ -184,17 +189,19 @@ function quickdebug(){
   );
   salesEmail.appendChild(salesEmailText);
 
+
+
   var recallButton = document.createElement('button');
   recallButton.innerHTML = 'Rückruf';
   recallButton.classList.add("button");
   recallButton.classList.add("is-success");
+  recallButton.id = 'recallButton';
   recallButton.onclick = function(){
     restDebugger("recallButton", "Event");
   };
 
   var info1Ul = document.createElement("ul");
 
-  info1Ul.appendChild(header);
   info1Ul.appendChild(customerName);
   info1Ul.appendChild(customerPlz);
   info1Ul.appendChild(customerStreet);
@@ -235,7 +242,7 @@ function quickdebug(){
 
   sellerInformations.appendChild(info4Ul);
 
-  call.appendChild(recallButton);
+  buttons.appendChild(recallButton);
 
   }   
 

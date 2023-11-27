@@ -2,8 +2,11 @@ body{
     padding: 5px;
     margin: 20px;
 }
-h1{
-    size: 50px;
+
+#calls{
+    border: 4px solid;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 #call {
@@ -30,32 +33,6 @@ p {
     font-weight: bold;
 }
 
-/* .logs ul {
-    list-style-type: none;
-    margin: 20;
-    padding: 0;
-    height: 100vh;
-    overflow: scroll;
-} */
-
-.accepted-call{
-    color: green;
-    font-size: 1.3em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-left: 4px;
-
-}
-
-.missed-call{
-    color: red;
-    font-size: 1.3em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-left: 4px;
-
-}
-
 h1{
     text-align:center;
     display: block;
@@ -68,16 +45,78 @@ h1{
     color: black;
 }
 
+h2{
+    text-align:left;
+    display: block;
+    font-size: 1em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+}
 
 li {
-    border: 1px solid;
-    border-radius: 5px;
     margin-bottom: 5px;
     padding-bottom: 5px;
+    font-size: 1em;
+    font-weight: 700;
 }
 
 button {
     margin-top: 1em;
     margin-bottom: 1em;
     margin-left: 1.5em;
+}
+
+.missed-call{
+    color: red;
+    font-size: 1.3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 4px;
+    font-weight: 700;
+}
+
+.accepted-call{
+    color: green;
+    font-size: 1.3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 4px;
+    font-weight: 700;
+
+}
+
+#call {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Platz zwischen den flexiblen Elementen */
+}
+
+#callState {
+    flex-basis: 100%; /* Das Element nimmt die gesamte Breite in der ersten Reihe ein */
+    margin-bottom: 10px; /* Optionaler Abstand zwischen den Reihen */
+    text-align: center;
+}
+
+#personalData,
+#contactDetails,
+#vehicleData,
+#sellerInformations {
+    flex-basis: calc(25% - 10px); /* 25% Breite für jedes Element in der zweiten Reihe, abzüglich des Abstands */
+    margin-bottom: 10px; /* Optionaler Abstand zwischen den Elementen */
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#buttons {
+    flex-basis: 100%; /* Das Element nimmt die gesamte Breite in der dritten Reihe ein */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Füllt die Höhe des Elterncontainers */
 }
