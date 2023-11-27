@@ -37,152 +37,152 @@ function padNumber(num) {
 function quickdebug(){
   var currentDateTime = getCurrentDateTime();
 
-  var header = document.createElement("p");
+  var header = document.createElement("li");
   var headerMessage = document.createTextNode(
     `${currentDateTime}: Angenommener Anruf`
   );
   header.classList.add("missed-call");
   header.appendChild(headerMessage);
 
-  var infoUl = document.getElementById("console");
-  var infoIl = document.createElement("li");
+    var call = document.getElementById('call');
+    var personalData = document.getElementById('personalData');
+    var contactDetails = document.getElementById('contactDetails');
+    var vehicleData = document.getElementById('vehicleData');
+    var sellerInformations = document.getElementById('sellerInformations');
+
   //Person
-  var customerTel = document.createElement("p");
+  var customerTel = document.createElement("li");
   var customerTelText = document.createTextNode(
     `Tel. Nummer 1: +4917615206382`
   );
   customerTel.appendChild(customerTelText);
 
-  var customerTel2 = document.createElement("p");
+  var customerTel2 = document.createElement("li");
   var customerTel2Text = document.createTextNode(
     `Tel. Nummer 2: +4917615206382`
   );
   customerTel2.appendChild(customerTel2Text);
 
-  var customerTel3 = document.createElement("p");
+  var customerTel3 = document.createElement("li");
   var customerTel3Text = document.createTextNode(
     `Tel. Nummer 3: +4917615206382`
   );
   customerTel3.appendChild(customerTel3Text);
 
-  var customerTel4 = document.createElement("p");
+  var customerTel4 = document.createElement("li");
   var customerTel4Text = document.createTextNode(
     `Tel. Nummer 4: +4917615206382`
   );
   customerTel4.appendChild(customerTel4Text);
 
-  var customerMail = document.createElement("p");
+  var customerMail = document.createElement("li");
   var customerMailText = document.createTextNode(
     `Email Privat: KarlHeinz@gmx.de`
   );
   customerMail.appendChild(customerMailText);
 
-  var customerMail2 = document.createElement("p");
+  var customerMail2 = document.createElement("li");
   var customerMail2Text = document.createTextNode(
     `Email Beruflich: KarlHeinzArbeit@gmx.de`
   );
   customerMail2.appendChild(customerMail2Text);
 
-  var customerName = document.createElement("p");
+  var customerName = document.createElement("li");
   var customerNameText = document.createTextNode(
     `Name: Karl Heinz`
   );
   customerName.appendChild(customerNameText);
 
-  var customerStreet = document.createElement("p");
+  var customerStreet = document.createElement("li");
   var customerStreetText = document.createTextNode(
     `Adresse: Bachstraße 17`
   );
   customerStreet.appendChild(customerStreetText);
 
-  var customerPlz = document.createElement("p");
+  var customerPlz = document.createElement("li");
   var customerPlzText = document.createTextNode(
     `Plz: 56659`
   );
   customerPlz.appendChild(customerPlzText);
 
-  var customerVin = document.createElement("p");
+  var customerVin = document.createElement("li");
   var customerVinText = document.createTextNode(
     `VIN: WAUZZZ1234567899`
   );
   customerVin.appendChild(customerVinText);
 
-  var customerOrderNo = document.createElement("p");
+  var customerOrderNo = document.createElement("li");
   var customerOrderNoText = document.createTextNode(
     `Letzte Auftragsnummer: ABC12345`
   );
   customerOrderNo.appendChild(customerOrderNoText);
 
-  var customerOrderDate = document.createElement("p");
+  var customerOrderDate = document.createElement("li");
   var customerOrderDateText = document.createTextNode(
     `Auftragsdatum: 23.10.23`
   );
   customerOrderDate.appendChild(customerOrderDateText);
 
   //Fahrzeug
-  var vhecileApproval = document.createElement("p");
+  var vhecileApproval = document.createElement("li");
   var vhecileApprovalText = document.createTextNode(
     `Erstzulassung: 23.10.23`
   );
   vhecileApproval.appendChild(vhecileApprovalText);
 
-  var vehicleColor = document.createElement("p");
+  var vehicleColor = document.createElement("li");
   var vehicleColorText = document.createTextNode(
     `Farbe: Mitternachts Pink`
   );
   vehicleColor.appendChild(vehicleColorText);
 
-  var vehiclePlate = document.createElement("p");
+  var vehiclePlate = document.createElement("li");
   var vehiclePlateText = document.createTextNode(
     `Kennzeichen: GG : WP 420`
   );
   vehiclePlate.appendChild(vehiclePlateText);
 
-  var vehicleCustomerApproval = document.createElement("p");
+  var vehicleCustomerApproval = document.createElement("li");
   var vehicleCustomerApprovalText = document.createTextNode(
     `Kunden Zulassungsdatum: 23.10.23`
   );
   vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
 
-  var lastServiceDate = document.createElement("p");
+  var lastServiceDate = document.createElement("li");
   var lastServiceDateText = document.createTextNode(
     `Letzer Werkstattbesuch: 23.10.23`
   );
   lastServiceDate.appendChild(lastServiceDateText);
 
-  var lastKM = document.createElement("p");
+  var lastKM = document.createElement("li");
   var lastKMText = document.createTextNode(
     `Letzer KM Stand: 11`
   );
   lastKM.appendChild(lastKMText)
 
-  var salesPerson = document.createElement("p");
+  var salesPerson = document.createElement("li");
   var salesPersonText = document.createTextNode(
     `Name: Peter Schmittinger`
   );
   salesPerson.appendChild(salesPersonText);
 
-  var salesPhone = document.createElement("p");
+  var salesPhone = document.createElement("li");
   var salesPhoneText = document.createTextNode(
     `Telefonnummer Mobil: 0157 123456789`
   );
   salesPhone.appendChild(salesPhoneText);
 
-  var salesPhoneMobil = document.createElement("p");
+  var salesPhoneMobil = document.createElement("li");
   var salesPhoneMobilText = document.createTextNode(
     `Telefonnummer: 02652 123456789`
   );
   salesPhoneMobil.appendChild(salesPhoneMobilText);
 
-  var salesEmail = document.createElement("p");
+  var salesEmail = document.createElement("li");
   var salesEmailText = document.createTextNode(
     `Email: Peter Schmittinger`
   );
   salesEmail.appendChild(salesEmailText);
-
-  var hr = document.createElement('hr');
-  var hr2 = document.createElement('hr');
-  var hr3 = document.createElement('hr');
 
   var recallButton = document.createElement('button');
   recallButton.innerHTML = 'Rückruf';
@@ -192,42 +192,50 @@ function quickdebug(){
     restDebugger("recallButton", "Event");
   };
 
-  infoIl.appendChild(header);
-  infoIl.appendChild(customerName);
-  infoIl.appendChild(customerPlz);
-  infoIl.appendChild(customerStreet);
-  infoIl.appendChild(customerOrderNo);
-  infoIl.appendChild(customerOrderDate);
+  var info1Ul = document.createElement("ul");
 
-  infoIl.appendChild(hr);
+  info1Ul.appendChild(header);
+  info1Ul.appendChild(customerName);
+  info1Ul.appendChild(customerPlz);
+  info1Ul.appendChild(customerStreet);
+  info1Ul.appendChild(customerOrderNo);
+  info1Ul.appendChild(customerOrderDate);
 
-  infoIl.appendChild(customerTel);
-  infoIl.appendChild(customerTel2);
-  infoIl.appendChild(customerTel3);
-  infoIl.appendChild(customerTel4);
-  infoIl.appendChild(customerMail);
-  infoIl.appendChild(customerMail2);
+  personalData.appendChild(info1Ul);
 
-  infoIl.appendChild(hr2);
+  var info2Ul = document.createElement("ul");
 
-  infoIl.appendChild(vhecileApproval);
-  infoIl.appendChild(vehicleColor);
-  infoIl.appendChild(vehiclePlate);
-  infoIl.appendChild(vehicleCustomerApproval);
-  infoIl.appendChild(lastServiceDate);
-  infoIl.appendChild(lastKM);
+  info2Ul.appendChild(customerTel);
+  info2Ul.appendChild(customerTel2);
+  info2Ul.appendChild(customerTel3);
+  info2Ul.appendChild(customerTel4);
+  info2Ul.appendChild(customerMail);
+  info2Ul.appendChild(customerMail2);
 
-  infoIl.appendChild(hr3);
+  contactDetails.appendChild(info2Ul)
 
-  infoIl.appendChild(salesPerson);
-  infoIl.appendChild(salesPhone);
-  infoIl.appendChild(salesPhoneMobil);
-  infoIl.appendChild(salesEmail);
-  infoIl.appendChild(customerVin);
+  var info3Ul = document.createElement("ul");
 
-  infoIl.appendChild(recallButton);
+  info3Ul.appendChild(vhecileApproval);
+  info3Ul.appendChild(vehicleColor);
+  info3Ul.appendChild(vehiclePlate);
+  info3Ul.appendChild(vehicleCustomerApproval);
+  info3Ul.appendChild(lastServiceDate);
+  info3Ul.appendChild(lastKM);
 
-  infoUl.appendChild(infoIl);
+  vehicleData.appendChild(info3Ul)
+
+  var info4Ul = document.createElement("ul");
+
+  info4Ul.appendChild(salesPerson);
+  info4Ul.appendChild(salesPhone);
+  info4Ul.appendChild(salesPhoneMobil);
+  info4Ul.appendChild(salesEmail);
+  info4Ul.appendChild(customerVin);
+
+  sellerInformations.appendChild(info4Ul);
+
+  call.appendChild(recallButton);
 
   }   
 
