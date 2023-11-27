@@ -34,24 +34,94 @@ function padNumber(num) {
   return num.toString().padStart(2, '0');
 }
 
-function quickdebug(){
+function toggleActive(event){
+  var call = event.target.closest('.call');
+  if (call.classList.contains('inactiveCall')){
+    call.classList.remove('inactiveCall');
+  }else{
+    call.classList.add('inactiveCall');
+  }
+  if (call) {
+    
+    var childDivs = call.querySelectorAll('div');
+
+    childDivs.forEach(function(childDiv) {
+        if (childDiv.classList.contains('callState')) return
+
+        if (childDiv.classList.contains('personalData')){
+          if(childDiv.classList.contains('active')){
+            childDiv.classList.remove('active');
+          }else{
+            childDiv.classList.add('active')
+          }
+        }
+
+        if ((childDiv.classList.contains('inactive') && (!childDiv.classList.contains('personalData')))) {
+          childDiv.classList.remove('inactive');
+        } else if ((!childDiv.classList.contains('inactive') && (!childDiv.classList.contains('personalData')))) {
+          childDiv.classList.add('inactive')
+        }
+    });
+  }
+}
+
+function quickdebug(color){
   var currentDateTime = getCurrentDateTime();
 
 
-  var call = document.getElementById('call');
-  var callState = document.getElementById('callState');
-  var personalData = document.getElementById('personalData');
-  var contactDetails = document.getElementById('contactDetails');
-  var vehicleData = document.getElementById('vehicleData');
-  var sellerInformations = document.getElementById('sellerInformations');
-  var buttons = document.getElementById('buttons');
+  var calls = document.getElementById('calls');
+
+  var call = document.createElement('div');
+  call.classList.add('call');
+  call.classList.add('inactiveCall');
+
+  var callState = document.createElement('div');
+  callState.classList.add('callState');
+
+  var personalData = document.createElement('div');
+  personalData.classList.add('personalData');
+  personalData.classList.add('active');
+  personalData.addEventListener('click', toggleActive)
+  var headingElement = document.createElement('h2');
+  headingElement.classList.add('active');
+  headingElement.textContent = 'Persönliche Daten:';
+  personalData.appendChild(headingElement);
+
+  var contactDetails = document.createElement('div');
+  contactDetails.classList.add('contactDetails');
+  contactDetails.classList.add('inactive');
+  var headingElement = document.createElement('h2');
+  headingElement.textContent = 'Kontaktinformationen:';
+  contactDetails.appendChild(headingElement);
+
+  var vehicleData = document.createElement('div');
+  vehicleData.classList.add('vehicleData');
+  vehicleData.classList.add('inactive');
+  var headingElement = document.createElement('h2');
+  headingElement.textContent = 'Fahrzeuginformationen:';
+  vehicleData.appendChild(headingElement);
+
+  var sellerInformations = document.createElement('div');
+  sellerInformations.classList.add('sellerInformations');
+  sellerInformations.classList.add('inactive');
+  var headingElement = document.createElement('h2');
+  headingElement.textContent = 'Verkäuferinformationen:';
+  sellerInformations.appendChild(headingElement);
+
+  var buttons = document.createElement('div');
+  buttons.classList.add('buttons');
 
 
   var header = document.createElement("p");
   var headerMessage = document.createTextNode(
     `${currentDateTime}: Angenommener Anruf`
   );
-  header.classList.add("missed-call");
+  if (color === 'red'){
+    header.classList.add("missed-call");
+  }else{
+    header.classList.add("accepted-call");
+  }
+
   header.appendChild(headerMessage);
   callState.prepend(header);
 
@@ -244,11 +314,19 @@ function quickdebug(){
 
   buttons.appendChild(recallButton);
 
+  call.appendChild(callState);
+  call.appendChild(personalData);
+  call.appendChild(contactDetails);
+  call.appendChild(vehicleData);
+  call.appendChild(sellerInformations);
+  call.appendChild(buttons);
+  calls.appendChild(call);
   }   
 
 
 if (debugMode === true){
-  quickdebug();
+  quickdebug('green');
+  quickdebug('red');
 }
 
 function log(type, data) {
