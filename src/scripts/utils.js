@@ -83,6 +83,8 @@ function quickdebug(color){
   var call = document.createElement('div');
   call.classList.add('call');
   call.classList.add('inactiveCall');
+  call.addEventListener('click', toggleActive)
+
 
   var callState = document.createElement('div');
   callState.classList.add('callState');
@@ -90,7 +92,6 @@ function quickdebug(color){
   var personalData = document.createElement('div');
   personalData.classList.add('personalData');
   personalData.classList.add('active');
-  personalData.addEventListener('click', toggleActive)
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Persönliche Daten:';
@@ -344,6 +345,7 @@ if (debugMode === true){
   quickdebug('green');
   quickdebug('red');
   quickdebug('red');
+  quickdebug('green');
   quickdebug('red');
 
 }
