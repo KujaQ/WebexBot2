@@ -42,7 +42,6 @@ function toggleActive(event){
     call.classList.add('inactiveCall');
   }
   if (call) {
-    
     var childDivs = call.querySelectorAll('div');
 
     childDivs.forEach(function(childDiv) {
@@ -62,6 +61,16 @@ function toggleActive(event){
           childDiv.classList.add('inactive')
         }
     });
+
+    var childh2 = call.querySelectorAll('h2');
+    childh2.forEach(function(childh2) {
+      if (childh2.classList.contains('active')) {
+        childh2.classList.remove('active');
+      }else{
+        childh2.classList.add('active');
+      }
+    });
+
   }
 }
 
@@ -91,6 +100,7 @@ function quickdebug(color){
   contactDetails.classList.add('contactDetails');
   contactDetails.classList.add('inactive');
   var headingElement = document.createElement('h2');
+  headingElement.classList.add('active');
   headingElement.textContent = 'Kontaktinformationen:';
   contactDetails.appendChild(headingElement);
 
@@ -98,6 +108,7 @@ function quickdebug(color){
   vehicleData.classList.add('vehicleData');
   vehicleData.classList.add('inactive');
   var headingElement = document.createElement('h2');
+  headingElement.classList.add('active');
   headingElement.textContent = 'Fahrzeuginformationen:';
   vehicleData.appendChild(headingElement);
 
@@ -105,6 +116,7 @@ function quickdebug(color){
   sellerInformations.classList.add('sellerInformations');
   sellerInformations.classList.add('inactive');
   var headingElement = document.createElement('h2');
+  headingElement.classList.add('active');
   headingElement.textContent = 'Verkäuferinformationen:';
   sellerInformations.appendChild(headingElement);
 
@@ -113,12 +125,15 @@ function quickdebug(color){
 
 
   var header = document.createElement("p");
-  var headerMessage = document.createTextNode(
-    `${currentDateTime}: Angenommener Anruf`
-  );
   if (color === 'red'){
+    var headerMessage = document.createTextNode(
+      `${currentDateTime}: Verpasster Anruf`
+    );
     header.classList.add("missed-call");
   }else{
+    var headerMessage = document.createTextNode(
+      `${currentDateTime}: Angenommener Anruf`
+    );
     header.classList.add("accepted-call");
   }
 
@@ -265,6 +280,7 @@ function quickdebug(color){
   recallButton.innerHTML = 'Rückruf';
   recallButton.classList.add("button");
   recallButton.classList.add("is-success");
+
   recallButton.id = 'recallButton';
   recallButton.onclick = function(){
     restDebugger("recallButton", "Event");
@@ -327,6 +343,9 @@ function quickdebug(color){
 if (debugMode === true){
   quickdebug('green');
   quickdebug('red');
+  quickdebug('red');
+  quickdebug('red');
+
 }
 
 function log(type, data) {
