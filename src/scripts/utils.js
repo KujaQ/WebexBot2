@@ -4,7 +4,7 @@
  * @param {Object} data Object that can be JSON stringified
  */
 
-var debugMode = false;
+var debugMode = true;
 
 function getCurrentDateTime() {
   const now = new Date();
@@ -378,14 +378,16 @@ if (debugMode === true) {
 
 function log(type, data) {
 
+  var darkModeActive = document.getElementById('darkmode-toggle');
+
   var currentDateTime = getCurrentDateTime();
-
-
+  
   var calls = document.getElementById('calls');
 
   var call = document.createElement('div');
   call.classList.add('call');
   call.classList.add('inactiveCall');
+  if (darkModeActive.checked){call.classList.add('dark-theme')};
   call.addEventListener('click', toggleActive)
 
 
@@ -395,6 +397,7 @@ function log(type, data) {
   var personalData = document.createElement('div');
   personalData.classList.add('personalData');
   personalData.classList.add('active');
+  if (darkModeActive.checked){personalData.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Persönliche Daten:';
@@ -403,6 +406,7 @@ function log(type, data) {
   var contactDetails = document.createElement('div');
   contactDetails.classList.add('contactDetails');
   contactDetails.classList.add('inactive');
+  if (darkModeActive.checked){contactDetails.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Kontaktinformationen:';
@@ -411,6 +415,7 @@ function log(type, data) {
   var vehicleData = document.createElement('div');
   vehicleData.classList.add('vehicleData');
   vehicleData.classList.add('inactive');
+  if (darkModeActive.checked){vehicleData.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Fahrzeuginformationen:';
@@ -419,6 +424,7 @@ function log(type, data) {
   var sellerInformations = document.createElement('div');
   sellerInformations.classList.add('sellerInformations');
   sellerInformations.classList.add('inactive');
+  if (darkModeActive.checked){sellerInformations.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Verkäuferinformationen:';
@@ -586,6 +592,26 @@ function log(type, data) {
     recall('+4915734692268');
   };
 
+  var mailToButton = document.createElement('button');
+  mailToButton.innerHTML = 'Mail Senden';
+  mailToButton.classList.add("button");
+  mailToButton.classList.add("is-link");
+
+  mailToButton.id = 'mailToButton';
+  mailToButton.onclick = function () {
+    mailTo("mailToButton", "Event");
+  };
+
+  var webexMessageButton = document.createElement('button');
+  webexMessageButton.innerHTML = 'PN Senden';
+  webexMessageButton.classList.add("button");
+  webexMessageButton.classList.add("is-info");
+
+  webexMessageButton.id = 'webexMessageButton';
+  webexMessageButton.onclick = function () {
+    pnTo("webexMessageButton", "Event");
+  };
+
   var info1Ul = document.createElement("ul");
 
   info1Ul.appendChild(customerName);
@@ -628,7 +654,10 @@ function log(type, data) {
 
   sellerInformations.appendChild(info4Ul);
 
+  buttons.appendChild(mailToButton);
   buttons.appendChild(recallButton);
+  buttons.appendChild(webexMessageButton);
+
 
   call.appendChild(callState);
   call.appendChild(personalData);
