@@ -346,10 +346,10 @@ function quickdebug(color) {
 
 if (debugMode === true) {
   quickdebug('green');
-  quickdebug('red');
-  quickdebug('red');
-  quickdebug('green');
-  quickdebug('red');
+  // quickdebug('red');
+  // quickdebug('red');
+  // quickdebug('green');
+  // quickdebug('red');
 
 }
 

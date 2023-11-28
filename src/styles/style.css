@@ -211,6 +211,13 @@ button {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
+    .active{
+        margin: auto;
+        flex-basis: calc(70% - 10px); /* 25% Breite für jedes Element in der zweiten Reihe, abzüglich des Abstands */
+        text-align: center;
+        cursor: pointer;
+    }
+
     h2{
         margin: 5px;
     }
@@ -244,6 +251,12 @@ button {
         border-radius: 10px;
         padding: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .active{
+        margin: auto;
+        flex-basis: calc(70% - 10px); /* 25% Breite für jedes Element in der zweiten Reihe, abzüglich des Abstands */
+        text-align: center;
+        cursor: pointer;
     }
 
     h2{
