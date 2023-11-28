@@ -4,7 +4,7 @@
  * @param {Object} data Object that can be JSON stringified
  */
 
-var debugMode = true;
+var debugMode = false;
 
 function getCurrentDateTime() {
   const now = new Date();
