@@ -13,11 +13,84 @@ var connected = false;
   checkbox.addEventListener('change', function() {
     // Überprüfen, ob die Checkbox aktiviert (checked) ist
     if (checkbox.checked) {
-      console.log('Checkbox ist aktiviert');
-      // Hier kannst du weitere Aktionen für den aktivierten Zustand durchführen
+      htmlElement = document.documentElement;
+      htmlElement.style.backgroundColor = '#1B1E1F';
+
+      listCalls = document.querySelectorAll('div.call');
+      listCalls.forEach(call => {
+        call.classList.add('dark-theme');
+      });
+
+      listPersonalData = document.querySelectorAll('div.personalData');
+      listPersonalData.forEach(pd => {
+        pd.classList.add('dark-theme');
+      });
+
+      listContactDetails = document.querySelectorAll('div.contactDetails');
+      listContactDetails.forEach(cd => {
+        cd.classList.add('dark-theme');
+      });
+
+      listVehicleData = document.querySelectorAll('div.vehicleData');
+      listVehicleData.forEach(vd => {
+        vd.classList.add('dark-theme');
+      });
+
+      listSellerInformations = document.querySelectorAll('div.sellerInformations');
+      listSellerInformations.forEach(si => {
+        si.classList.add('dark-theme');
+      });
+
+      h1elements = document.querySelectorAll('h1');
+      h1elements.forEach(h1 =>{
+        h1.classList.add('dark-theme');
+      });
+
+      h2elements = document.querySelectorAll('h2');
+      h2elements.forEach(h2 =>{
+        h2.classList.add('dark-theme');
+      });
+
     } else {
-      console.log('Checkbox ist deaktiviert');
-      // Hier kannst du weitere Aktionen für den deaktivierten Zustand durchführen
+
+      htmlElement = document.documentElement;
+      htmlElement.style.backgroundColor = 'white';
+
+      listCalls = document.querySelectorAll('div.call');
+      listCalls.forEach(call => {
+        call.classList.remove('dark-theme');
+      });
+
+      listPersonalData = document.querySelectorAll('div.personalData');
+      listPersonalData.forEach(pd => {
+        pd.classList.remove('dark-theme');
+      });
+
+      listContactDetails = document.querySelectorAll('div.contactDetails');
+      listContactDetails.forEach(cd => {
+        cd.classList.remove('dark-theme');
+      });
+
+      listVehicleData = document.querySelectorAll('div.vehicleData');
+      listVehicleData.forEach(vd => {
+        vd.classList.remove('dark-theme');
+      });
+
+      listSellerInformations = document.querySelectorAll('div.sellerInformations');
+      listSellerInformations.forEach(si => {
+        si.classList.remove('dark-theme');
+      });
+
+      h1elements = document.querySelectorAll('h1');
+      h1elements.forEach(h1 =>{
+        h1.classList.remove('dark-theme');
+      });
+
+      h2elements = document.querySelectorAll('h2');
+      h2elements.forEach(h2 =>{
+        h2.classList.remove('dark-theme');
+      });
+
     }
   });
 
