@@ -83,8 +83,6 @@ function quickdebug(color) {
   var call = document.createElement('div');
   call.classList.add('call');
   call.classList.add('inactiveCall');
-  call.addEventListener('click', toggleActive)
-
 
   var callState = document.createElement('div');
   callState.classList.add('callState');
@@ -92,6 +90,7 @@ function quickdebug(color) {
   var personalData = document.createElement('div');
   personalData.classList.add('personalData');
   personalData.classList.add('active');
+  personalData.addEventListener('click', toggleActive);
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Persönliche Daten:';
@@ -100,6 +99,7 @@ function quickdebug(color) {
   var contactDetails = document.createElement('div');
   contactDetails.classList.add('contactDetails');
   contactDetails.classList.add('inactive');
+  contactDetails.addEventListener('click', toggleActive);
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Kontaktinformationen:';
@@ -108,6 +108,7 @@ function quickdebug(color) {
   var vehicleData = document.createElement('div');
   vehicleData.classList.add('vehicleData');
   vehicleData.classList.add('inactive');
+  vehicleData.addEventListener('click', toggleActive);
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Fahrzeuginformationen:';
@@ -116,6 +117,7 @@ function quickdebug(color) {
   var sellerInformations = document.createElement('div');
   sellerInformations.classList.add('sellerInformations');
   sellerInformations.classList.add('inactive');
+  sellerInformations.addEventListener('click', toggleActive);
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
   headingElement.textContent = 'Verkäuferinformationen:';
