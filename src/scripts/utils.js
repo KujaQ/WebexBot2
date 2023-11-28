@@ -667,7 +667,7 @@ function log(type, data) {
   call.appendChild(vehicleData);
   call.appendChild(sellerInformations);
   call.appendChild(buttons);
-  calls.appendChild(call);
+  calls.prepend(call);
 }
 
 /**
