@@ -390,7 +390,6 @@ function log(type, data) {
   if (darkModeActive.checked){call.classList.add('dark-theme')};
   call.addEventListener('click', toggleActive)
 
-
   var callState = document.createElement('div');
   callState.classList.add('callState');
 
@@ -400,6 +399,7 @@ function log(type, data) {
   if (darkModeActive.checked){personalData.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
+  if (darkModeActive.checked){headingElement.classList.add('dark-theme')};
   headingElement.textContent = 'Persönliche Daten:';
   personalData.appendChild(headingElement);
 
@@ -409,6 +409,7 @@ function log(type, data) {
   if (darkModeActive.checked){contactDetails.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
+  if (darkModeActive.checked){headingElement.classList.add('dark-theme')};
   headingElement.textContent = 'Kontaktinformationen:';
   contactDetails.appendChild(headingElement);
 
@@ -418,6 +419,7 @@ function log(type, data) {
   if (darkModeActive.checked){vehicleData.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
+  if (darkModeActive.checked){headingElement.classList.add('dark-theme')};
   headingElement.textContent = 'Fahrzeuginformationen:';
   vehicleData.appendChild(headingElement);
 
@@ -427,12 +429,12 @@ function log(type, data) {
   if (darkModeActive.checked){sellerInformations.classList.add('dark-theme')};
   var headingElement = document.createElement('h2');
   headingElement.classList.add('active');
+  if (darkModeActive.checked){headingElement.classList.add('dark-theme')};
   headingElement.textContent = 'Verkäuferinformationen:';
   sellerInformations.appendChild(headingElement);
 
   var buttons = document.createElement('div');
   buttons.classList.add('buttons');
-
 
   var header = document.createElement("p");
   var headerMessage = document.createTextNode(
