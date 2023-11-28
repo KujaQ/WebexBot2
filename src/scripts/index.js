@@ -5,6 +5,23 @@ const bearerToken = 'ZjE5N2RjNzEtNDk5Zi00OGVmLWEwYWMtMTZkMWU0YmViYzMyNmYyMjZkN2U
 var id = "";
 var connected = false;
 
+
+  // Referenz zur Checkbox erhalten
+  var checkbox = document.getElementById('darkmode-toggle');
+
+  // Event-Handler für Änderungen im Zustand der Checkbox hinzufügen
+  checkbox.addEventListener('change', function() {
+    // Überprüfen, ob die Checkbox aktiviert (checked) ist
+    if (checkbox.checked) {
+      console.log('Checkbox ist aktiviert');
+      // Hier kannst du weitere Aktionen für den aktivierten Zustand durchführen
+    } else {
+      console.log('Checkbox ist deaktiviert');
+      // Hier kannst du weitere Aktionen für den deaktivierten Zustand durchführen
+    }
+  });
+
+
 function debug(key, value, data) {
   const obj = JSON.parse(data);
 
@@ -60,4 +77,12 @@ function recall(destination){
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
+}
+
+function mailTo(destination){
+  console.log('mail gesendet');
+}
+
+function pnTo(destination){
+  console.log('pn gesendet');
 }

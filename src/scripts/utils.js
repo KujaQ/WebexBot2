@@ -70,7 +70,6 @@ function toggleActive(event) {
         childh2.classList.add('active');
       }
     });
-
   }
 }
 
@@ -289,6 +288,27 @@ function quickdebug(color) {
     recall("recallButton", "Event");
   };
 
+  var mailToButton = document.createElement('button');
+  mailToButton.innerHTML = 'Mail Senden';
+  mailToButton.classList.add("button");
+  mailToButton.classList.add("is-link");
+
+  mailToButton.id = 'mailToButton';
+  mailToButton.onclick = function () {
+    mailTo("mailToButton", "Event");
+  };
+
+  var webexMessageButton = document.createElement('button');
+  webexMessageButton.innerHTML = 'PN Senden';
+  webexMessageButton.classList.add("button");
+  webexMessageButton.classList.add("is-info");
+
+  webexMessageButton.id = 'webexMessageButton';
+  webexMessageButton.onclick = function () {
+    pnTo("webexMessageButton", "Event");
+  };
+
+
   var info1Ul = document.createElement("ul");
 
   info1Ul.appendChild(customerName);
@@ -331,7 +351,10 @@ function quickdebug(color) {
 
   sellerInformations.appendChild(info4Ul);
 
+  buttons.appendChild(mailToButton);
   buttons.appendChild(recallButton);
+  buttons.appendChild(webexMessageButton);
+
 
   call.appendChild(callState);
   call.appendChild(personalData);
