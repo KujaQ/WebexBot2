@@ -73,6 +73,11 @@ checkbox.addEventListener('change', function() {
       h2.classList.add('dark-theme');
     });
 
+    listInputs = document.querySelectorAll('input');
+    listInputs.forEach(input => {
+      input.classList.add('dark-theme');
+    });
+
   } else {
 
     localStorage.setItem('darkMode', checkbox.checked);
@@ -113,6 +118,11 @@ checkbox.addEventListener('change', function() {
     h2elements = document.querySelectorAll('h2');
     h2elements.forEach(h2 =>{
       h2.classList.remove('dark-theme');
+    });
+
+    listInputs = document.querySelectorAll('input');
+    listInputs.forEach(input => {
+      input.classList.remove('dark-theme');
     });
 
   }
