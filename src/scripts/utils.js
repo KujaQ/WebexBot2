@@ -285,6 +285,8 @@ function loggCall(type, data) {
   var emailInput = document.createElement("input");
   emailInput.classList.add('input');
   emailInput.classList.add('is-primary');
+  emailInput.classList.add('has-text-weight-bold');
+  emailInput.classList.add('has-text-dark');
   emailInput.classList.add('emailInput');
   emailInput.placeholder = 'E-Mail'
   emailDiv.appendChild(emailInput);

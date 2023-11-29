@@ -195,7 +195,6 @@ button {
     margin-right: 5px;
 }
 
-
 .buttons {
     flex-basis: 100%; /* Das Element nimmt die gesamte Breite in der dritten Reihe ein */
     display: flex;
@@ -211,6 +210,16 @@ button {
     text-align: center;
     cursor: pointer;
 }
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+    color: black;
+}
+
+::placeholder {
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
 
 .inactiveCall{
     margin-left: 33%;
@@ -229,6 +238,7 @@ button {
 #webexMessageButton{
     margin-right: 5px;
 }
+
 
 @media( width <= 1500px){
     .call {
@@ -361,4 +371,9 @@ color: white;
 
 .light-theme{
     color: black;
+}
+
+#recallButton{
+    margin-top: 2px;
+    margin-bottom: 10px;
 }

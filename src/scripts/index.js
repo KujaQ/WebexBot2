@@ -127,8 +127,6 @@ checkbox.addEventListener('change', function() {
 
   }
 });
-
-
 function SDKHook(key, value, data) {
   const obj = JSON.parse(data);
 
