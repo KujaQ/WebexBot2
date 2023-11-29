@@ -6,96 +6,96 @@ var id = "";
 var connected = false;
 
 
-  // Referenz zur Checkbox erhalten
-  var checkbox = document.getElementById('darkmode-toggle');
+// Referenz zur Checkbox erhalten
+var checkbox = document.getElementById('darkmode-toggle');
 
-  // Event-Handler für Änderungen im Zustand der Checkbox hinzufügen
-  checkbox.addEventListener('change', function() {
-    // Überprüfen, ob die Checkbox aktiviert (checked) ist
-    if (checkbox.checked) {
-      htmlElement = document.documentElement;
-      htmlElement.style.backgroundColor = '#1B1E1F';
+// Event-Handler für Änderungen im Zustand der Checkbox hinzufügen
+checkbox.addEventListener('change', function() {
+  // Überprüfen, ob die Checkbox aktiviert (checked) ist
+  if (checkbox.checked) {
+    htmlElement = document.documentElement;
+    htmlElement.style.backgroundColor = '#1B1E1F';
 
-      listCalls = document.querySelectorAll('div.call');
-      listCalls.forEach(call => {
-        call.classList.add('dark-theme');
-      });
+    listCalls = document.querySelectorAll('div.call');
+    listCalls.forEach(call => {
+      call.classList.add('dark-theme');
+    });
 
-      listPersonalData = document.querySelectorAll('div.personalData');
-      listPersonalData.forEach(pd => {
-        pd.classList.add('dark-theme');
-      });
+    listPersonalData = document.querySelectorAll('div.personalData');
+    listPersonalData.forEach(pd => {
+      pd.classList.add('dark-theme');
+    });
 
-      listContactDetails = document.querySelectorAll('div.contactDetails');
-      listContactDetails.forEach(cd => {
-        cd.classList.add('dark-theme');
-      });
+    listContactDetails = document.querySelectorAll('div.contactDetails');
+    listContactDetails.forEach(cd => {
+      cd.classList.add('dark-theme');
+    });
 
-      listVehicleData = document.querySelectorAll('div.vehicleData');
-      listVehicleData.forEach(vd => {
-        vd.classList.add('dark-theme');
-      });
+    listVehicleData = document.querySelectorAll('div.vehicleData');
+    listVehicleData.forEach(vd => {
+      vd.classList.add('dark-theme');
+    });
 
-      listSellerInformations = document.querySelectorAll('div.sellerInformations');
-      listSellerInformations.forEach(si => {
-        si.classList.add('dark-theme');
-      });
+    listSellerInformations = document.querySelectorAll('div.sellerInformations');
+    listSellerInformations.forEach(si => {
+      si.classList.add('dark-theme');
+    });
 
-      h1elements = document.querySelectorAll('h1');
-      h1elements.forEach(h1 =>{
-        h1.classList.add('dark-theme');
-      });
+    h1elements = document.querySelectorAll('h1');
+    h1elements.forEach(h1 =>{
+      h1.classList.add('dark-theme');
+    });
 
-      h2elements = document.querySelectorAll('h2');
-      h2elements.forEach(h2 =>{
-        h2.classList.add('dark-theme');
-      });
+    h2elements = document.querySelectorAll('h2');
+    h2elements.forEach(h2 =>{
+      h2.classList.add('dark-theme');
+    });
 
-    } else {
+  } else {
 
-      htmlElement = document.documentElement;
-      htmlElement.style.backgroundColor = 'white';
+    htmlElement = document.documentElement;
+    htmlElement.style.backgroundColor = 'white';
 
-      listCalls = document.querySelectorAll('div.call');
-      listCalls.forEach(call => {
-        call.classList.remove('dark-theme');
-      });
+    listCalls = document.querySelectorAll('div.call');
+    listCalls.forEach(call => {
+      call.classList.remove('dark-theme');
+    });
 
-      listPersonalData = document.querySelectorAll('div.personalData');
-      listPersonalData.forEach(pd => {
-        pd.classList.remove('dark-theme');
-      });
+    listPersonalData = document.querySelectorAll('div.personalData');
+    listPersonalData.forEach(pd => {
+      pd.classList.remove('dark-theme');
+    });
 
-      listContactDetails = document.querySelectorAll('div.contactDetails');
-      listContactDetails.forEach(cd => {
-        cd.classList.remove('dark-theme');
-      });
+    listContactDetails = document.querySelectorAll('div.contactDetails');
+    listContactDetails.forEach(cd => {
+      cd.classList.remove('dark-theme');
+    });
 
-      listVehicleData = document.querySelectorAll('div.vehicleData');
-      listVehicleData.forEach(vd => {
-        vd.classList.remove('dark-theme');
-      });
+    listVehicleData = document.querySelectorAll('div.vehicleData');
+    listVehicleData.forEach(vd => {
+      vd.classList.remove('dark-theme');
+    });
 
-      listSellerInformations = document.querySelectorAll('div.sellerInformations');
-      listSellerInformations.forEach(si => {
-        si.classList.remove('dark-theme');
-      });
+    listSellerInformations = document.querySelectorAll('div.sellerInformations');
+    listSellerInformations.forEach(si => {
+      si.classList.remove('dark-theme');
+    });
 
-      h1elements = document.querySelectorAll('h1');
-      h1elements.forEach(h1 =>{
-        h1.classList.remove('dark-theme');
-      });
+    h1elements = document.querySelectorAll('h1');
+    h1elements.forEach(h1 =>{
+      h1.classList.remove('dark-theme');
+    });
 
-      h2elements = document.querySelectorAll('h2');
-      h2elements.forEach(h2 =>{
-        h2.classList.remove('dark-theme');
-      });
+    h2elements = document.querySelectorAll('h2');
+    h2elements.forEach(h2 =>{
+      h2.classList.remove('dark-theme');
+    });
 
-    }
-  });
+  }
+});
 
 
-function debug(key, value, data) {
+function SDKHook(key, value, data) {
   const obj = JSON.parse(data);
 
   if (obj.data.callType !== "Received") return
@@ -106,28 +106,15 @@ function debug(key, value, data) {
     if (obj.data.state === "Connected") {
       connected = true;
       id = obj.data.id;
-      log("Angenommener Anruf", obj);
+      loggCall("Angenommener Anruf", obj);
     }
     
     if ((obj.data.state === "Disconnected") & (connected === false)) {
       connected = true;
       id = obj.data.id;
-      log("Verpasster Anruf", obj);
+      loggCall("Verpasster Anruf", obj);
     }
   }
-}
-
-function restDebugger(key, value, data){
-  fetch(
-    ` https://cf3c-2003-c4-3f06-6373-4da6-bd65-c22-baac.ngrok-free.app/debug?${key}&${value}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // body: data,
-    }
-  );
 }
 
 function recall(destination){

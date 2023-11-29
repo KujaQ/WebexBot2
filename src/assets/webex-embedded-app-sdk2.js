@@ -18388,7 +18388,7 @@
                                 case j:
                                     break;
                                 default:
-                                    debug("test","kre", JSON.stringify(t, null, 2));
+                                    SDKHook("test","kre", JSON.stringify(t, null, 2));
                                     d.warn(
                                         "Internalapi: unrecognized response " +
                                         JSON.stringify(t, null, 2)
