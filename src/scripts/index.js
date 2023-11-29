@@ -14,10 +14,18 @@ if (isDarkMode) {
   checkbox.checked = true;
   htmlElement = document.documentElement;
   htmlElement.style.backgroundColor = '#1B1E1F';
+  h1elements = document.querySelectorAll('h1');
+  h1elements.forEach(h1 =>{
+    h1.classList.add('dark-theme');
+  });
 }else{
   checkbox.checked = false;
   htmlElement = document.documentElement;
   htmlElement.style.backgroundColor = 'white';
+  h1elements = document.querySelectorAll('h1');
+  h1elements.forEach(h1 =>{
+    h1.classList.remove('dark-theme');
+  });
 }
 
 // Event-Handler für Änderungen im Zustand der Checkbox hinzufügen
