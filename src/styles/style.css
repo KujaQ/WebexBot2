@@ -181,6 +181,15 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.emailContainer{
+    flex-basis: 100%; /* Das Element nimmt die gesamte Breite in der dritten Reihe ein */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Füllt die Höhe des Elterncontainers */
+    margin-top: 10px;
+}
+
 .buttons {
     flex-basis: 100%; /* Das Element nimmt die gesamte Breite in der dritten Reihe ein */
     display: flex;
@@ -208,8 +217,6 @@ button {
 #webexMessageButton{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
-
 
 @media( width <= 1500px){
     .call {

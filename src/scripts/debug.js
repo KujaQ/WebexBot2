@@ -1,59 +1,58 @@
-var debugMode = false;
+var debugMode = true;
 
 function quickdebug(color) {
     var currentDateTime = getCurrentDateTime();
 
-    var calls = document.getElementById('calls');
+    var calls = document.getElementById("calls");
 
-    var call = document.createElement('div');
-    call.classList.add('call');
-    call.classList.add('inactiveCall');
+    var call = document.createElement("div");
+    call.classList.add("call");
+    call.classList.add("inactiveCall");
 
-    var callState = document.createElement('div');
-    callState.classList.add('callState');
+    var callState = document.createElement("div");
+    callState.classList.add("callState");
 
-    var personalData = document.createElement('div');
-    personalData.classList.add('personalData');
-    personalData.classList.add('active');
-    personalData.addEventListener('click', toggleActive);
-    var headingElement = document.createElement('h2');
-    headingElement.classList.add('active');
-    headingElement.textContent = 'Persönliche Daten:';
+    var personalData = document.createElement("div");
+    personalData.classList.add("personalData");
+    personalData.classList.add("active");
+    personalData.addEventListener("click", toggleActive);
+    var headingElement = document.createElement("h2");
+    headingElement.classList.add("active");
+    headingElement.textContent = "Persönliche Daten:";
     personalData.appendChild(headingElement);
 
-    var contactDetails = document.createElement('div');
-    contactDetails.classList.add('contactDetails');
-    contactDetails.classList.add('inactive');
-    contactDetails.addEventListener('click', toggleActive);
-    var headingElement = document.createElement('h2');
-    headingElement.classList.add('active');
-    headingElement.textContent = 'Kontaktinformationen:';
+    var contactDetails = document.createElement("div");
+    contactDetails.classList.add("contactDetails");
+    contactDetails.classList.add("inactive");
+    contactDetails.addEventListener("click", toggleActive);
+    var headingElement = document.createElement("h2");
+    headingElement.classList.add("active");
+    headingElement.textContent = "Kontaktinformationen:";
     contactDetails.appendChild(headingElement);
 
-    var vehicleData = document.createElement('div');
-    vehicleData.classList.add('vehicleData');
-    vehicleData.classList.add('inactive');
-    vehicleData.addEventListener('click', toggleActive);
-    var headingElement = document.createElement('h2');
-    headingElement.classList.add('active');
-    headingElement.textContent = 'Fahrzeuginformationen:';
+    var vehicleData = document.createElement("div");
+    vehicleData.classList.add("vehicleData");
+    vehicleData.classList.add("inactive");
+    vehicleData.addEventListener("click", toggleActive);
+    var headingElement = document.createElement("h2");
+    headingElement.classList.add("active");
+    headingElement.textContent = "Fahrzeuginformationen:";
     vehicleData.appendChild(headingElement);
 
-    var sellerInformations = document.createElement('div');
-    sellerInformations.classList.add('sellerInformations');
-    sellerInformations.classList.add('inactive');
-    sellerInformations.addEventListener('click', toggleActive);
-    var headingElement = document.createElement('h2');
-    headingElement.classList.add('active');
-    headingElement.textContent = 'Verkäuferinformationen:';
+    var sellerInformations = document.createElement("div");
+    sellerInformations.classList.add("sellerInformations");
+    sellerInformations.classList.add("inactive");
+    sellerInformations.addEventListener("click", toggleActive);
+    var headingElement = document.createElement("h2");
+    headingElement.classList.add("active");
+    headingElement.textContent = "Verkäuferinformationen:";
     sellerInformations.appendChild(headingElement);
 
-    var buttons = document.createElement('div');
-    buttons.classList.add('buttons');
-
+    var buttons = document.createElement("div");
+    buttons.classList.add("buttons");
 
     var header = document.createElement("p");
-    if (color === 'red') {
+    if (color === "red") {
         var headerMessage = document.createTextNode(
             `${currentDateTime}: Verpasster Anruf`
         );
@@ -106,27 +105,19 @@ function quickdebug(color) {
     customerMail2.appendChild(customerMail2Text);
 
     var customerName = document.createElement("li");
-    var customerNameText = document.createTextNode(
-        `Name: Karl Heinz`
-    );
+    var customerNameText = document.createTextNode(`Name: Karl Heinz`);
     customerName.appendChild(customerNameText);
 
     var customerStreet = document.createElement("li");
-    var customerStreetText = document.createTextNode(
-        `Adresse: Bachstraße 17`
-    );
+    var customerStreetText = document.createTextNode(`Adresse: Bachstraße 17`);
     customerStreet.appendChild(customerStreetText);
 
     var customerPlz = document.createElement("li");
-    var customerPlzText = document.createTextNode(
-        `Plz: 56659`
-    );
+    var customerPlzText = document.createTextNode(`Plz: 56659`);
     customerPlz.appendChild(customerPlzText);
 
     var customerVin = document.createElement("li");
-    var customerVinText = document.createTextNode(
-        `VIN: WAUZZZ1234567899`
-    );
+    var customerVinText = document.createTextNode(`VIN: WAUZZZ1234567899`);
     customerVin.appendChild(customerVinText);
 
     var customerOrderNo = document.createElement("li");
@@ -143,21 +134,15 @@ function quickdebug(color) {
 
     //Fahrzeug
     var vhecileApproval = document.createElement("li");
-    var vhecileApprovalText = document.createTextNode(
-        `Erstzulassung: 23.10.23`
-    );
+    var vhecileApprovalText = document.createTextNode(`Erstzulassung: 23.10.23`);
     vhecileApproval.appendChild(vhecileApprovalText);
 
     var vehicleColor = document.createElement("li");
-    var vehicleColorText = document.createTextNode(
-        `Farbe: Mitternachts Pink`
-    );
+    var vehicleColorText = document.createTextNode(`Farbe: Mitternachts Pink`);
     vehicleColor.appendChild(vehicleColorText);
 
     var vehiclePlate = document.createElement("li");
-    var vehiclePlateText = document.createTextNode(
-        `Kennzeichen: GG : WP 420`
-    );
+    var vehiclePlateText = document.createTextNode(`Kennzeichen: GG : WP 420`);
     vehiclePlate.appendChild(vehiclePlateText);
 
     var vehicleCustomerApproval = document.createElement("li");
@@ -173,15 +158,11 @@ function quickdebug(color) {
     lastServiceDate.appendChild(lastServiceDateText);
 
     var lastKM = document.createElement("li");
-    var lastKMText = document.createTextNode(
-        `Letzer KM Stand: 11`
-    );
-    lastKM.appendChild(lastKMText)
+    var lastKMText = document.createTextNode(`Letzer KM Stand: 11`);
+    lastKM.appendChild(lastKMText);
 
     var salesPerson = document.createElement("li");
-    var salesPersonText = document.createTextNode(
-        `Name: Peter Schmittinger`
-    );
+    var salesPersonText = document.createTextNode(`Name: Peter Schmittinger`);
     salesPerson.appendChild(salesPersonText);
 
     var salesPhone = document.createElement("li");
@@ -197,43 +178,43 @@ function quickdebug(color) {
     salesPhoneMobil.appendChild(salesPhoneMobilText);
 
     var salesEmail = document.createElement("li");
-    var salesEmailText = document.createTextNode(
-        `Email: Peter Schmittinger`
-    );
+    var salesEmailText = document.createTextNode(`Email: Peter Schmittinger`);
     salesEmail.appendChild(salesEmailText);
 
+    var emailDiv = document.createElement("div");
+    emailDiv.classList.add('emailContainer');
+    var emailInput = document.createElement("input");
+    emailDiv.appendChild(emailInput);
 
-
-    var recallButton = document.createElement('button');
-    recallButton.innerHTML = 'Rückruf';
+    var recallButton = document.createElement("button");
+    recallButton.innerHTML = "Rückruf";
     recallButton.classList.add("button");
     recallButton.classList.add("is-success");
 
-    recallButton.id = 'recallButton';
+    recallButton.id = "recallButton";
     recallButton.onclick = function () {
         recall("recallButton", "Event");
     };
 
-    var mailToButton = document.createElement('button');
-    mailToButton.innerHTML = 'Mail Senden';
+    var mailToButton = document.createElement("button");
+    mailToButton.innerHTML = "Mail Senden";
     mailToButton.classList.add("button");
     mailToButton.classList.add("is-link");
 
-    mailToButton.id = 'mailToButton';
+    mailToButton.id = "mailToButton";
     mailToButton.onclick = function () {
         mailTo("mailToButton", "Event");
     };
 
-    var webexMessageButton = document.createElement('button');
-    webexMessageButton.innerHTML = 'PN Senden';
+    var webexMessageButton = document.createElement("button");
+    webexMessageButton.innerHTML = "PN Senden";
     webexMessageButton.classList.add("button");
     webexMessageButton.classList.add("is-info");
 
-    webexMessageButton.id = 'webexMessageButton';
+    webexMessageButton.id = "webexMessageButton";
     webexMessageButton.onclick = function () {
         pnTo("webexMessageButton", "Event");
     };
-
 
     var info1Ul = document.createElement("ul");
 
@@ -254,7 +235,7 @@ function quickdebug(color) {
     info2Ul.appendChild(customerMail);
     info2Ul.appendChild(customerMail2);
 
-    contactDetails.appendChild(info2Ul)
+    contactDetails.appendChild(info2Ul);
 
     var info3Ul = document.createElement("ul");
 
@@ -265,7 +246,7 @@ function quickdebug(color) {
     info3Ul.appendChild(lastServiceDate);
     info3Ul.appendChild(lastKM);
 
-    vehicleData.appendChild(info3Ul)
+    vehicleData.appendChild(info3Ul);
 
     var info4Ul = document.createElement("ul");
 
@@ -281,24 +262,22 @@ function quickdebug(color) {
     buttons.appendChild(recallButton);
     buttons.appendChild(webexMessageButton);
 
-
     call.appendChild(callState);
     call.appendChild(personalData);
     call.appendChild(contactDetails);
     call.appendChild(vehicleData);
     call.appendChild(sellerInformations);
+    call.appendChild(emailDiv);
     call.appendChild(buttons);
     calls.appendChild(call);
-
 }
 
 if (debugMode === true) {
-    quickdebug('green');
-    quickdebug('red');
-    quickdebug('red');
-    quickdebug('green');
-    quickdebug('red');
-
+    quickdebug("green");
+    quickdebug("red");
+    quickdebug("red");
+    quickdebug("green");
+    quickdebug("red");
 }
 
 function restDebugger(key, value, data) {
