@@ -182,6 +182,7 @@ function mailTo(){
 
 function pnTo(){
   console.log('pn gesendet');
+  alert('pn gesendet');
   destination = 'kevin.redlich-gaube@haeusler.de';
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");

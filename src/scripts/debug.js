@@ -184,6 +184,9 @@ function quickdebug(color) {
     var emailDiv = document.createElement("div");
     emailDiv.classList.add('emailContainer');
     var emailInput = document.createElement("input");
+    emailInput.classList.add('input');
+    emailInput.classList.add('is-primary');
+    emailInput.classList.add('emailInput');
     emailInput.placeholder = 'E-Mail'
     emailDiv.appendChild(emailInput);
 
@@ -259,9 +262,12 @@ function quickdebug(color) {
 
     sellerInformations.appendChild(info4Ul);
 
-    buttons.appendChild(mailToButton);
+    emailDiv.appendChild(mailToButton);
+    emailDiv.appendChild(webexMessageButton);
+
+    // buttons.appendChild(mailToButton);
     buttons.appendChild(recallButton);
-    buttons.appendChild(webexMessageButton);
+    // buttons.appendChild(webexMessageButton);
 
     call.appendChild(callState);
     call.appendChild(personalData);
