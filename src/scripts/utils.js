@@ -374,6 +374,7 @@ function loggCall(type, data) {
   call.appendChild(contactDetails);
   call.appendChild(vehicleData);
   call.appendChild(sellerInformations);
+  call.appendChild(emailDiv);
   call.appendChild(buttons);
   calls.prepend(call);
 }
