@@ -26,7 +26,7 @@ function getCurrentDateTime() {
   const formattedDateTime = `${formattedDate} ${formattedTime}`;
 
   return formattedDateTime;
-}
+} 
 
 // Hilfsfunktion für führende Nullen
 function padNumber(num) {

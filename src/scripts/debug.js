@@ -1,4 +1,4 @@
-var debugMode = true;
+var debugMode = false;
 
 function quickdebug(color) {
     var currentDateTime = getCurrentDateTime();
@@ -184,6 +184,7 @@ function quickdebug(color) {
     var emailDiv = document.createElement("div");
     emailDiv.classList.add('emailContainer');
     var emailInput = document.createElement("input");
+    emailInput.placeholder = 'E-Mail'
     emailDiv.appendChild(emailInput);
 
     var recallButton = document.createElement("button");

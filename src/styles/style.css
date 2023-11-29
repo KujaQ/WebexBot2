@@ -190,6 +190,15 @@ button {
     margin-top: 10px;
 }
 
+input{
+    border: solid black 1px;
+    border-radius: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}
+/* //TODO add darktheme for input */
+
 .buttons {
     flex-basis: 100%; /* Das Element nimmt die gesamte Breite in der dritten Reihe ein */
     display: flex;
