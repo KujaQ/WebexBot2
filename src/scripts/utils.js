@@ -453,7 +453,6 @@ function handleGetSpace() {
       );
     });
 }
-
 /**
  * Initiates the System Browser OAuth flow for SSO
  */

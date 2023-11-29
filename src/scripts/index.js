@@ -163,10 +163,35 @@ function recall(destination){
     .catch(error => console.log('error', error));
 }
 
-function mailTo(destination){
+function mailTo(){
   console.log('mail gesendet');
+  destination = 'testkevboy@gmail.com';
+  body = 'testshit';
+  window.location.href = `mailto:${destination}?subject=Bitte um Kundenrückruf&body=${body}`;
 }
 
-function pnTo(destination){
+function pnTo(){
   console.log('pn gesendet');
+  destination = 'kevin.redlich-gaube@haeusler.de';
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Authorization", "Bearer ZWE1Njk4NTAtNTc3Ny00NWRhLTk1OTktYWNjNGVkM2Y5ZmNlMDZlYTgxNjctNDEx_PE93_076d4c86-4654-4ddb-b8f3-eaf4e6d62e1d");
+  
+  var raw = JSON.stringify({
+    "toPersonEmail": `${destination}`,
+    "text": "test"
+  });
+  
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+  
+  fetch("https://webexapis.com/v1/messages", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 }
+

@@ -1,4 +1,4 @@
-var debugMode = false;
+var debugMode = true;
 
 function quickdebug(color) {
     var currentDateTime = getCurrentDateTime();
