@@ -3,7 +3,6 @@ var debugMode = false;
 function quickdebug(color) {
     var currentDateTime = getCurrentDateTime();
 
-
     var calls = document.getElementById('calls');
 
     var call = document.createElement('div');

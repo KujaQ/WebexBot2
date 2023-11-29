@@ -9,9 +9,20 @@ var connected = false;
 // Referenz zur Checkbox erhalten
 var checkbox = document.getElementById('darkmode-toggle');
 
+var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+if (isDarkMode) {
+  checkbox.checked = true;
+}else{
+  checkbox.checked = false;
+}
+
 // Event-Handler für Änderungen im Zustand der Checkbox hinzufügen
 checkbox.addEventListener('change', function() {
   // Überprüfen, ob die Checkbox aktiviert (checked) ist
+
+  localStorage.setItem('darkMode', checkbox.checked);
+
   if (checkbox.checked) {
     htmlElement = document.documentElement;
     htmlElement.style.backgroundColor = '#1B1E1F';
@@ -52,6 +63,8 @@ checkbox.addEventListener('change', function() {
     });
 
   } else {
+
+    localStorage.setItem('darkMode', checkbox.checked);
 
     htmlElement = document.documentElement;
     htmlElement.style.backgroundColor = 'white';

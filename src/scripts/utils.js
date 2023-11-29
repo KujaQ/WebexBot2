@@ -72,8 +72,6 @@ function toggleActive(event) {
   }
 }
 
-
-
 function loggCall(type, data) {
 
   var darkModeActive = document.getElementById('darkmode-toggle');
