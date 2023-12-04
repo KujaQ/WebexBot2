@@ -1,4 +1,5 @@
 var debugMode = true;
+var length = 3;
 
 function quickdebug(color) {
     var currentDateTime = getCurrentDateTime();
@@ -161,6 +162,26 @@ function quickdebug(color) {
     var lastKMText = document.createTextNode(`Letzer KM Stand: 11`);
     lastKM.appendChild(lastKMText);
 
+    //multiple car windows
+    var pageButtons = document.createElement("div");
+    pageButtons.classList.add("pageButtonContainer");
+    pageButtons.classList.add("inactive");
+    var prevButton = document.createElement("a");
+    var prevButtonText = document.createTextNode("<")
+    prevButton.classList.add("previous");
+    // prevButton.setAttribute("href", "");
+    prevButton.classList.add("round");
+    prevButton.appendChild(prevButtonText);
+    pageButtons.appendChild(prevButton);
+
+    var nextButton = document.createElement("a");
+    var nextButtonText = document.createTextNode(">")
+    nextButton.classList.add("next");
+    // nextButton.setAttribute("href", "");
+    nextButton.classList.add("round");
+    nextButton.appendChild(nextButtonText);
+    pageButtons.appendChild(nextButton);
+
     var salesPerson = document.createElement("li");
     var salesPersonText = document.createTextNode(`Name: Peter Schmittinger`);
     salesPerson.appendChild(salesPersonText);
@@ -251,8 +272,8 @@ function quickdebug(color) {
     info3Ul.appendChild(vehicleCustomerApproval);
     info3Ul.appendChild(lastServiceDate);
     info3Ul.appendChild(lastKM);
-
     vehicleData.appendChild(info3Ul);
+    vehicleData.appendChild(pageButtons);
 
     var info4Ul = document.createElement("ul");
 

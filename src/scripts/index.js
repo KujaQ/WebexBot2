@@ -63,6 +63,11 @@ checkbox.addEventListener('change', function() {
       si.classList.add('dark-theme');
     });
 
+    pagebuttons = document.querySelectorAll('a.round');
+    pagebuttons.forEach(paBu => {
+      paBu.classList.add('dark-theme');
+    });
+
     h1elements = document.querySelectorAll('h1');
     h1elements.forEach(h1 =>{
       h1.classList.add('dark-theme');
@@ -108,6 +113,11 @@ checkbox.addEventListener('change', function() {
     listSellerInformations = document.querySelectorAll('div.sellerInformations');
     listSellerInformations.forEach(si => {
       si.classList.remove('dark-theme');
+    });
+
+    pagebuttons = document.querySelectorAll('a.round');
+    pagebuttons.forEach(paBu => {
+      paBu.classList.remove('dark-theme');
     });
 
     h1elements = document.querySelectorAll('h1');

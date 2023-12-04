@@ -351,7 +351,8 @@ function loggCall(type, data) {
   info3Ul.appendChild(lastServiceDate);
   info3Ul.appendChild(lastKM);
 
-  vehicleData.appendChild(info3Ul)
+  vehicleData.appendChild(info3Ul);
+  // vehicleData.appendChild(pageButtons);
 
   var info4Ul = document.createElement("ul");
 
