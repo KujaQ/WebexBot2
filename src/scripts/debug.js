@@ -1,5 +1,74 @@
-var debugMode = false;
+var debugMode = true;
 var length = 3;
+
+var data = {
+    "getCustomerInformationResult": {
+        "customerData": {
+            "city": "KOblenz",
+            "eMailBusiness": "eMail@Business.de",
+            "eMailPrivate": "eMail@Privat.de",
+            "firstName": "Lars",
+            "handyNoBusiness": "01756213163",
+            "handyNoPrivate": "016765128974",
+            "lastName": "Schaub",
+            "no": "122492",
+            "phoneNo": "",
+            "phoneNoBusiness": "0261/73293",
+            "phoneNoPrivate": "0261/47641",
+            "postCode": "56001"
+        },
+        "serviceOrder": {
+            "DocNo": "WVAN007945",
+            "OrderDate": "29.11.2023",
+            "VIN": "W0L0HAF682G020477"
+        },
+        "vehicleDataList": [
+            {
+                "Color": "rot",
+                "Plate": "KO-AS 499",
+                "brand": "OPEL",
+                "customerNo": "122492",
+                "customerRegistrationDate": "25.02.2020",
+                "dateLastServiceContact": "09.09.2021",
+                "firstRegistrationDate": "14.03.02",
+                "milage": "12200",
+                "model": "Corsa",
+                "salesPerson": {
+                    "code": "31",
+                    "eMail": "AhmetG@Mail.com",
+                    "firstName": "Ahmet",
+                    "lastName": "Gezer",
+                    "phoneNo": "0196 666 666"
+                },
+                "salesPersonCode": "31",
+                "vin": "W0L0HAF682G021208"
+            },
+            {
+                "Color": "rot",
+                "Plate": "KO-AS 499",
+                "brand": "OPEL",
+                "customerNo": "122492",
+                "customerRegistrationDate": "25.02.2020",
+                "dateLastServiceContact": "09.09.2021",
+                "firstRegistrationDate": "14.03.02",
+                "milage": "12200",
+                "model": "Corsa",
+                "salesPerson": {
+                    "code": "31",
+                    "eMail": "AhmetG@Mail.com",
+                    "firstName": "Ahmet",
+                    "lastName": "Gezer",
+                    "phoneNo": "0196 666 666"
+                },
+                "salesPersonCode": "31",
+                "vin": "W0L0HAF682G021208"
+            }
+        ]
+    }
+}
+
+data = data.getCustomerInformationResult; 
+
 
 function quickdebug(color) {
     var currentDateTime = getCurrentDateTime();
@@ -69,97 +138,121 @@ function quickdebug(color) {
     callState.prepend(header);
 
     //Person
+    var customerNo = document.createElement("li");
+    var customerNoText = document.createTextNode(
+        `Debitor Nr.: ${data.customerData.no}`
+    );
+    customerNo.appendChild(customerNoText);
+
     var customerTel = document.createElement("li");
     var customerTelText = document.createTextNode(
-        `Tel. Nummer 1: +4917615206382`
+        `Tel. nr.: ${data.customerData.handyNoBusiness}`
     );
     customerTel.appendChild(customerTelText);
 
+    var customerTel1 = document.createElement("li");
+    var customerTel1Text = document.createTextNode(
+        `Tel. mobil beruflich: ${data.customerData.handyNoBusiness}`
+    );
+    customerTel1.appendChild(customerTel1Text);
+
     var customerTel2 = document.createElement("li");
     var customerTel2Text = document.createTextNode(
-        `Tel. Nummer 2: +4917615206382`
+        `Tel. mobil privat: ${data.customerData.handyNoPrivate}`
     );
     customerTel2.appendChild(customerTel2Text);
 
     var customerTel3 = document.createElement("li");
     var customerTel3Text = document.createTextNode(
-        `Tel. Nummer 3: +4917615206382`
+        `Tel. beruflich: ${data.customerData.phoneNoBusiness}`
     );
     customerTel3.appendChild(customerTel3Text);
 
     var customerTel4 = document.createElement("li");
     var customerTel4Text = document.createTextNode(
-        `Tel. Nummer 4: +4917615206382`
+        `Tel. privat: ${data.customerData.phoneNoPrivate}`
     );
     customerTel4.appendChild(customerTel4Text);
 
     var customerMail = document.createElement("li");
     var customerMailText = document.createTextNode(
-        `Email Privat: KarlHeinz@gmx.de`
+        `Email Privat: ${data.customerData.eMailPrivate}`
     );
     customerMail.appendChild(customerMailText);
 
     var customerMail2 = document.createElement("li");
     var customerMail2Text = document.createTextNode(
-        `Email Beruflich: KarlHeinzArbeit@gmx.de`
+        `Email Beruflich: ${data.customerData.eMailBusiness}`
     );
     customerMail2.appendChild(customerMail2Text);
 
     var customerName = document.createElement("li");
-    var customerNameText = document.createTextNode(`Name: Karl Heinz`);
+    var customerNameText = document.createTextNode(`Name: ${data.customerData.firstName} ${data.customerData.lastName}`);
     customerName.appendChild(customerNameText);
 
-    var customerStreet = document.createElement("li");
-    var customerStreetText = document.createTextNode(`Adresse: Bachstraße 17`);
-    customerStreet.appendChild(customerStreetText);
+    var customerCity = document.createElement("li");
+    var customerCityText = document.createTextNode(`Stadt: ${data.customerData.city}`);
+    customerCity.appendChild(customerCityText);
 
     var customerPlz = document.createElement("li");
-    var customerPlzText = document.createTextNode(`Plz: 56659`);
+    var customerPlzText = document.createTextNode(`Plz: ${data.customerData.postCode}`);
     customerPlz.appendChild(customerPlzText);
 
     var customerVin = document.createElement("li");
-    var customerVinText = document.createTextNode(`VIN: WAUZZZ1234567899`);
+    var customerVinText = document.createTextNode(`VIN: ${data.serviceOrder.VIN}`);
     customerVin.appendChild(customerVinText);
 
     var customerOrderNo = document.createElement("li");
     var customerOrderNoText = document.createTextNode(
-        `Letzte Auftragsnummer: ABC12345`
+        `Letzte Auftragsnummer: ${data.serviceOrder.DocNo}`
     );
     customerOrderNo.appendChild(customerOrderNoText);
 
     var customerOrderDate = document.createElement("li");
     var customerOrderDateText = document.createTextNode(
-        `Auftragsdatum: 23.10.23`
+        `Auftragsdatum: ${data.serviceOrder.OrderDate}`
     );
     customerOrderDate.appendChild(customerOrderDateText);
 
     //Fahrzeug
+    var vehicleBrand = document.createElement("li");
+    var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[0].brand}`);
+    vehicleBrand.appendChild(vehicleBrandText);
+
+    var vehicleModel = document.createElement("li");
+    var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[0].model}`);
+    vehicleModel.appendChild(vehicleModelText);
+
+    var vehicleVIN = document.createElement("li");
+    var vehicleVINText = document.createTextNode(`Model: ${data.vehicleDataList[0].vin}`);
+    vehicleVIN.appendChild(vehicleVINText);
+
     var vhecileApproval = document.createElement("li");
-    var vhecileApprovalText = document.createTextNode(`Erstzulassung: 23.10.23`);
+    var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[0].firstRegistrationDate}`);
     vhecileApproval.appendChild(vhecileApprovalText);
 
     var vehicleColor = document.createElement("li");
-    var vehicleColorText = document.createTextNode(`Farbe: Mitternachts Pink`);
+    var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[0].Color}`);
     vehicleColor.appendChild(vehicleColorText);
 
     var vehiclePlate = document.createElement("li");
-    var vehiclePlateText = document.createTextNode(`Kennzeichen: GG : WP 420`);
+    var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[0].Plate}`);
     vehiclePlate.appendChild(vehiclePlateText);
 
     var vehicleCustomerApproval = document.createElement("li");
     var vehicleCustomerApprovalText = document.createTextNode(
-        `Kunden Zulassungsdatum: 23.10.23`
+        `Kunden Zulassungsdatum: ${data.vehicleDataList[0].customerRegistrationDate}`
     );
     vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
 
     var lastServiceDate = document.createElement("li");
     var lastServiceDateText = document.createTextNode(
-        `Letzer Werkstattbesuch: 23.10.23`
+        `Letzer Werkstattbesuch: ${data.vehicleDataList[0].dateLastServiceContact}`
     );
     lastServiceDate.appendChild(lastServiceDateText);
 
     var lastKM = document.createElement("li");
-    var lastKMText = document.createTextNode(`Letzer KM Stand: 11`);
+    var lastKMText = document.createTextNode(`Letzer KM Stand: ${data.vehicleDataList[0].milage}`);
     lastKM.appendChild(lastKMText);
 
     //multiple car windows
@@ -174,7 +267,6 @@ function quickdebug(color) {
     var prevButton = document.createElement("a");
     var prevButtonText = document.createTextNode("<")
     prevButton.classList.add("previous");
-    // prevButton.setAttribute("href", "");
     prevButton.classList.add("round");
     prevButton.appendChild(prevButtonText);
     prevButton.addEventListener('click', (e) => {
@@ -186,7 +278,6 @@ function quickdebug(color) {
     var nextButton = document.createElement("a");
     var nextButtonText = document.createTextNode(">")
     nextButton.classList.add("next");
-    // nextButton.setAttribute("href", "");
     nextButton.classList.add("round");
     nextButton.appendChild(nextButtonText);
     nextButton.addEventListener('click', (e) => {
@@ -197,23 +288,18 @@ function quickdebug(color) {
     pageButtons.appendChild(pageButtonStyle);
 
     var salesPerson = document.createElement("li");
-    var salesPersonText = document.createTextNode(`Name: Peter Schmittinger`);
+    var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[0].salesPerson.firstName} ${data.vehicleDataList[0].salesPerson.lastName}`);
     salesPerson.appendChild(salesPersonText);
 
     var salesPhone = document.createElement("li");
     var salesPhoneText = document.createTextNode(
-        `Telefonnummer Mobil: 0157 123456789`
+        `Tel. Nr.: ${data.vehicleDataList[0].salesPerson.phoneNo}`
     );
     salesPhone.appendChild(salesPhoneText);
 
-    var salesPhoneMobil = document.createElement("li");
-    var salesPhoneMobilText = document.createTextNode(
-        `Telefonnummer: 02652 123456789`
-    );
-    salesPhoneMobil.appendChild(salesPhoneMobilText);
 
     var salesEmail = document.createElement("li");
-    var salesEmailText = document.createTextNode(`Email: Peter Schmittinger`);
+    var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[0].salesPerson.eMail}`);
     salesEmail.appendChild(salesEmailText);
 
     var emailDiv = document.createElement("div");
@@ -259,9 +345,11 @@ function quickdebug(color) {
 
     var info1Ul = document.createElement("ul");
 
+    info1Ul.appendChild(customerNo);
     info1Ul.appendChild(customerName);
     info1Ul.appendChild(customerPlz);
-    info1Ul.appendChild(customerStreet);
+    info1Ul.appendChild(customerCity);
+    info1Ul.appendChild(customerVin);
     info1Ul.appendChild(customerOrderNo);
     info1Ul.appendChild(customerOrderDate);
 
@@ -270,6 +358,7 @@ function quickdebug(color) {
     var info2Ul = document.createElement("ul");
 
     info2Ul.appendChild(customerTel);
+    info2Ul.appendChild(customerTel1);
     info2Ul.appendChild(customerTel2);
     info2Ul.appendChild(customerTel3);
     info2Ul.appendChild(customerTel4);
@@ -280,6 +369,9 @@ function quickdebug(color) {
 
     var info3Ul = document.createElement("ul");
 
+    info3Ul.appendChild(vehicleBrand);
+    info3Ul.appendChild(vehicleModel);
+    info3Ul.appendChild(vehicleVIN);
     info3Ul.appendChild(vhecileApproval);
     info3Ul.appendChild(vehicleColor);
     info3Ul.appendChild(vehiclePlate);
@@ -293,9 +385,9 @@ function quickdebug(color) {
 
     info4Ul.appendChild(salesPerson);
     info4Ul.appendChild(salesPhone);
-    info4Ul.appendChild(salesPhoneMobil);
+    // info4Ul.appendChild(salesPhoneMobil);
     info4Ul.appendChild(salesEmail);
-    info4Ul.appendChild(customerVin);
+    // info4Ul.appendChild(customerVin);
 
     sellerInformations.appendChild(info4Ul);
 
