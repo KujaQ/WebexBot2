@@ -1,4 +1,4 @@
-var debugMode = true;
+var debugMode = false;
 var length = 3;
 
 function quickdebug(color) {
