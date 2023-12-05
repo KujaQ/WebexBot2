@@ -255,39 +255,39 @@ function loggCall(type, data) {
   );
   lastKM.appendChild(lastKMText)
 
-    //multiple car windows
-    var pageButtons = document.createElement("div");
-    pageButtons.classList.add("pageButtonContainer");
-    pageButtons.classList.add("inactive");
+  //multiple car windows
+  var pageButtons = document.createElement("div");
+  pageButtons.classList.add("pageButtonContainer");
+  pageButtons.classList.add("inactive");
 
-    var pageButtonStyle = document.createElement("div");
-    pageButtonStyle.classList.add("pageButtonStyle");
-    pageButtonStyle.classList.add("inactive");
+  var pageButtonStyle = document.createElement("div");
+  pageButtonStyle.classList.add("pageButtonStyle");
+  pageButtonStyle.classList.add("inactive");
 
-    var prevButton = document.createElement("a");
-    var prevButtonText = document.createTextNode("<")
-    prevButton.classList.add("previous");
-    // prevButton.setAttribute("href", "");
-    prevButton.classList.add("round");
-    prevButton.appendChild(prevButtonText);
-    prevButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        testalert()
-    });
-    pageButtonStyle.appendChild(prevButton);
+  var prevButton = document.createElement("a");
+  var prevButtonText = document.createTextNode("<")
+  prevButton.classList.add("previous");
+  // prevButton.setAttribute("href", "");
+  prevButton.classList.add("round");
+  prevButton.appendChild(prevButtonText);
+  prevButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      testalert()
+  });
+  pageButtonStyle.appendChild(prevButton);
 
-    var nextButton = document.createElement("a");
-    var nextButtonText = document.createTextNode(">")
-    nextButton.classList.add("next");
-    // nextButton.setAttribute("href", "");
-    nextButton.classList.add("round");
-    nextButton.appendChild(nextButtonText);
-    nextButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        testalert()
-    });
-    pageButtonStyle.appendChild(nextButton);
-    pageButtons.appendChild(pageButtonStyle);
+  var nextButton = document.createElement("a");
+  var nextButtonText = document.createTextNode(">")
+  nextButton.classList.add("next");
+  // nextButton.setAttribute("href", "");
+  nextButton.classList.add("round");
+  nextButton.appendChild(nextButtonText);
+  nextButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      testalert()
+  });
+  pageButtonStyle.appendChild(nextButton);
+  pageButtons.appendChild(pageButtonStyle);
 
   var salesPerson = document.createElement("li");
   var salesPersonText = document.createTextNode(
@@ -385,7 +385,7 @@ function loggCall(type, data) {
   info3Ul.appendChild(lastKM);
 
   vehicleData.appendChild(info3Ul);
-  // vehicleData.appendChild(pageButtons);
+  vehicleData.appendChild(pageButtons);
 
   var info4Ul = document.createElement("ul");
 
