@@ -146,114 +146,122 @@ function loggCall(type, data) {
   callState.prepend(header);
 
   //Person
+  var customerNo = document.createElement("li");
+  var customerNoText = document.createTextNode(
+      `Debitor Nr.: ${data.customerData.no}`
+  );
+  customerNo.appendChild(customerNoText);
+
   var customerTel = document.createElement("li");
   var customerTelText = document.createTextNode(
-    `Tel. Nummer: ${data.data.remoteParticipants[0].callerID}`
+      `Tel. nr.: ${data.customerData.handyNoBusiness}`
   );
   customerTel.appendChild(customerTelText);
 
+  var customerTel1 = document.createElement("li");
+  var customerTel1Text = document.createTextNode(
+      `Tel. mobil beruflich: ${data.customerData.handyNoBusiness}`
+  );
+  customerTel1.appendChild(customerTel1Text);
+
   var customerTel2 = document.createElement("li");
   var customerTel2Text = document.createTextNode(
-    `Tel. Nummer 2: +4917615206382`
+      `Tel. mobil privat: ${data.customerData.handyNoPrivate}`
   );
   customerTel2.appendChild(customerTel2Text);
 
   var customerTel3 = document.createElement("li");
   var customerTel3Text = document.createTextNode(
-    `Tel. Nummer 3: +4917615206382`
+      `Tel. beruflich: ${data.customerData.phoneNoBusiness}`
   );
   customerTel3.appendChild(customerTel3Text);
 
   var customerTel4 = document.createElement("li");
   var customerTel4Text = document.createTextNode(
-    `Tel. Nummer 4: +4917615206382`
+      `Tel. privat: ${data.customerData.phoneNoPrivate}`
   );
   customerTel4.appendChild(customerTel4Text);
 
   var customerMail = document.createElement("li");
   var customerMailText = document.createTextNode(
-    `Email Privat: KarlHeinz@gmx.de`
+      `Email Privat: ${data.customerData.eMailPrivate}`
   );
   customerMail.appendChild(customerMailText);
 
   var customerMail2 = document.createElement("li");
   var customerMail2Text = document.createTextNode(
-    `Email Beruflich: KarlHeinzArbeit@gmx.de`
+      `Email Beruflich: ${data.customerData.eMailBusiness}`
   );
   customerMail2.appendChild(customerMail2Text);
 
   var customerName = document.createElement("li");
-  var customerNameText = document.createTextNode(
-    `Name: Karl Heinz`
-  );
+  var customerNameText = document.createTextNode(`Name: ${data.customerData.firstName} ${data.customerData.lastName}`);
   customerName.appendChild(customerNameText);
 
-  var customerStreet = document.createElement("li");
-  var customerStreetText = document.createTextNode(
-    `Adresse: Bachstraße 17`
-  );
-  customerStreet.appendChild(customerStreetText);
+  var customerCity = document.createElement("li");
+  var customerCityText = document.createTextNode(`Stadt: ${data.customerData.city}`);
+  customerCity.appendChild(customerCityText);
 
   var customerPlz = document.createElement("li");
-  var customerPlzText = document.createTextNode(
-    `Plz: 56659`
-  );
+  var customerPlzText = document.createTextNode(`Plz: ${data.customerData.postCode}`);
   customerPlz.appendChild(customerPlzText);
 
   var customerVin = document.createElement("li");
-  var customerVinText = document.createTextNode(
-    `VIN: WAUZZZ1234567899`
-  );
+  var customerVinText = document.createTextNode(`VIN: ${data.serviceOrder.VIN}`);
   customerVin.appendChild(customerVinText);
 
   var customerOrderNo = document.createElement("li");
   var customerOrderNoText = document.createTextNode(
-    `Letzte Auftragsnummer: ABC12345`
+      `Letzte Auftragsnummer: ${data.serviceOrder.DocNo}`
   );
   customerOrderNo.appendChild(customerOrderNoText);
 
   var customerOrderDate = document.createElement("li");
   var customerOrderDateText = document.createTextNode(
-    `Auftragsdatum: 23.10.23`
+      `Auftragsdatum: ${data.serviceOrder.OrderDate}`
   );
   customerOrderDate.appendChild(customerOrderDateText);
 
   //Fahrzeug
+  var vehicleBrand = document.createElement("li");
+  var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[currentVehicle].brand}`);
+  vehicleBrand.appendChild(vehicleBrandText);
+
+  var vehicleModel = document.createElement("li");
+  var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[currentVehicle].model}`);
+  vehicleModel.appendChild(vehicleModelText);
+
+  var vehicleVIN = document.createElement("li");
+  var vehicleVINText = document.createTextNode(`VIN: ${data.vehicleDataList[currentVehicle].vin}`);
+  vehicleVIN.appendChild(vehicleVINText);
+
   var vhecileApproval = document.createElement("li");
-  var vhecileApprovalText = document.createTextNode(
-    `Erstzulassung: 23.10.23`
-  );
+  var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`);
   vhecileApproval.appendChild(vhecileApprovalText);
 
   var vehicleColor = document.createElement("li");
-  var vehicleColorText = document.createTextNode(
-    `Farbe: Mitternachts Pink`
-  );
+  var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[currentVehicle].Color}`);
   vehicleColor.appendChild(vehicleColorText);
 
   var vehiclePlate = document.createElement("li");
-  var vehiclePlateText = document.createTextNode(
-    `Kennzeichen: GG : WP 420`
-  );
+  var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`);
   vehiclePlate.appendChild(vehiclePlateText);
 
   var vehicleCustomerApproval = document.createElement("li");
   var vehicleCustomerApprovalText = document.createTextNode(
-    `Kunden Zulassungsdatum: 23.10.23`
+      `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`
   );
   vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
 
   var lastServiceDate = document.createElement("li");
   var lastServiceDateText = document.createTextNode(
-    `Letzer Werkstattbesuch: 23.10.23`
+      `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`
   );
   lastServiceDate.appendChild(lastServiceDateText);
 
   var lastKM = document.createElement("li");
-  var lastKMText = document.createTextNode(
-    `Letzer KM Stand: 11`
-  );
-  lastKM.appendChild(lastKMText)
+  var lastKMText = document.createTextNode(`Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`);
+  lastKM.appendChild(lastKMText);
 
   //multiple car windows
   var pageButtons = document.createElement("div");
@@ -267,24 +275,22 @@ function loggCall(type, data) {
   var prevButton = document.createElement("a");
   var prevButtonText = document.createTextNode("<")
   prevButton.classList.add("previous");
-  // prevButton.setAttribute("href", "");
   prevButton.classList.add("round");
   prevButton.appendChild(prevButtonText);
   prevButton.addEventListener('click', (e) => {
       e.stopPropagation();
-      testalert()
+      lastVehicle(e);
   });
   pageButtonStyle.appendChild(prevButton);
 
   var nextButton = document.createElement("a");
   var nextButtonText = document.createTextNode(">")
   nextButton.classList.add("next");
-  // nextButton.setAttribute("href", "");
   nextButton.classList.add("round");
   nextButton.appendChild(nextButtonText);
   nextButton.addEventListener('click', (e) => {
       e.stopPropagation();
-      testalert()
+      nextVehicle(e);
   });
   pageButtonStyle.appendChild(nextButton);
   pageButtons.appendChild(pageButtonStyle);
@@ -356,9 +362,11 @@ function loggCall(type, data) {
 
   var info1Ul = document.createElement("ul");
 
+  info1Ul.appendChild(customerNo);
   info1Ul.appendChild(customerName);
   info1Ul.appendChild(customerPlz);
-  info1Ul.appendChild(customerStreet);
+  info1Ul.appendChild(customerCity);
+  info1Ul.appendChild(customerVin);
   info1Ul.appendChild(customerOrderNo);
   info1Ul.appendChild(customerOrderDate);
 
@@ -367,6 +375,7 @@ function loggCall(type, data) {
   var info2Ul = document.createElement("ul");
 
   info2Ul.appendChild(customerTel);
+  info2Ul.appendChild(customerTel1);
   info2Ul.appendChild(customerTel2);
   info2Ul.appendChild(customerTel3);
   info2Ul.appendChild(customerTel4);
@@ -377,13 +386,15 @@ function loggCall(type, data) {
 
   var info3Ul = document.createElement("ul");
 
+  info3Ul.appendChild(vehicleBrand);
+  info3Ul.appendChild(vehicleModel);
+  info3Ul.appendChild(vehicleVIN);
   info3Ul.appendChild(vhecileApproval);
   info3Ul.appendChild(vehicleColor);
   info3Ul.appendChild(vehiclePlate);
   info3Ul.appendChild(vehicleCustomerApproval);
   info3Ul.appendChild(lastServiceDate);
   info3Ul.appendChild(lastKM);
-
   vehicleData.appendChild(info3Ul);
   vehicleData.appendChild(pageButtons);
 
@@ -391,19 +402,14 @@ function loggCall(type, data) {
 
   info4Ul.appendChild(salesPerson);
   info4Ul.appendChild(salesPhone);
-  info4Ul.appendChild(salesPhoneMobil);
   info4Ul.appendChild(salesEmail);
-  info4Ul.appendChild(customerVin);
 
   sellerInformations.appendChild(info4Ul);
 
   emailDiv.appendChild(mailToButton);
   emailDiv.appendChild(webexMessageButton);
 
-  // buttons.appendChild(mailToButton);
   buttons.appendChild(recallButton);
-  // buttons.appendChild(webexMessageButton);
-
 
   call.appendChild(callState);
   call.appendChild(personalData);
@@ -506,29 +512,21 @@ function handleGetSpace() {
  * Initiates the System Browser OAuth flow for SSO
  */
 function handleSystemBrowserOAuth() {
-  // System Browser OAuth Support is only for 1.5.0 SDK and above
   loggCall('app.isSdkSupported("1.5.0")', app.isSdkSupported("1.5.0"));
   if (!app.isSdkSupported("1.5.0")) {
     return;
   }
-  // The redirect from your SSO flow needs to return to this Webex address
   const webexAppRedirectUri =
     "https://oauth-helper-prod.wbx2.com/helperservice/v1/callback";
-  // We are utiling mocklab to demonstrate an SSO Flow
-  // Be sure to add the SSO domain to your "valid domains" configuration
   const SSOAuthUrl = `https://oauth.mocklab.io/oauth/authorize?response_type=code&redirect_uri=${webexAppRedirectUri}`;
 
   loggCall("Initiating SSO flow in system browser", true);
-  // Initiate SSO flow in system browser
   app
     .initiateSystemBrowserOAuth(SSOAuthUrl)
     .then(function (response) {
-      // Promise fulfilled, get authorization code from JSON response
       let authCode = response;
       loggCall("SSO flow got authorization code", authCode);
-      // Exchange authorization code for a token with ID provider.
-      // This part of the OAuth flow is the responsibility of the embedded app, for example:
-      // exchangeCodeForToken(authCode);
+
     })
     .catch(function (reason) {
       console.error(
@@ -548,4 +546,120 @@ function copyToClipBoard() {
     .catch(err => {
       alert('Unable to copy text to clipboard');
     });
+}
+
+function nextVehicle(e) {
+  currentVehicle++;
+  if (currentVehicle > length) {currentVehicle = 0;}
+
+  liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+  var i = 1;
+  liList.forEach(li => {
+      switch (i) {
+          case 1:
+              li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
+              break;
+          case 2:
+              li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
+              break;
+          case 3:
+              li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
+              break;
+          case 4:
+              li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
+              break;
+          case 5:
+              li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
+              break;
+          case 6:
+              li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
+              break;
+          case 7:
+              li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
+              break;
+          case 8:
+              li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
+              break;
+          case 9:
+              li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
+              break;
+      }
+      i++;
+  });
+
+  sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
+  liList = sellerInfo[0].querySelectorAll('li');
+  var i = 1;
+  liList.forEach(li => {
+      switch (i) {
+          case 1:
+              li.innerHTML = `Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName}  ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`;
+              break;
+          case 2:
+              li.innerHTML = `Tel.Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`;
+              break;
+          case 3:
+              li.innerHTML = `Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`;
+              break;
+      }
+      i++
+  });
+}
+
+function lastVehicle(e) {
+  currentVehicle--;
+  if (currentVehicle < 0) {currentVehicle = length;}
+
+  liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+  var i = 1;
+  liList.forEach(li => {
+      switch (i) {
+          case 1:
+              li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
+              break;
+          case 2:
+              li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
+              break;
+          case 3:
+              li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
+              break;
+          case 4:
+              li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
+              break;
+          case 5:
+              li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
+              break;
+          case 6:
+              li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
+              break;
+          case 7:
+              li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
+              break;
+          case 8:
+              li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
+              break;
+          case 9:
+              li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
+              break;
+      }
+      i++;
+  });
+
+  sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
+  liList = sellerInfo[0].querySelectorAll('li');
+  var i = 1;
+  liList.forEach(li => {
+      switch (i) {
+          case 1:
+              li.innerHTML = `Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName}  ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`;
+              break;
+          case 2:
+              li.innerHTML = `Tel.Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`;
+              break;
+          case 3:
+              li.innerHTML = `Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`;
+              break;
+      }
+      i++
+  });
 }

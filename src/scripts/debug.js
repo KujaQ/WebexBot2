@@ -401,7 +401,7 @@ function quickdebug(color) {
     call.appendChild(sellerInformations);
     call.appendChild(emailDiv);
     call.appendChild(buttons);
-    calls.appendChild(call);
+    calls.prepend(call);
 }
 
 if (debugMode === true) {
@@ -410,84 +410,4 @@ if (debugMode === true) {
     quickdebug("red");
     quickdebug("green");
     quickdebug("red");
-}
-
-function nextVehicle(e) {
-    currentVehicle++;
-    if (currentVehicle > length) {currentVehicle = 0;}
-
-    liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
-    var i = 1;
-    liList.forEach(li => {
-        switch (i) {
-            case 1:
-                li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
-                break;
-            case 2:
-                li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
-                break;
-            case 3:
-                li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
-                break;
-            case 4:
-                li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
-                break;
-            case 5:
-                li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
-                break;
-            case 6:
-                li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
-                break;
-            case 7:
-                li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
-                break;
-            case 8:
-                li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
-                break;
-            case 9:
-                li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
-                break;
-        }
-        i++;
-    });
-}
-
-function lastVehicle(e) {
-    currentVehicle--;
-    if (currentVehicle < 0) {currentVehicle = length;}
-
-    liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
-    var i = 1;
-    liList.forEach(li => {
-        switch (i) {
-            case 1:
-                li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
-                break;
-            case 2:
-                li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
-                break;
-            case 3:
-                li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
-                break;
-            case 4:
-                li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
-                break;
-            case 5:
-                li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
-                break;
-            case 6:
-                li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
-                break;
-            case 7:
-                li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
-                break;
-            case 8:
-                li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
-                break;
-            case 9:
-                li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
-                break;
-        }
-        i++;
-    });
 }
