@@ -1,6 +1,5 @@
 var debugMode = true;
-var length = 3;
-
+var currentVehicle = 0;
 var data = {
     "getCustomerInformationResult": {
         "customerData": {
@@ -44,30 +43,31 @@ var data = {
                 "vin": "W0L0HAF682G021208"
             },
             {
-                "Color": "rot",
-                "Plate": "KO-AS 499",
-                "brand": "OPEL",
-                "customerNo": "122492",
-                "customerRegistrationDate": "25.02.2020",
-                "dateLastServiceContact": "09.09.2021",
-                "firstRegistrationDate": "14.03.02",
-                "milage": "12200",
-                "model": "Corsa",
+                "Color": "rotx",
+                "Plate": "KO-AS 499x",
+                "brand": "FIAT",
+                "customerNo": "122492x",
+                "customerRegistrationDate": "25.02.2020x",
+                "dateLastServiceContact": "09.09.2021x",
+                "firstRegistrationDate": "14.03.02x",
+                "milage": "12200x",
+                "model": "Schrotthaufenx",
                 "salesPerson": {
-                    "code": "31",
-                    "eMail": "AhmetG@Mail.com",
-                    "firstName": "Ahmet",
-                    "lastName": "Gezer",
-                    "phoneNo": "0196 666 666"
+                    "code": "31x",
+                    "eMail": "AhmetG@Mail.comx",
+                    "firstName": "Ahmetx",
+                    "lastName": "Gezerx",
+                    "phoneNo": "0196 666 666x"
                 },
-                "salesPersonCode": "31",
-                "vin": "W0L0HAF682G021208"
+                "salesPersonCode": "31x",
+                "vin": "W0L0HAF682G021208x"
             }
         ]
     }
 }
 
-data = data.getCustomerInformationResult; 
+data = data.getCustomerInformationResult;
+var length = data.vehicleDataList.length - 1;
 
 
 function quickdebug(color) {
@@ -216,43 +216,43 @@ function quickdebug(color) {
 
     //Fahrzeug
     var vehicleBrand = document.createElement("li");
-    var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[0].brand}`);
+    var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[currentVehicle].brand}`);
     vehicleBrand.appendChild(vehicleBrandText);
 
     var vehicleModel = document.createElement("li");
-    var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[0].model}`);
+    var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[currentVehicle].model}`);
     vehicleModel.appendChild(vehicleModelText);
 
     var vehicleVIN = document.createElement("li");
-    var vehicleVINText = document.createTextNode(`Model: ${data.vehicleDataList[0].vin}`);
+    var vehicleVINText = document.createTextNode(`VIN: ${data.vehicleDataList[currentVehicle].vin}`);
     vehicleVIN.appendChild(vehicleVINText);
 
     var vhecileApproval = document.createElement("li");
-    var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[0].firstRegistrationDate}`);
+    var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`);
     vhecileApproval.appendChild(vhecileApprovalText);
 
     var vehicleColor = document.createElement("li");
-    var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[0].Color}`);
+    var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[currentVehicle].Color}`);
     vehicleColor.appendChild(vehicleColorText);
 
     var vehiclePlate = document.createElement("li");
-    var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[0].Plate}`);
+    var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`);
     vehiclePlate.appendChild(vehiclePlateText);
 
     var vehicleCustomerApproval = document.createElement("li");
     var vehicleCustomerApprovalText = document.createTextNode(
-        `Kunden Zulassungsdatum: ${data.vehicleDataList[0].customerRegistrationDate}`
+        `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`
     );
     vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
 
     var lastServiceDate = document.createElement("li");
     var lastServiceDateText = document.createTextNode(
-        `Letzer Werkstattbesuch: ${data.vehicleDataList[0].dateLastServiceContact}`
+        `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`
     );
     lastServiceDate.appendChild(lastServiceDateText);
 
     var lastKM = document.createElement("li");
-    var lastKMText = document.createTextNode(`Letzer KM Stand: ${data.vehicleDataList[0].milage}`);
+    var lastKMText = document.createTextNode(`Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`);
     lastKM.appendChild(lastKMText);
 
     //multiple car windows
@@ -271,7 +271,7 @@ function quickdebug(color) {
     prevButton.appendChild(prevButtonText);
     prevButton.addEventListener('click', (e) => {
         e.stopPropagation();
-        testalert()
+        lastVehicle(e);
     });
     pageButtonStyle.appendChild(prevButton);
 
@@ -282,24 +282,24 @@ function quickdebug(color) {
     nextButton.appendChild(nextButtonText);
     nextButton.addEventListener('click', (e) => {
         e.stopPropagation();
-        testalert()
+        nextVehicle(e);
     });
     pageButtonStyle.appendChild(nextButton);
     pageButtons.appendChild(pageButtonStyle);
 
     var salesPerson = document.createElement("li");
-    var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[0].salesPerson.firstName} ${data.vehicleDataList[0].salesPerson.lastName}`);
+    var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);
     salesPerson.appendChild(salesPersonText);
 
     var salesPhone = document.createElement("li");
     var salesPhoneText = document.createTextNode(
-        `Tel. Nr.: ${data.vehicleDataList[0].salesPerson.phoneNo}`
+        `Tel. Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`
     );
     salesPhone.appendChild(salesPhoneText);
 
 
     var salesEmail = document.createElement("li");
-    var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[0].salesPerson.eMail}`);
+    var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`);
     salesEmail.appendChild(salesEmailText);
 
     var emailDiv = document.createElement("div");
@@ -385,18 +385,14 @@ function quickdebug(color) {
 
     info4Ul.appendChild(salesPerson);
     info4Ul.appendChild(salesPhone);
-    // info4Ul.appendChild(salesPhoneMobil);
     info4Ul.appendChild(salesEmail);
-    // info4Ul.appendChild(customerVin);
 
     sellerInformations.appendChild(info4Ul);
 
     emailDiv.appendChild(mailToButton);
     emailDiv.appendChild(webexMessageButton);
 
-    // buttons.appendChild(mailToButton);
     buttons.appendChild(recallButton);
-    // buttons.appendChild(webexMessageButton);
 
     call.appendChild(callState);
     call.appendChild(personalData);
@@ -416,6 +412,82 @@ if (debugMode === true) {
     quickdebug("red");
 }
 
-function testalert(){
-    alert('penis');
+function nextVehicle(e) {
+    currentVehicle++;
+    if (currentVehicle > length) {currentVehicle = 0;}
+
+    liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+    var i = 1;
+    liList.forEach(li => {
+        switch (i) {
+            case 1:
+                li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
+                break;
+            case 2:
+                li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
+                break;
+            case 3:
+                li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
+                break;
+            case 4:
+                li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
+                break;
+            case 5:
+                li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
+                break;
+            case 6:
+                li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
+                break;
+            case 7:
+                li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
+                break;
+            case 8:
+                li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
+                break;
+            case 9:
+                li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
+                break;
+        }
+        i++;
+    });
+}
+
+function lastVehicle(e) {
+    currentVehicle--;
+    if (currentVehicle < 0) {currentVehicle = length;}
+
+    liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+    var i = 1;
+    liList.forEach(li => {
+        switch (i) {
+            case 1:
+                li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
+                break;
+            case 2:
+                li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
+                break;
+            case 3:
+                li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
+                break;
+            case 4:
+                li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
+                break;
+            case 5:
+                li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
+                break;
+            case 6:
+                li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
+                break;
+            case 7:
+                li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
+                break;
+            case 8:
+                li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
+                break;
+            case 9:
+                li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
+                break;
+        }
+        i++;
+    });
 }
