@@ -93,3 +93,31 @@ function pnTo() {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
+
+
+function testRest() {
+    let mynumber = +4917615206382
+    fetch(
+        `204.172.105.155/webExBot/getCustomerInformation/${mynumber}`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            // body: data,
+        }
+    )
+    .then (response => {
+        if(!response.SDKHook){
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        return responst.json();
+    })
+    .then( data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(`Fetch error:`, error.message);
+    });
+}

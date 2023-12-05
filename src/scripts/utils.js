@@ -72,7 +72,7 @@ function toggleActive(event) {
 }
 
 function loggCall(type, data) {
-
+  testRest();
   var darkModeActive = document.getElementById('darkmode-toggle');
 
   var currentDateTime = getCurrentDateTime();
