@@ -112,7 +112,7 @@ function testRest() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        return responst.json();
+        return response.json();
     })
     .then( data => {
         console.log(data);
