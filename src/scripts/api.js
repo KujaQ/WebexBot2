@@ -96,9 +96,9 @@ function pnTo() {
 
 
 function testRest() {
-    let mynumber = +4917615206382
+    let mynumber = '+4917615206382'
     fetch(
-        `204.172.105.155/webExBot/getCustomerInformation/${mynumber}`,
+        `http://204.172.105.155/webExBot/getCustomerInformation/${mynumber}`,
         {
             method: "GET",
             headers: {
