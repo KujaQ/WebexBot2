@@ -420,13 +420,13 @@ a {
 }
 
 .previous {
-    margin-left: 33%;
+    margin: 5px;
     background-color: #f1f1f1;
     color: black;
 }
 
 .next {
-    margin-right: 33%;
+    margin: 5px;
     background-color: #f1f1f1;
     color: black;
     z-index: 1000;

@@ -27,7 +27,6 @@ function getCurrentDateTime() {
 
   return formattedDateTime;
 } 
-
 // Hilfsfunktion für führende Nullen
 function padNumber(num) {
   return num.toString().padStart(2, '0');
