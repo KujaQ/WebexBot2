@@ -28,9 +28,7 @@ if (isDarkMode) {
   });
 }
 
-// Event-Handler für Änderungen im Zustand der Checkbox hinzufügen
 checkbox.addEventListener('change', function() {
-  // Überprüfen, ob die Checkbox aktiviert (checked) ist
 
   localStorage.setItem('darkMode', checkbox.checked);
 
