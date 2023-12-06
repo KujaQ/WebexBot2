@@ -471,8 +471,11 @@ function handleGetUser() {
       console.error('Fetch error:', error);
     });
 
-  app.context
-    .get
+    if(app.isSdkSupported("1.5.0")) {
+      app.initiateSystemBrowserOAuth("https://signin.example.com/...")
+          .then(function (response){})
+          .catch(function (error){})
+  }
 }
 
 /**
