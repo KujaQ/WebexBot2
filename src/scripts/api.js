@@ -42,7 +42,7 @@ function SDKHook(key, value, data) {
 function recall(destination) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", "Bearer ZjE5N2RjNzEtNDk5Zi00OGVmLWEwYWMtMTZkMWU0YmViYzMyNmYyMjZkN2UtZDEy_PE93_08980031-1243-47be-a32c-fd2fee9a0c3b");
+    myHeaders.append("Authorization", "Bearer eyJhbGciOiJSUzI1NiJ9.eyJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9pZGJyb2tlci1ldS53ZWJleC5jb21cL2lkYiIsImNvbS5jaXNjby51c2VyLnV1aWQiOiJkYmNmN2MyYS03MDA4LTUwMjMtOTUxMC01ZGQ0MDY1NTU0YmYiLCJwaWlfZW5hYmxlZCI6ZmFsc2UsImdpdmVuX25hbWUiOiIiLCJhdWQiOiJZMmx6WTI5emNHRnlhem92TDNWekwwRlFVRXhKUTBGVVNVOU9MelU1WlRaa05XUmpMV014TURJdE5HTTNaQzFpTlRabExUQm1ZbUl6WXpoak5HVm1NUSIsImNvbS5jaXNjby51c2VyLm9yZ2lkIjoiZjkzMjE4NWUtZDQzMS01MmIyLWEwMWItMTdlNzA5NWZiZGUxIiwibmFtZSI6IiIsImNvbS5jaXNjby51c2VyLmxldmVsIjpbImVuaGFuY2VkIl0sImV4cCI6MTcwMTg0Nzg5OCwiaWF0IjoxNzAxNzYxNDk4LCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoiIn0.KpV0h-C9o2tWXBQKdMCvV4qV9t9hTrxS_wrZyfX9Iwy6i-9tYUZtEBEx9LBUN6h5_nvIUH8P1qdDOUdoAK0zna4i8KMkAMcUDLZHu1rJLR19HqFHQ69Ai6svpG8ZUHFUoIkM1HuLJNeuTarQvmJVfcExcil7VnsTjRnD4_YzF42M2jzfP7pv45wnOp9SZjgmVhnxWYXjno-EYBOhcPnKxeY3d1-fiKzNJNS19GuQtzpG2WKTLb1hRAjSuO4zvB33R29-XY5H1LyGRrYv156Staqehrjqc3sTyqasJlSoPzaa-0rsVtJ7slfwPN-pt2BsJ27AiDBBhcWuO11p01sJbQ");
 
     var raw = JSON.stringify({
         "destination": `${destination}`
