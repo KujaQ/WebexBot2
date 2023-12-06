@@ -435,10 +435,10 @@ function handleGetUser() {
   app.context
     .getUser()
     .then((u) => {
-      loggCall("getUser()", u);
+      log("getUser()", u);
     })
     .catch((error) => {
-      loggCall(
+      log(
         "getUser() promise failed with error",
         Webex.Application.ErrorCodes[error]
       );
@@ -460,7 +460,7 @@ function handleGetUser() {
     })
     .then(data => {
       // Handle the response data
-      loggCall(
+      log(
         "fetchcalls()",
         response.json()
       );
@@ -482,10 +482,10 @@ function handleGetMeeting() {
   app.context
     .getMeeting()
     .then((m) => {
-      loggCall("getMeeting()", m);
+      log("getMeeting()", m);
     })
     .catch((error) => {
-      loggCall(
+      log(
         "getMeeting() promise failed with error",
         Webex.Application.ErrorCodes[error]
       );
@@ -499,10 +499,10 @@ function handleGetSpace() {
   app.context
     .getSpace()
     .then((s) => {
-      loggCall("getSpace()", s);
+      log("getSpace()", s);
     })
     .catch((error) => {
-      loggCall(
+      log(
         "getSpace() promise failed with error",
         Webex.Application.ErrorCodes[error]
       );
@@ -513,7 +513,7 @@ function handleGetSpace() {
  */
 function handleSystemBrowserOAuth() {
         console.log('test einstieg' + window.Webex.Application.bearerToken);
-  // loggCall('app.isSdkSupported("1.5.0")', app.isSdkSupported("1.5.0"));
+  log('app.isSdkSupported("1.5.0")', app.isSdkSupported("1.5.0"));
   if (!app.isSdkSupported("1.5.0")) {
     return;
   }
@@ -527,7 +527,7 @@ function handleSystemBrowserOAuth() {
     .then(function (response) {
       let authCode = response;
       console.log('test ' + authCode);
-      // loggCall("SSO flow got authorization code", authCode);
+      log("SSO flow got authorization code", authCode);
 
     })
     .catch(function (reason) {
@@ -665,3 +665,21 @@ function lastVehicle(e) {
       i++
   });
 }
+
+
+function log(type, data) {
+  var ul = document.getElementById("console");
+  var li = document.createElement("li");
+  var header = document.createElement("p");
+  var headerMessage = document.createTextNode(
+    `${new Date().toJSON()}: ${type}`
+  );
+  header.appendChild(headerMessage);
+  li.appendChild(header);
+  var code = document.createElement("pre");
+  var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
+  code.appendChild(payload);
+  li.appendChild(code);
+  ul.prepend(li);
+}
+
