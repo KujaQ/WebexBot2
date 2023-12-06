@@ -512,20 +512,21 @@ function handleGetSpace() {
  * Initiates the System Browser OAuth flow for SSO
  */
 function handleSystemBrowserOAuth() {
-  loggCall('app.isSdkSupported("1.5.0")', app.isSdkSupported("1.5.0"));
+  // loggCall('app.isSdkSupported("1.5.0")', app.isSdkSupported("1.5.0"));
   if (!app.isSdkSupported("1.5.0")) {
     return;
   }
   const webexAppRedirectUri =
-    "https://oauth-helper-prod.wbx2.com/helperservice/v1/callback";
+    "https://kujaq.github.io/WebexBot2/";
   const SSOAuthUrl = `https://oauth.mocklab.io/oauth/authorize?response_type=code&redirect_uri=${webexAppRedirectUri}`;
 
-  loggCall("Initiating SSO flow in system browser", true);
+  // loggCall("Initiating SSO flow in system browser", true);
   app
     .initiateSystemBrowserOAuth(SSOAuthUrl)
     .then(function (response) {
       let authCode = response;
-      loggCall("SSO flow got authorization code", authCode);
+      console.log(authCode);
+      // loggCall("SSO flow got authorization code", authCode);
 
     })
     .catch(function (reason) {
