@@ -668,18 +668,21 @@ function lastVehicle(e) {
 
 
 function log(type, data) {
-  var ul = document.getElementById("console");
-  var li = document.createElement("li");
-  var header = document.createElement("p");
-  var headerMessage = document.createTextNode(
-    `${new Date().toJSON()}: ${type}`
-  );
-  header.appendChild(headerMessage);
-  li.appendChild(header);
-  var code = document.createElement("pre");
-  var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
-  code.appendChild(payload);
-  li.appendChild(code);
-  ul.prepend(li);
+  // var ul = document.getElementById("console");
+  // var li = document.createElement("li");
+  // var header = document.createElement("p");
+  // var headerMessage = document.createTextNode(
+  //   `${new Date().toJSON()}: ${type}`
+  // );
+
+  // console.log(headerMessage);
+  // header.appendChild(headerMessage);
+  // li.appendChild(header);
+  // var code = document.createElement("pre");
+  // var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
+  console.log(JSON.stringify(data, "\n", 2));
+  // code.appendChild(payload);
+  // li.appendChild(code);
+  // ul.prepend(li);
 }
 
