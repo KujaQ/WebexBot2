@@ -518,7 +518,7 @@ function handleSystemBrowserOAuth() {
     return;
   }
   const webexAppRedirectUri =
-    "https://kujaq.github.io/WebexBot2/";
+    "https://oauth-helper-prod.wbx2.com/helperservice/v1/callback";
   const SSOAuthUrl = `https://oauth.mocklab.io/oauth/authorize?response_type=code&redirect_uri=${webexAppRedirectUri}`;
 
   // loggCall("Initiating SSO flow in system browser", true);
