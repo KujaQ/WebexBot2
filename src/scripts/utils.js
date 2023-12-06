@@ -512,6 +512,7 @@ function handleGetSpace() {
  * Initiates the System Browser OAuth flow for SSO
  */
 function handleSystemBrowserOAuth() {
+        console.log('test einstieg' + window.Webex.Application.bearerToken);
   // loggCall('app.isSdkSupported("1.5.0")', app.isSdkSupported("1.5.0"));
   if (!app.isSdkSupported("1.5.0")) {
     return;
@@ -525,7 +526,7 @@ function handleSystemBrowserOAuth() {
     .initiateSystemBrowserOAuth(SSOAuthUrl)
     .then(function (response) {
       let authCode = response;
-      console.log(authCode);
+      console.log('test ' + authCode);
       // loggCall("SSO flow got authorization code", authCode);
 
     })
