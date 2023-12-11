@@ -110,6 +110,9 @@ function testRest() {
             return response.text();
         }
     })
+    .then( json => {
+        console.log(json);
+    })
     .then( data => {
         console.log(data);
     })
