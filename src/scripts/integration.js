@@ -4,7 +4,7 @@ function testflow(params) {
     var requestOptions = {
         method: 'GET',
         redirect: 'follow',
-        cors: 'no-cors'
+        mode: 'no-cors'
     };
     fetch(url, requestOptions)
     .then(response => {
