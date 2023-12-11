@@ -101,12 +101,14 @@ function testRest() {
             // body: data,
         }
     )
-    .then (response => {
-        // if(!response.SDKHook){
-        //     throw new Error(`HTTP error! Status: ${response.status}`);
-        // }
-
-        return response.json();
+    .then(response => {
+        console.log(response);
+        console.log('Response Type:', response.type);
+        if (response.type === 'opaqueredirect') {
+            console.log('Opaque Redirect Response:', response);
+        } else {
+            return response.text();
+        }
     })
     .then( data => {
         console.log(data);
