@@ -8,29 +8,14 @@ function testflow(params) {
     };
     fetch(url, requestOptions)
     .then(response => {
+        console.log(response);
         console.log('Response Type:', response.type);
-
-        // Check if the response is opaque
         if (response.type === 'opaqueredirect') {
-            // The response is opaque, and certain properties may be restricted
             console.log('Opaque Redirect Response:', response);
         } else {
-            // The response is not opaque, and you can access its properties
             return response.text();
         }
-    })
+        })
         .then(result => console.log(result))
-        .then(body => {
-            console.log(body);
-        })
-        .then(json => {
-            console.log(json);
-        })
-        .then(blob =>{
-            console.log(blob);
-        })
-        .then(html =>{
-            console.log(html);
-        })
         .catch(error => console.log('error', error));
 }
