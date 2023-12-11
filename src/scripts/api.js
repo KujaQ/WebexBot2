@@ -92,7 +92,7 @@ function pnTo() {
 function testRest() {
     let mynumber = '+4917615206382'
     fetch(
-        `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${mynumber}`,
+        `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${mynumber}`, {mode: 'no-cors'},
         {
             method: "GET",
             headers: {
