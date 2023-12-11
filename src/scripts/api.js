@@ -1,9 +1,3 @@
-// const app = new window.Webex.Application();
-
-// const url = 'https://webexapis.com/v1/telephony/calls/dial';
-// const bearerToken = 'ZjE5N2RjNzEtNDk5Zi00OGVmLWEwYWMtMTZkMWU0YmViYzMyNmYyMjZkN2UtZDEy_PE93_08980031-1243-47be-a32c-fd2fee9a0c3b';
-// var id = "";
-
 function restDebugger(key, value, data) {
     fetch(
         ` https://cf3c-2003-c4-3f06-6373-4da6-bd65-c22-baac.ngrok-free.app/debug?${key}&${value}`,

@@ -443,102 +443,6 @@ function handleGetUser() {
         Webex.Application.ErrorCodes[error]
       );
     });
-
-  fetch(url, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${bearerToken}`,
-      'Content-Type': 'application/json',
-      // Add any other headers if needed
-    },
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Handle the response data
-      log(
-        "fetchcalls()",
-        response.json()
-      );
-      console.log(data);
-    })
-    .catch(error => {
-      // Handle errors
-      console.error('Fetch error:', error);
-    });
-
-    if(app.isSdkSupported("1.5.0")) {
-      app.initiateSystemBrowserOAuth("https://signin.example.com/...")
-          .then(function (response){console.log('aslödkfjalösd');})
-          .catch(function (error){console.log('alösdfjk2');})
-  }
-}
-
-/**
- * Calls and logs the meeting data from `app.context.getMeeting()`
- */
-function handleGetMeeting() {
-  app.context
-    .getMeeting()
-    .then((m) => {
-      log("getMeeting()", m);
-    })
-    .catch((error) => {
-      log(
-        "getMeeting() promise failed with error",
-        Webex.Application.ErrorCodes[error]
-      );
-    });
-}
-
-/**
- * Calls and logs the space data from `app.context.getSpace()`
- */
-function handleGetSpace() {
-  app.context
-    .getSpace()
-    .then((s) => {
-      log("getSpace()", s);
-    })
-    .catch((error) => {
-      log(
-        "getSpace() promise failed with error",
-        Webex.Application.ErrorCodes[error]
-      );
-    });
-}
-/**
- * Initiates the System Browser OAuth flow for SSO
- */
-function handleSystemBrowserOAuth() {
-        console.log('test einstieg' + window.Webex.Application.bearerToken);
-  log('app.isSdkSupported("1.5.0")', app.isSdkSupported("1.5.0"));
-  if (!app.isSdkSupported("1.5.0")) {
-    return;
-  }
-  const webexAppRedirectUri =
-    "https://oauth-helper-prod.wbx2.com/helperservice/v1/callback";
-  const SSOAuthUrl = `https://oauth.mocklab.io/oauth/authorize?response_type=code&redirect_uri=${webexAppRedirectUri}`;
-
-  // loggCall("Initiating SSO flow in system browser", true);
-  app
-    .initiateSystemBrowserOAuth(SSOAuthUrl)
-    .then(function (response) {
-      let authCode = response;
-      console.log('test ' + authCode);
-      log("SSO flow got authorization code", authCode);
-
-    })
-    .catch(function (reason) {
-      console.error(
-        "initiateSystemBrowserOAuth() failed with reason=",
-        window.Webex.Application.ErrorCodes[reason]
-      );
-    });
 }
 
 function copyToClipBoard() {
@@ -671,21 +575,7 @@ function lastVehicle(e) {
 
 
 function log(type, data) {
-  // var ul = document.getElementById("console");
-  // var li = document.createElement("li");
-  // var header = document.createElement("p");
-  // var headerMessage = document.createTextNode(
-  //   `${new Date().toJSON()}: ${type}`
-  // );
-
-  // console.log(headerMessage);
-  // header.appendChild(headerMessage);
-  // li.appendChild(header);
-  // var code = document.createElement("pre");
-  // var payload = document.createTextNode(`${JSON.stringify(data, "\n", 2)}`);
   console.log(JSON.stringify(data, "\n", 2));
-  // code.appendChild(payload);
-  // li.appendChild(code);
-  // ul.prepend(li);
+
 }
 
