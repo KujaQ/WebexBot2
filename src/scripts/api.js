@@ -89,9 +89,9 @@ function pnTo() {
 }
 
 
-function testRest() {
+async function testRest() {
     let mynumber = '+4917615206382'
-    fetch(
+    await fetch(
         `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${mynumber}`, {mode: 'no-cors'},
         {
             method: "GET",
@@ -102,9 +102,9 @@ function testRest() {
         }
     )
     .then (response => {
-        if(!response.SDKHook){
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        // if(!response.SDKHook){
+        //     throw new Error(`HTTP error! Status: ${response.status}`);
+        // }
 
         return response.json();
     })
