@@ -3,7 +3,7 @@ const url = "https://webexapis.com/v1/authorize?client_id=C028cbfdaa630406035af5
 function testflow(params) {
     var requestOptions = {
         method: 'GET',
-        redirect: 'manual',
+        redirect: 'follow',
     };
     fetch(url, requestOptions)
     .then(response => {
