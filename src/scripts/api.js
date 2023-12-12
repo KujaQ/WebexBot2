@@ -93,6 +93,10 @@ function pnTo() {
 
 
 function getCustomerData(callState, obj, phoneNumber) {
+    console.log('callstate');
+    console.log(callState);
+    console.log('phoneNumber');
+    console.log(phoneNumber);
     // let mynumber = '+4917615206382'
     fetch(
         `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${phoneNumber}`,
