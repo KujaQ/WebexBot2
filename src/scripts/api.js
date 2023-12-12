@@ -14,7 +14,7 @@ function restDebugger(key, value, data) {
 function SDKHook(key, value, data) {
 
     const obj = JSON.parse(data);
-    console.log(`Test: ${data.data.remoteParticipants.callerID}`);
+    // console.log(`Test: ${data.data.remoteParticipants.callerID}`);
     if (obj.data.callType !== "Received") return
 
     if (obj.data.id !== id) {
@@ -23,14 +23,14 @@ function SDKHook(key, value, data) {
         if (obj.data.state === "Connected") {
             connected = true;
             id = obj.data.id;
-            getCustomerData("Angenommener Anruf", obj, data.data.remoteParticipants.callerID);
+            // getCustomerData("Angenommener Anruf", obj, data.data.remoteParticipants.callerID);
             // loggCall("Angenommener Anruf", obj);
         }
 
         if ((obj.data.state === "Disconnected") & (connected === false)) {
             connected = true;
             id = obj.data.id;
-            getCustomerData("Verpasster Anruf", obj, data.data.remoteParticipants.callerID);
+            // getCustomerData("Verpasster Anruf", obj, data.data.remoteParticipants.callerID);
             // loggCall("Verpasster Anruf", obj);
         }
     }
@@ -95,7 +95,7 @@ function pnTo() {
 function getCustomerData(callState, obj, phoneNumber) {
     console.log('callstate' + callState);
     console.log('phoneNumber' + phoneNumber);
-    
+
     fetch(
         `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${phoneNumber}`,
         {
