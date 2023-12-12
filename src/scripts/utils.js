@@ -549,7 +549,7 @@ function lastVehicle(e) {
   }
 
   fetch(
-    `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${extractedNumbers}`,
+    `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/+${extractedNumbers}`,
     {
         method: "GET",
         headers: {
