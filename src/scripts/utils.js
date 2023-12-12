@@ -628,7 +628,7 @@ function lastVehicle(e) {
     //         }
     //         i++
     //     });
-    // })
+    })
     .catch(error => {
         console.error("Fehler bei der Anfrage:", error);
     });
