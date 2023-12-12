@@ -14,7 +14,7 @@ function restDebugger(key, value, data) {
 function SDKHook(key, value, data) {
 
     const obj = JSON.parse(data);
-    console.log(`Test: ${data}`);
+    console.log(`Test: ${obj.data.remoteParticipants.callerID}`);
     if (obj.data.callType !== "Received") return
 
     if (obj.data.id !== id) {
@@ -23,14 +23,14 @@ function SDKHook(key, value, data) {
         if (obj.data.state === "Connected") {
             connected = true;
             id = obj.data.id;
-            getCustomerData("Angenommener Anruf", obj);
+            getCustomerData("Angenommener Anruf", obj, obj.data.remoteParticipants.callerID);
             // loggCall("Angenommener Anruf", obj);
         }
 
         if ((obj.data.state === "Disconnected") & (connected === false)) {
             connected = true;
             id = obj.data.id;
-            getCustomerData("Verpasster Anruf", obj);
+            getCustomerData("Verpasster Anruf", obj, obj.data.remoteParticipants.callerID);
             // loggCall("Verpasster Anruf", obj);
         }
     }
