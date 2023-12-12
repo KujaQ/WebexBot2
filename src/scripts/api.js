@@ -96,7 +96,7 @@ function pnTo() {
 
 
 function getCustomerData(callState, obj) {
-// console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj.data.remoteParticipants[0].callerID)
+    // console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj.data.remoteParticipants[0].callerID)
 
     fetch(
         `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${obj.data.remoteParticipants[0].callerID}`,
@@ -108,17 +108,19 @@ function getCustomerData(callState, obj) {
             // body: data,
         }
     )
-    .then(response => {
-        console.log(`response:${response.json()}`);
-    })
-    .then( json => {
-        console.log(json);
-        // loggCall(callState, json);
-    })
-    .then( data => {
-        console.log(`data: ${data}`);
-    })
-    .catch(error => {
-        console.error(`Fetch error:`, error.message);
-    });
+        .then(response => {
+            // Überprüfe, ob die Anfrage erfolgreich war (Status-Code im Bereich 200-299)
+            if (!response.ok) {
+                throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+            }
+
+            // Extrahiere die Antwortdaten und gib sie in der Konsole aus
+            return response.json();
+        })
+        .then(data => {
+            console.log("Antwortdaten:", data);
+        })
+        .catch(error => {
+            console.error("Fehler bei der Anfrage:", error);
+        });
 }
