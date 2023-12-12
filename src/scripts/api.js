@@ -111,7 +111,7 @@ let phoneNumber = '+4917615206382'
         }
     )
     .then(response => {
-        console.log(`response:${response}`);
+        console.log(`response:${response.text}`);
     })
     .then( json => {
         console.log(json);
