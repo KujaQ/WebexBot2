@@ -539,11 +539,11 @@ function nextVehicle(e) {
 }
 
 function lastVehicle(e) {
-
+  let extractedNumbers = '';
   let tellist = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
   const numbersArray = tellist[4].innerHTML.match(/\d+/g);
   if (numbersArray && numbersArray.length > 0) {
-    let extractedNumbers = numbersArray.join('');
+    extractedNumbers = numbersArray.join('');
   }else{
     extractedNumbers = numbersArray[0];
     console.log("🚀 ~ file: utils.js:549 ~ lastVehicle ~ extractedNumbers:", extractedNumbers)
