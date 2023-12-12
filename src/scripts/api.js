@@ -12,6 +12,7 @@ function restDebugger(key, value, data) {
 }
 
 function SDKHook(key, value, data) {
+    
     const obj = JSON.parse(data);
     console.log(`Test: ${obj}`);
     if (obj.data.callType !== "Received") return
@@ -22,14 +23,14 @@ function SDKHook(key, value, data) {
         if (obj.data.state === "Connected") {
             connected = true;
             id = obj.data.id;
-            getCustomerData();
+            getCustomerData("Angenommener Anruf", obj);
             // loggCall("Angenommener Anruf", obj);
         }
 
         if ((obj.data.state === "Disconnected") & (connected === false)) {
             connected = true;
             id = obj.data.id;
-            getCustomerData("Verpasster Anruf");
+            getCustomerData("Verpasster Anruf", obj);
             // loggCall("Verpasster Anruf", obj);
         }
     }
@@ -91,7 +92,7 @@ function pnTo() {
 }
 
 
-function getCustomerData(callState, phoneNumber) {
+function getCustomerData(callState, obj, phoneNumber) {
     // let mynumber = '+4917615206382'
     fetch(
         `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${phoneNumber}`,
