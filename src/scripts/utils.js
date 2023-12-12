@@ -452,8 +452,20 @@ function copyToClipBoard() {
 }
 
 function nextVehicle(e) {
+  let extractedNumbers = '';
+  let tellist = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
+  let liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+  let sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
+
+  const numbersArray = tellist[4].innerHTML.match(/\d+/g);
+  if (numbersArray && numbersArray.length > 0) {
+    extractedNumbers = numbersArray.join('');
+  }else{
+    extractedNumbers = numbersArray[0];
+  }
+
   fetch(
-    `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${obj.data.remoteParticipants[0].callerID}`,
+    `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/+${extractedNumbers}`,
     {
         method: "GET",
         headers: {
@@ -472,11 +484,14 @@ function nextVehicle(e) {
         return response.json();
     })
     .then(data => {
+        console.log("Antwortdaten:", data);
         data = data.getCustomerInformationResult;
+
         currentVehicle++;
-        if (currentVehicle > length) {currentVehicle = 0;}
+        if (currentVehicle >= 0) {currentVehicle = length;}
+
+        console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget:", e.currentTarget)
       
-        liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
         var i = 1;
         liList.forEach(li => {
             switch (i) {
@@ -511,7 +526,6 @@ function nextVehicle(e) {
             i++;
         });
       
-        sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
         liList = sellerInfo[0].querySelectorAll('li');
         var i = 1;
         liList.forEach(li => {
@@ -532,8 +546,6 @@ function nextVehicle(e) {
     .catch(error => {
         console.error("Fehler bei der Anfrage:", error);
     });
-  
-  
 }
 
 function lastVehicle(e) {
