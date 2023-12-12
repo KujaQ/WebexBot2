@@ -14,7 +14,7 @@ function restDebugger(key, value, data) {
 function SDKHook(key, value, data) {
 
     const obj = JSON.parse(data);
-    console.log(`Test: ${obj.data.remoteParticipants.callerID}`);
+    console.log(`Test: ${data.data.remoteParticipants.callerID}`);
     if (obj.data.callType !== "Received") return
 
     if (obj.data.id !== id) {
