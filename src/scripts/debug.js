@@ -1,4 +1,4 @@
-var debugMode = true;
+var debugMode = false;
 var currentVehicle = 0;
 // var data = {
 //     "getCustomerInformationResult": {
