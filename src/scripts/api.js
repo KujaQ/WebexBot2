@@ -96,12 +96,10 @@ function pnTo() {
 
 
 function getCustomerData(callState, obj) {
-console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj.data.remoteParticipants[0].callerID)
-
-let phoneNumber = '+4917615206382'
+// console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj.data.remoteParticipants[0].callerID)
 
     fetch(
-        `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${phoneNumber}`,
+        `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${obj.data.remoteParticipants[0].callerID}`,
         {
             method: "GET",
             headers: {
@@ -111,7 +109,7 @@ let phoneNumber = '+4917615206382'
         }
     )
     .then(response => {
-        console.log(`response:${response.text}`);
+        console.log(`response:${response.toJSON()}`);
     })
     .then( json => {
         console.log(json);
