@@ -540,7 +540,7 @@ function nextVehicle(e) {
 
 function lastVehicle(e) {
 
-  console.log('Parentnode: ' + e.currentTarget.parentNode.parentNode.parentNode);
+  console.log('Parentnode: ' + e.currentTarget.parentNode.parentNode.parentNode.parentNode.innerHTML);
 //   fetch(
 //     `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${obj.data.remoteParticipants[0].callerID}`,
 //     {
