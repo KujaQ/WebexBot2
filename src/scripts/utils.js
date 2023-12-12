@@ -72,16 +72,14 @@ function toggleActive(event) {
 }
 
 function loggCall(type, data) {
-  data = getCustomerData('+4917615206382');
+  // data = getCustomerData('+4917615206382');
   data = data.getCustomerInformationResult;
   // var length = data.vehicleDataList.length - 1;
-  
+
   console.log('klappt');
 
   var darkModeActive = document.getElementById('darkmode-toggle');
-
   var currentDateTime = getCurrentDateTime();
-  
   var calls = document.getElementById('calls');
 
   var call = document.createElement('div');

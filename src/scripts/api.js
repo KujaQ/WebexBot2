@@ -13,7 +13,7 @@ function restDebugger(key, value, data) {
 
 function SDKHook(key, value, data) {
     const obj = JSON.parse(data);
-
+    console.log(`Test: ${obj}`);
     if (obj.data.callType !== "Received") return
 
     if (obj.data.id !== id) {
@@ -22,13 +22,15 @@ function SDKHook(key, value, data) {
         if (obj.data.state === "Connected") {
             connected = true;
             id = obj.data.id;
-            loggCall("Angenommener Anruf", obj);
+            getCustomerData();
+            // loggCall("Angenommener Anruf", obj);
         }
 
         if ((obj.data.state === "Disconnected") & (connected === false)) {
             connected = true;
             id = obj.data.id;
-            loggCall("Verpasster Anruf", obj);
+            getCustomerData("Verpasster Anruf");
+            // loggCall("Verpasster Anruf", obj);
         }
     }
 }
@@ -89,7 +91,7 @@ function pnTo() {
 }
 
 
-function getCustomerData(phoneNumber) {
+function getCustomerData(callState, phoneNumber) {
     // let mynumber = '+4917615206382'
     fetch(
         `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${phoneNumber}`,
@@ -102,20 +104,13 @@ function getCustomerData(phoneNumber) {
         }
     )
     .then(response => {
-        console.log(response);
-        console.log('Response Type:', response.type);
-        if (response.type === 'opaqueredirect') {
-            console.log('Opaque Redirect Response:', response);
-        } else {
-            return response.text();
-        }
     })
     .then( json => {
         console.log(json);
-        return json;
+        loggCall(callState, json);
     })
     .then( data => {
-        console.log(data);
+        // console.log(data);
     })
     .catch(error => {
         console.error(`Fetch error:`, error.message);
