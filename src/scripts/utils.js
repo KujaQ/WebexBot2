@@ -540,6 +540,8 @@ function lastVehicle(e) {
   let extractedNumbers = '';
   let tellist = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
   let liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+  let sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
+
   const numbersArray = tellist[4].innerHTML.match(/\d+/g);
   if (numbersArray && numbersArray.length > 0) {
     extractedNumbers = numbersArray.join('');
@@ -609,7 +611,6 @@ function lastVehicle(e) {
             i++;
         });
       
-        sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
         liList = sellerInfo[0].querySelectorAll('li');
         var i = 1;
         liList.forEach(li => {
