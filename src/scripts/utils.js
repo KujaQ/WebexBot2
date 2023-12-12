@@ -298,28 +298,20 @@ function loggCall(type, data) {
   pageButtonStyle.appendChild(nextButton);
   pageButtons.appendChild(pageButtonStyle);
 
+
   var salesPerson = document.createElement("li");
-  var salesPersonText = document.createTextNode(
-    `Name: Peter Schmittinger`
-  );
+  var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);
   salesPerson.appendChild(salesPersonText);
 
   var salesPhone = document.createElement("li");
   var salesPhoneText = document.createTextNode(
-    `Telefonnummer Mobil: 0157 123456789`
+      `Tel. Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`
   );
   salesPhone.appendChild(salesPhoneText);
 
-  var salesPhoneMobil = document.createElement("li");
-  var salesPhoneMobilText = document.createTextNode(
-    `Telefonnummer: 02652 123456789`
-  );
-  salesPhoneMobil.appendChild(salesPhoneMobilText);
 
   var salesEmail = document.createElement("li");
-  var salesEmailText = document.createTextNode(
-    `Email: Peter Schmittinger`
-  );
+  var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`);
   salesEmail.appendChild(salesEmailText);
 
   var emailDiv = document.createElement("div");
