@@ -96,6 +96,7 @@ function pnTo() {
 
 function getCustomerData(callState, obj, phoneNumber) {
 console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj)
+console.log(obj.remoteParticipants.callerID);
 console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ phoneNumber:", phoneNumber)
 console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ callState:", callState)
 
