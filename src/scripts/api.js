@@ -14,6 +14,7 @@ function restDebugger(key, value, data) {
 function SDKHook(key, value, data) {
 
     const obj = JSON.parse(data);
+    console.log("🚀 ~ file: api.js:17 ~ SDKHook ~ data:", data)
     var phoneNumberData = obj.data.remoteParticipants.callerID;
     console.log(`Test: ${phoneNumberData}`);
     if (obj.data.callType !== "Received") return
@@ -94,8 +95,10 @@ function pnTo() {
 
 
 function getCustomerData(callState, obj, phoneNumber) {
-    console.log('callstate' + callState);
-    console.log('phoneNumber' + phoneNumber);
+console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj)
+console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ phoneNumber:", phoneNumber)
+console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ callState:", callState)
+
 
     fetch(
         `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${phoneNumber}`,
