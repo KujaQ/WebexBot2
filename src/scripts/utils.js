@@ -542,6 +542,7 @@ function lastVehicle(e) {
 
   let tellist = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
   const numbersArray = tellist[4].innerHTML.match(/\d+/g);
+  console.log("🚀 ~ file: utils.js:545 ~ lastVehicle ~ numbersArray:", numbersArray)
   console.log("🚀 ~ file: utils.js:545 ~ lastVehicle ~ tellist[4].innerHTML:", tellist[4].innerHTML)
   if (numbersArray && numbersArray.length > 0) {
     let extractedNumbers = numbersArray.join('');
