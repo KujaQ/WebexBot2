@@ -539,13 +539,13 @@ function nextVehicle(e) {
 function lastVehicle(e) {
   let extractedNumbers = '';
   let tellist = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
+  let liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+  console.log("🚀 ~ file: utils.js:543 ~ lastVehicle ~ liList:", liList)
   const numbersArray = tellist[4].innerHTML.match(/\d+/g);
   if (numbersArray && numbersArray.length > 0) {
     extractedNumbers = numbersArray.join('');
-    console.log("🚀 ~ file: utils.js:545 ~ lastVehicle ~ extractedNumbers:", extractedNumbers)
   }else{
     extractedNumbers = numbersArray[0];
-    console.log("🚀 ~ file: utils.js:549 ~ lastVehicle ~ extractedNumbers:", extractedNumbers)
   }
 
   fetch(
@@ -574,9 +574,8 @@ function lastVehicle(e) {
         currentVehicle--;
         if (currentVehicle < 0) {currentVehicle = length;}
 
-        console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li'):", e.currentTarget.parentNode.innerHTML)
+        console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget:", e.currentTarget)
       
-    //     liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
     //     var i = 1;
     //     liList.forEach(li => {
     //         switch (i) {
