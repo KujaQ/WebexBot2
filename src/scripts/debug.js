@@ -1,75 +1,75 @@
 var debugMode = true;
 var currentVehicle = 0;
-var data = {
-    "getCustomerInformationResult": {
-        "customerData": {
-            "city": "KOblenz",
-            "eMailBusiness": "eMail@Business.de",
-            "eMailPrivate": "eMail@Privat.de",
-            "firstName": "Lars",
-            "handyNoBusiness": "01756213163",
-            "handyNoPrivate": "016765128974",
-            "lastName": "Schaub",
-            "no": "122492",
-            "phoneNo": "",
-            "phoneNoBusiness": "0261/73293",
-            "phoneNoPrivate": "0261/47641",
-            "postCode": "56001"
-        },
-        "serviceOrder": {
-            "DocNo": "WVAN007945",
-            "OrderDate": "29.11.2023",
-            "VIN": "W0L0HAF682G020477"
-        },
-        "vehicleDataList": [
-            {
-                "Color": "rot",
-                "Plate": "KO-AS 499",
-                "brand": "OPEL",
-                "customerNo": "122492",
-                "customerRegistrationDate": "25.02.2020",
-                "dateLastServiceContact": "09.09.2021",
-                "firstRegistrationDate": "14.03.02",
-                "milage": "12200",
-                "model": "Corsa",
-                "salesPerson": {
-                    "code": "31",
-                    "eMail": "AhmetG@Mail.com",
-                    "firstName": "Ahmet",
-                    "lastName": "Gezer",
-                    "phoneNo": "0196 666 666"
-                },
-                "salesPersonCode": "31",
-                "vin": "W0L0HAF682G021208"
-            },
-            {
-                "Color": "rotx",
-                "Plate": "KO-AS 499x",
-                "brand": "FIAT",
-                "customerNo": "122492x",
-                "customerRegistrationDate": "25.02.2020x",
-                "dateLastServiceContact": "09.09.2021x",
-                "firstRegistrationDate": "14.03.02x",
-                "milage": "12200x",
-                "model": "Schrotthaufenx",
-                "salesPerson": {
-                    "code": "31x",
-                    "eMail": "AhmetG@Mail.comx",
-                    "firstName": "Ahmetx",
-                    "lastName": "Gezerx",
-                    "phoneNo": "0196 666 666x"
-                },
-                "salesPersonCode": "31x",
-                "vin": "W0L0HAF682G021208x"
-            }
-        ]
-    }
-}
+// var data = {
+//     "getCustomerInformationResult": {
+//         "customerData": {
+//             "city": "KOblenz",
+//             "eMailBusiness": "eMail@Business.de",
+//             "eMailPrivate": "eMail@Privat.de",
+//             "firstName": "Lars",
+//             "handyNoBusiness": "01756213163",
+//             "handyNoPrivate": "016765128974",
+//             "lastName": "Schaub",
+//             "no": "122492",
+//             "phoneNo": "",
+//             "phoneNoBusiness": "0261/73293",
+//             "phoneNoPrivate": "0261/47641",
+//             "postCode": "56001"
+//         },
+//         "serviceOrder": {
+//             "DocNo": "WVAN007945",
+//             "OrderDate": "29.11.2023",
+//             "VIN": "W0L0HAF682G020477"
+//         },
+//         "vehicleDataList": [
+//             {
+//                 "Color": "rot",
+//                 "Plate": "KO-AS 499",
+//                 "brand": "OPEL",
+//                 "customerNo": "122492",
+//                 "customerRegistrationDate": "25.02.2020",
+//                 "dateLastServiceContact": "09.09.2021",
+//                 "firstRegistrationDate": "14.03.02",
+//                 "milage": "12200",
+//                 "model": "Corsa",
+//                 "salesPerson": {
+//                     "code": "31",
+//                     "eMail": "AhmetG@Mail.com",
+//                     "firstName": "Ahmet",
+//                     "lastName": "Gezer",
+//                     "phoneNo": "0196 666 666"
+//                 },
+//                 "salesPersonCode": "31",
+//                 "vin": "W0L0HAF682G021208"
+//             },
+//             {
+//                 "Color": "rotx",
+//                 "Plate": "KO-AS 499x",
+//                 "brand": "FIAT",
+//                 "customerNo": "122492x",
+//                 "customerRegistrationDate": "25.02.2020x",
+//                 "dateLastServiceContact": "09.09.2021x",
+//                 "firstRegistrationDate": "14.03.02x",
+//                 "milage": "12200x",
+//                 "model": "Schrotthaufenx",
+//                 "salesPerson": {
+//                     "code": "31x",
+//                     "eMail": "AhmetG@Mail.comx",
+//                     "firstName": "Ahmetx",
+//                     "lastName": "Gezerx",
+//                     "phoneNo": "0196 666 666x"
+//                 },
+//                 "salesPersonCode": "31x",
+//                 "vin": "W0L0HAF682G021208x"
+//             }
+//         ]
+//     }
+// }
 
 
 
-data = data.getCustomerInformationResult;
-var length = data.vehicleDataList.length - 1;
+// data = data.getCustomerInformationResult;
+// var length = data.vehicleDataList.length - 1;
 
 
 function quickdebug(color) {

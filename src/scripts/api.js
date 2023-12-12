@@ -89,10 +89,10 @@ function pnTo() {
 }
 
 
-function testRest() {
-    let mynumber = '+4917615206382'
+function getCustomerData(phoneNumber) {
+    // let mynumber = '+4917615206382'
     fetch(
-        `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${mynumber}`,
+        `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${phoneNumber}`,
         {
             method: "GET",
             headers: {
@@ -112,6 +112,7 @@ function testRest() {
     })
     .then( json => {
         console.log(json);
+        return json;
     })
     .then( data => {
         console.log(data);
