@@ -76,7 +76,6 @@ function loggCall(type, data) {
   data = data.getCustomerInformationResult;
   var length = data.vehicleDataList.length - 1;
 
-  console.log('klappt');
 
   var darkModeActive = document.getElementById('darkmode-toggle');
   var currentDateTime = getCurrentDateTime();
@@ -473,7 +472,6 @@ function nextVehicle(e) {
         return response.json();
     })
     .then(data => {
-        console.log("Antwortdaten:", data);
         data = data.getCustomerInformationResult;
         currentVehicle++;
         if (currentVehicle > length) {currentVehicle = 0;}
@@ -549,7 +547,6 @@ function lastVehicle(e) {
     console.log("🚀 ~ file: utils.js:549 ~ lastVehicle ~ extractedNumbers:", extractedNumbers)
   }
 
-  console.log('Parentnode: ' + e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li'));
   fetch(
     `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${extractedNumbers}`,
     {

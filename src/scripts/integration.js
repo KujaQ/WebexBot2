@@ -26,10 +26,7 @@ function testtoken() {
     };
     fetch(url, requestOptions)
     .then(response => {
-        console.log(response);
-        console.log('Response Type:', response.type);
         if (response.type === 'opaqueredirect') {
-            console.log('Opaque Redirect Response:', response);
         } else {
             return response.text();
         }
