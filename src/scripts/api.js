@@ -105,13 +105,14 @@ function getCustomerData(callState, obj, phoneNumber) {
         }
     )
     .then(response => {
+        console.log(`response:${response}`);
     })
     .then( json => {
         console.log(json);
         loggCall(callState, json);
     })
     .then( data => {
-        // console.log(data);
+        console.log(`data: ${data}`);
     })
     .catch(error => {
         console.error(`Fetch error:`, error.message);
