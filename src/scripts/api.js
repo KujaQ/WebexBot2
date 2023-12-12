@@ -17,7 +17,7 @@ function SDKHook(key, value, data) {
     // console.log("🚀 ~ file: api.js:17 ~ SDKHook ~ data:", data)
     // var phoneNumberData = obj.data.remoteParticipants.callerID;
     // console.log(`Test: ${phoneNumberData}`);
-    
+
     if (obj.data.callType !== "Received") return
 
     if (obj.data.id !== id) {
@@ -96,7 +96,7 @@ function pnTo() {
 
 
 function getCustomerData(callState, obj) {
-console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj)
+console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj.remoteParticipants)
 console.log('testasdfklhjas dljkfh ' + obj.remoteParticipants.callerID);
 console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ callState:", callState)
 
@@ -117,7 +117,7 @@ let phoneNumber = '+4917615206382'
     })
     .then( json => {
         console.log(json);
-        loggCall(callState, json);
+        // loggCall(callState, json);
     })
     .then( data => {
         console.log(`data: ${data}`);
