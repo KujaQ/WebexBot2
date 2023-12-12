@@ -576,59 +576,59 @@ function lastVehicle(e) {
 
         console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li'):", e.currentTarget.parentNode.innerHTML)
       
-        liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
-        var i = 1;
-        liList.forEach(li => {
-            switch (i) {
-                case 1:
-                    li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
-                    break;
-                case 2:
-                    li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
-                    break;
-                case 3:
-                    li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
-                    break;
-                case 4:
-                    li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
-                    break;
-                case 5:
-                    li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
-                    break;
-                case 6:
-                    li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
-                    break;
-                case 7:
-                    li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
-                    break;
-                case 8:
-                    li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
-                    break;
-                case 9:
-                    li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
-                    break;
-            }
-            i++;
-        });
+    //     liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
+    //     var i = 1;
+    //     liList.forEach(li => {
+    //         switch (i) {
+    //             case 1:
+    //                 li.innerHTML = `Marke: ${data.vehicleDataList[currentVehicle].brand}`;
+    //                 break;
+    //             case 2:
+    //                 li.innerHTML = `Model: ${data.vehicleDataList[currentVehicle].model}`;
+    //                 break;
+    //             case 3:
+    //                 li.innerHTML = `VIN: ${data.vehicleDataList[currentVehicle].vin}`;
+    //                 break;
+    //             case 4:
+    //                 li.innerHTML = `Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`;
+    //                 break;
+    //             case 5:
+    //                 li.innerHTML = `Farbe: ${data.vehicleDataList[currentVehicle].Color}`;
+    //                 break;
+    //             case 6:
+    //                 li.innerHTML = `Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`;
+    //                 break;
+    //             case 7:
+    //                 li.innerHTML = `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`;
+    //                 break;
+    //             case 8:
+    //                 li.innerHTML = `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`;
+    //                 break;
+    //             case 9:
+    //                 li.innerHTML = `Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`;
+    //                 break;
+    //         }
+    //         i++;
+    //     });
       
-        sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
-        liList = sellerInfo[0].querySelectorAll('li');
-        var i = 1;
-        liList.forEach(li => {
-            switch (i) {
-                case 1:
-                    li.innerHTML = `Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName}  ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`;
-                    break;
-                case 2:
-                    li.innerHTML = `Tel.Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`;
-                    break;
-                case 3:
-                    li.innerHTML = `Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`;
-                    break;
-            }
-            i++
-        });
-    })
+    //     sellerInfo = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelectorAll('div.sellerInformations');
+    //     liList = sellerInfo[0].querySelectorAll('li');
+    //     var i = 1;
+    //     liList.forEach(li => {
+    //         switch (i) {
+    //             case 1:
+    //                 li.innerHTML = `Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName}  ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`;
+    //                 break;
+    //             case 2:
+    //                 li.innerHTML = `Tel.Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`;
+    //                 break;
+    //             case 3:
+    //                 li.innerHTML = `Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`;
+    //                 break;
+    //         }
+    //         i++
+    //     });
+    // })
     .catch(error => {
         console.error("Fehler bei der Anfrage:", error);
     });
