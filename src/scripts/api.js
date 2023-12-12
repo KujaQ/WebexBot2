@@ -96,8 +96,7 @@ function pnTo() {
 
 
 function getCustomerData(callState, obj) {
-console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj.remoteParticipants)
-console.log('testasdfklhjas dljkfh ' + obj.remoteParticipants.callerID);
+console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ obj:", obj.remoteParticipants[0].callerID)
 console.log("🚀 ~ file: api.js:98 ~ getCustomerData ~ callState:", callState)
 
 let phoneNumber = '+4917615206382'
