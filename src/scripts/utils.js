@@ -542,10 +542,11 @@ function lastVehicle(e) {
 
   let tellist = e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
   const numbersArray = tellist[4].innerHTML.match(/\d+/g);
-  let extractedNumbers = numbersArray.join('');
-  console.log("🚀 ~ file: utils.js:546 ~ lastVehicle ~ extractedNumbers:", extractedNumbers)
-
   if (numbersArray && numbersArray.length > 0) {
+    let extractedNumbers = numbersArray.join('');
+  }else{
+    extractedNumbers = numbersArray[0];
+    console.log("🚀 ~ file: utils.js:549 ~ lastVehicle ~ extractedNumbers:", extractedNumbers)
   }
 
   console.log('Parentnode: ' + e.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li'));
