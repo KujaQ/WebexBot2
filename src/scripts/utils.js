@@ -74,7 +74,7 @@ function toggleActive(event) {
 function loggCall(type, data) {
   // data = getCustomerData('+4917615206382');
   data = data.getCustomerInformationResult;
-  // var length = data.vehicleDataList.length - 1;
+  var length = data.vehicleDataList.length - 1;
 
   console.log('klappt');
 
