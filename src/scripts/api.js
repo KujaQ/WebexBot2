@@ -23,14 +23,14 @@ function SDKHook(key, value, data) {
         if (obj.data.state === "Connected") {
             connected = true;
             id = obj.data.id;
-            getCustomerData("Angenommener Anruf", obj, obj.data.remoteParticipants.callerID);
+            getCustomerData("Angenommener Anruf", obj, data.data.remoteParticipants.callerID);
             // loggCall("Angenommener Anruf", obj);
         }
 
         if ((obj.data.state === "Disconnected") & (connected === false)) {
             connected = true;
             id = obj.data.id;
-            getCustomerData("Verpasster Anruf", obj, obj.data.remoteParticipants.callerID);
+            getCustomerData("Verpasster Anruf", obj, data.data.remoteParticipants.callerID);
             // loggCall("Verpasster Anruf", obj);
         }
     }
