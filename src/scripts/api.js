@@ -109,7 +109,7 @@ function getCustomerData(callState, obj) {
         }
     )
     .then(response => {
-        console.log(`response:${response.text()}`);
+        console.log(`response:${response.json()}`);
     })
     .then( json => {
         console.log(json);
