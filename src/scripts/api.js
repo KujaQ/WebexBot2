@@ -119,7 +119,7 @@ function getCustomerData(callState, obj) {
         })
         .then(data => {
             console.log("Antwortdaten:", data);
-            loggCall(callState, json);
+            loggCall(callState, data);
         })
         .catch(error => {
             console.error("Fehler bei der Anfrage:", error);
