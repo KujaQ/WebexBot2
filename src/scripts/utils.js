@@ -574,7 +574,7 @@ function lastVehicle(e) {
         currentVehicle--;
         if (currentVehicle < 0) {currentVehicle = length;}
 
-        console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li'):", e.currentTarget.parentNode.parentNode.parentNode.innerHTML)
+        console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li'):", e.currentTarget.parentNode.innerHTML)
       
         liList = e.currentTarget.parentNode.parentNode.parentNode.querySelectorAll('li');
         var i = 1;
