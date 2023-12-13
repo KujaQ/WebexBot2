@@ -20,7 +20,10 @@ function testflow3() {
         console.log('Parameter Value:', parameterValue);
         var requestOptions = {
             method: 'POST',
-            redirect: 'follow'
+            redirect: 'follow',
+            headers: {
+                "Content-Type": "application/json",
+            }
         };
 
         fetch(`https://webexapis.com/v1/access_token?grant_type=authorization_code&client_id=C028cbfdaa630406035af50165877c7645bd3040510941fe0e4de5eaa6ac03e62&client_secret=9dac7d21363a1d8a255101324572a0a4dc9c54df57f4c98c84bf32ca197fda91&code=${parameterValue}&redirect_uri=https://kujaq.github.io/WebexBot2/`, requestOptions)
