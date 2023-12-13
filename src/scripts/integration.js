@@ -17,6 +17,12 @@ function testflow3() {
     const parameterValue = urlParams.get('code');
     console.log("🚀 ~ file: integration.js:18 ~ testflow3 ~ parameterValue:", parameterValue)
 
+
+    // Iterate through all parameters
+    urlParams.forEach((value, key) => {
+        console.log(`${key}: ${value}`);
+    });
+
     // Check if the parameter value exists
     if (parameterValue !== null) {
         console.log('Parameter Value:', parameterValue);
