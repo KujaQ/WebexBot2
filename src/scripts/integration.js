@@ -15,6 +15,7 @@ function testflow3() {
 
     // Get the value of a specific query parameter
     const parameterValue = urlParams.get('code');
+    console.log("🚀 ~ file: integration.js:18 ~ testflow3 ~ parameterValue:", parameterValue)
 
     // Check if the parameter value exists
     if (parameterValue !== null) {
