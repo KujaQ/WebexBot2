@@ -36,12 +36,3 @@ function testflow3() {
         console.log('Parameter not found or has no value.');
     }
 }
-
-
-
-
-
-fetch("https://webexapis.com/v1/access_token?grant_type=authorization_code&client_id=C06c3eff2130928e1eda4d75e9d68602122f39bc04bd4dcf38256e030b185a85a&client_secret=1264d72ce05fa76a4eb797dd007e4039ca10b90fe5777e47eb99a36aa47ef7e8&code=OTIzZjQzMTMtZjFiYi00MGQ4LWFlMzktOGMzZDMzNDdjNDhlNjUzOWU1MDMtOTU1_PE93_08980031-1243-47be-a32c-fd2fee9a0c3b&redirect_uri=https://kujaq.github.io/WebexBot2/", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
