@@ -10,6 +10,7 @@ function testflow3() {
 
     // Create a URLSearchParams object with the current URL
     const urlParams = new URLSearchParams(currentUrl);
+    console.log("🚀 ~ file: integration.js:13 ~ testflow3 ~ urlParams:", urlParams)
 
     // Get the value of a specific query parameter
     const parameterValue = urlParams.get('code');
