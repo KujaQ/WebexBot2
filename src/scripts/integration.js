@@ -7,25 +7,25 @@ function testflow2() {
 function testflow3() {
     // Get the current URL
     const currentUrl = window.location.href;
-    console.log("🚀 ~ file: integration.js:10 ~ testflow3 ~ currentUrl:", currentUrl)
 
     // Create a URLSearchParams object with the current URL
     const urlParams = new URLSearchParams(currentUrl);
-    console.log("🚀 ~ file: integration.js:13 ~ testflow3 ~ urlParams:", urlParams)
 
     // Get the value of a specific query parameter
     const parameterValue = urlParams.get('https://kujaq.github.io/WebexBot2/?code');
-    console.log("🚀 ~ file: integration.js:18 ~ testflow3 ~ parameterValue:", parameterValue)
-
-
-    // Iterate through all parameters
-    urlParams.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
-    });
 
     // Check if the parameter value exists
     if (parameterValue !== null) {
         console.log('Parameter Value:', parameterValue);
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch(`https://webexapis.com/v1/access_token?grant_type=authorization_code&client_id=C028cbfdaa630406035af50165877c7645bd3040510941fe0e4de5eaa6ac03e62&client_secret=9dac7d21363a1d8a255101324572a0a4dc9c54df57f4c98c84bf32ca197fda91&code=${parameterValue}&redirect_uri=https://kujaq.github.io/WebexBot2/`, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     } else {
         console.log('Parameter not found or has no value.');
     }
