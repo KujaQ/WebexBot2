@@ -2,7 +2,7 @@ function testflow2() {
     window.location.href = urlflow
 }
 
-function testflow2() {
+function testflow3() {
     // Get the current URL
     const currentUrl = window.location.href;
 
