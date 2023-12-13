@@ -34,3 +34,7 @@ function testtoken() {
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }
+
+function testflow2(){
+window.location.href = urlflow
+}
