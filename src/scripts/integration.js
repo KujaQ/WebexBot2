@@ -7,6 +7,7 @@ function testflow2() {
 function testflow3() {
     // Get the current URL
     const currentUrl = window.location.href;
+    console.log("🚀 ~ file: integration.js:10 ~ testflow3 ~ currentUrl:", currentUrl)
 
     // Create a URLSearchParams object with the current URL
     const urlParams = new URLSearchParams(currentUrl);
