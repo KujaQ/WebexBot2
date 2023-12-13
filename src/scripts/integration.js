@@ -14,7 +14,7 @@ function testflow3() {
     console.log("🚀 ~ file: integration.js:13 ~ testflow3 ~ urlParams:", urlParams)
 
     // Get the value of a specific query parameter
-    const parameterValue = urlParams.get('code');
+    const parameterValue = urlParams.get('https://kujaq.github.io/WebexBot2/?code');
     console.log("🚀 ~ file: integration.js:18 ~ testflow3 ~ parameterValue:", parameterValue)
 
 
