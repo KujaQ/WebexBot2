@@ -121,3 +121,30 @@ function getCustomerData(callState, obj) {
             console.error("Fehler bei der Anfrage:", error);
         });
 }
+
+function getCustomerDataTest(tel){
+    fetch(
+        `https://calldata1.haeusler.local:4443/webExBot/getCustomerInformation/${tel}`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    )
+        .then(response => {
+            // Überprüfe, ob die Anfrage erfolgreich war (Status-Code im Bereich 200-299)
+            if (!response.ok) {
+                throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+            }
+
+            // Extrahiere die Antwortdaten und gib sie in der Konsole aus
+            return response.json();
+        })
+        .then(data => {
+            console.log("Antwortdaten:", data);
+        })
+        .catch(error => {
+            console.error("Fehler bei der Anfrage:", error);
+        });
+}

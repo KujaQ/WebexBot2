@@ -415,16 +415,10 @@ function loggCall(type, data) {
   calls.prepend(call);
 }
 
-/**
- * Logs the app object from `new window.Webex.Application();`
- */
 function handleDisplayAppInfo() {
   log("Webex Embedded App Application Object", app);
 }
 
-/**
- * Calls and logs the user data from `app.context.getUser()`
- */
 function handleGetUser() {
   app.context
     .getUser()
