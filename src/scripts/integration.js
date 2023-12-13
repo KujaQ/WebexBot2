@@ -19,7 +19,7 @@ function testflow3() {
     if (parameterValue !== null) {
         console.log('Parameter Value:', parameterValue);
         var requestOptions = {
-            method: 'GET',
+            method: 'POST',
             redirect: 'follow'
         };
 
