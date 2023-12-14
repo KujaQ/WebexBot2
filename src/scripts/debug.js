@@ -324,9 +324,10 @@ function quickdebug(color) {
     webexMessageButton.classList.add("is-info");
 
     webexMessageButton.id = "webexMessageButton";
-    webexMessageButton.onclick = function () {
-        pnTo("webexMessageButton", "Event");
-    };
+    webexMessageButton.onclick = (e) => {
+        pnTo(e);
+        e.stopPropagation();
+    }
 
     var info1Ul = document.createElement("ul");
 
