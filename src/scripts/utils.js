@@ -324,6 +324,9 @@ function loggCall(type, data) {
   emailInput.classList.add('has-text-dark');
   emailInput.classList.add('emailInput');
   emailInput.placeholder = 'E-Mail'
+  emailInput.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
   emailDiv.appendChild(emailInput);
 
   var recallButton = document.createElement('button');
