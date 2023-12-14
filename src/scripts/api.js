@@ -60,11 +60,31 @@ function recall(destination) {
 }
 
 function mailTo(e) {
-    console.log("🚀 ~ file: api.js:64 ~ mailTo ~ e:", e)
-    console.log(e.currentTarget);
-    destination = 'testkevboy@gmail.com';
-    body = 'testshit';
-    // window.location.href = `mailto:${destination}?subject=Bitte um Kundenrückruf&body=${body}`;
+    let body = '';
+    destination = e.currentTarget.parentNode.querySelectorAll('input')[0].value;
+    let tellist = e.currentTarget.parentNode.parentNode.querySelector('div.personalData').querySelectorAll('li')
+    let tellist2 = e.currentTarget.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
+    let tellist3 = e.currentTarget.parentNode.parentNode.querySelector('div.vehicleData').querySelectorAll('li')
+    let tellist4 = e.currentTarget.parentNode.parentNode.querySelector('div.sellerInformations').querySelectorAll('li')
+    tellist.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
+    tellist2.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
+    tellist3.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
+    tellist4.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
+
+    body = encodeURIComponent(body);
+    window.location.href = `mailto:${destination}?subject=Bitte um Kundenrückruf&body=${body}`;
 }
 
 function pnTo(e) {
