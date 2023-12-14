@@ -73,7 +73,7 @@ function toggleActive(event) {
   }
 }
 
-function loggCall(type, data) {
+function loggCall(type, data, incommingTel) {
   // data = getCustomerData('+4917615206382');
   data = data.getCustomerInformationResult;
   var length = data.vehicleDataList.length - 1;
@@ -150,6 +150,12 @@ function loggCall(type, data) {
   callState.prepend(header);
 
   //Person
+  var incoNo = document.createElement("li");
+  var incoNoText = document.createTextNode(
+      `Eingegangene Nr.: ${incommingTel}`
+  );
+  incoNo.appendChild(incoNoText);
+
   var customerNo = document.createElement("li");
   var customerNoText = document.createTextNode(
       `Debitor Nr.: ${data.customerData.no}`
@@ -363,6 +369,7 @@ function loggCall(type, data) {
 
   var info1Ul = document.createElement("ul");
 
+  info1Ul.appendChild(incoNo);
   info1Ul.appendChild(customerNo);
   info1Ul.appendChild(customerName);
   info1Ul.appendChild(customerPlz);

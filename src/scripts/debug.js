@@ -52,7 +52,7 @@ data = data.getCustomerInformationResult;
 var length = data.vehicleDataList.length - 1;
 
 
-function quickdebug(color) {
+function quickdebug(color, incommingTel) {
     var currentDateTime = getCurrentDateTime();
 
     var calls = document.getElementById("calls");
@@ -120,6 +120,12 @@ function quickdebug(color) {
     callState.prepend(header);
 
     //Person
+    var incoNo = document.createElement("li");
+    var incoNoText = document.createTextNode(
+        `Eingegangene Nr.: ${incommingTel}`
+    );
+    incoNo.appendChild(incoNoText);
+
     var customerNo = document.createElement("li");
     var customerNoText = document.createTextNode(
         `Debitor Nr.: ${data.customerData.no}`
@@ -303,8 +309,8 @@ function quickdebug(color) {
     recallButton.classList.add("is-success");
 
     recallButton.id = "recallButton";
-    recallButton.onclick = function () {
-        recall("+4915734692268");
+    recallButton.onclick = (e) => {
+        recall(e);
     };
 
     var mailToButton = document.createElement("button");
@@ -331,6 +337,7 @@ function quickdebug(color) {
 
     var info1Ul = document.createElement("ul");
 
+    info1Ul.appendChild(incoNo);
     info1Ul.appendChild(customerNo);
     info1Ul.appendChild(customerName);
     info1Ul.appendChild(customerPlz);
@@ -391,5 +398,5 @@ function quickdebug(color) {
 }
 
 if (debugMode === true) {
-    quickdebug("green");
+    quickdebug("green", '+4915734692268');
 }

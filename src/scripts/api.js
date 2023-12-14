@@ -36,14 +36,17 @@ function SDKHook(key, value, data) {
     }
 }
 
-function recall(destination) {
+function recall(e) {
+    let tellist = e.currentTarget.parentNode.parentNode.querySelector('div.personalData').querySelectorAll('li')
+    let destination = tellist[0].innerHTML
+    let trimmedDestination = destination.replace('Eingegangene Nr.: ', '');
     checkCookie();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${WebexToken}`);
 
     var raw = JSON.stringify({
-        "destination": `${destination}`
+        "destination": `${trimmedDestination}`
     });
 
     var requestOptions = {
@@ -157,7 +160,7 @@ function getCustomerData(callState, obj) {
         })
         .then(data => {
             console.log("Antwortdaten:", data);
-            loggCall(callState, data);
+            loggCall(callState, data, obj.data.remoteParticipants[0].callerID);
         })
         .catch(error => {
             console.error("Fehler bei der Anfrage:", error);
