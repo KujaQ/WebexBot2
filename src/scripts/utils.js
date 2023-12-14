@@ -343,9 +343,10 @@ function loggCall(type, data) {
   mailToButton.classList.add("is-link");
 
   mailToButton.id = 'mailToButton';
-  mailToButton.onclick = function () {
+  mailToButton.addEventListener('click', (e) => {
+    e.stopPropagation();
     mailTo("mailToButton", "Event");
-  };
+  });
 
   var webexMessageButton = document.createElement('button');
   webexMessageButton.innerHTML = 'PN Senden';
@@ -353,9 +354,10 @@ function loggCall(type, data) {
   webexMessageButton.classList.add("is-info");
 
   webexMessageButton.id = 'webexMessageButton';
-  webexMessageButton.onclick = function () {
+  webexMessageButton.addEventListener('click', (e) => {
+    e.stopPropagation();
     pnTo("webexMessageButton", "Event");
-  };
+  });
 
   var info1Ul = document.createElement("ul");
 
