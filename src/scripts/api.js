@@ -91,7 +91,7 @@ function pnTo(e) {
     checkCookie();
     destination = e.currentTarget.parentNode.querySelectorAll('input')[0].value;
 
-    let body = '';
+    let body = 'Der Kunde bittet um Rückruf \n';
     let tellist = e.currentTarget.parentNode.parentNode.querySelector('div.personalData').querySelectorAll('li')
     let tellist2 = e.currentTarget.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
     let tellist3 = e.currentTarget.parentNode.parentNode.querySelector('div.vehicleData').querySelectorAll('li')
