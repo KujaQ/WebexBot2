@@ -9,7 +9,6 @@ function testflow2() {
 function testflow3() {
     // Get the current URL
     const currentUrl = window.location.href;
-    console.log("🚀 ~ file: integration.js:10 ~ testflow3 ~ currentUrl:", currentUrl)
 
     // Create a URLSearchParams object with the current URL
     const urlParams = new URLSearchParams(currentUrl);
@@ -19,7 +18,6 @@ function testflow3() {
 
     // Check if the parameter value exists
     if (parameterValue !== null) {
-        console.log('Parameter Value:', parameterValue);
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
         var requestOptions = {
@@ -29,10 +27,41 @@ function testflow3() {
         };
 
         fetch(`https://webexapis.com/v1/access_token?grant_type=authorization_code&client_id=${clientId}&client_secret=${clientSecret}&code=${parameterValue}&redirect_uri=https://kujaq.github.io/WebexBot2/`, requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
+            .then(response => response.json())
+            .then(result => console.log(result.access_token))
             .catch(error => console.log('error', error));
     } else {
         console.log('Parameter not found or has no value.');
     }
 }
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    WebexToken = getCookie("WebexToken");
+    if (WebexToken != "") {
+        alert("Welcome again " + WebexToken);
+    }
+}
+
+setCookie('WebexToken', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789123456789', 7)

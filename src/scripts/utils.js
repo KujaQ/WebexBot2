@@ -3,7 +3,7 @@
  * @param {String} type Label of the information about to be logged
  * @param {Object} data Object that can be JSON stringified
  */
-
+let WebexToken = '';
 
 function getCurrentDateTime() {
   const now = new Date();
@@ -484,7 +484,6 @@ function nextVehicle(e) {
         currentVehicle++;
         if (currentVehicle >= 0) {currentVehicle = length;}
 
-        console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget:", e.currentTarget)
       
         var i = 1;
         liList.forEach(li => {
@@ -581,7 +580,6 @@ function lastVehicle(e) {
         currentVehicle--;
         if (currentVehicle < 0) {currentVehicle = length;}
 
-        console.log("🚀 ~ file: utils.js:577 ~ lastVehicle ~ e.currentTarget:", e.currentTarget)
       
         var i = 1;
         liList.forEach(li => {
