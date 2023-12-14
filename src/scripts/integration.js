@@ -52,9 +52,12 @@ function getBearerTokenWithRefresh() {
         .then(response => response.text())
         .then(result => {
             console.log(result);
+            console.log("🚀 ~ file: integration.js:58 ~ getBearerTokenWithRefresh ~ result.refresh_token:", result.refresh_token)
+            console.log("🚀 ~ file: integration.js:58 ~ getBearerTokenWithRefresh ~ result.access_token:", result.access_token)
             setCookie('WebexToken', result.access_token, 10)
             setCookie('WebexRefreshToken', result.refresh_token, 30)
         })
+
         .catch(error => console.log('error', error));
 }
 
