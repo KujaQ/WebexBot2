@@ -332,8 +332,10 @@ function loggCall(type, data) {
   recallButton.classList.add("is-success");
 
   recallButton.id = 'recallButton';
-  recallButton.onclick = function () {
-    recall('+4915734692268');
+  recallButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    recall('+4915734692268')
+});
   };
 
   var mailToButton = document.createElement('button');
