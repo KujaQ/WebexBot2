@@ -334,11 +334,10 @@ function loggCall(type, data) {
   recallButton.innerHTML = 'Rückruf';
   recallButton.classList.add("button");
   recallButton.classList.add("is-success");
-
   recallButton.id = 'recallButton';
   recallButton.onclick = (e) => {
+    recall(e);
     e.stopPropagation();
-    recall('+4915734692268')
   }
 
   var mailToButton = document.createElement('button');
@@ -358,8 +357,8 @@ function loggCall(type, data) {
 
   webexMessageButton.id = 'webexMessageButton';
   webexMessageButton.onclick = (e) => {
-    e.stopPropagation();
     pnTo(e);
+    e.stopPropagation();
   }
 
   var info1Ul = document.createElement("ul");

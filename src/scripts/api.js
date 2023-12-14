@@ -60,8 +60,8 @@ function recall(destination) {
 }
 
 function mailTo(e) {
-    console.log(e.currentTarget.parentNode);
     console.log("🚀 ~ file: api.js:64 ~ mailTo ~ e:", e)
+    console.log(e.currentTarget);
     destination = 'testkevboy@gmail.com';
     body = 'testshit';
     // window.location.href = `mailto:${destination}?subject=Bitte um Kundenrückruf&body=${body}`;

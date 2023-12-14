@@ -313,9 +313,10 @@ function quickdebug(color) {
     mailToButton.classList.add("is-link");
 
     mailToButton.id = "mailToButton";
-    mailToButton.onclick = function () {
-        mailTo("mailToButton", "Event");
-    };
+    mailToButton.onclick = (e) => {
+        mailTo(e);
+        e.stopPropagation();
+    }
 
     var webexMessageButton = document.createElement("button");
     webexMessageButton.innerHTML = "PN Senden";
