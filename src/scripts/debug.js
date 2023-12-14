@@ -41,26 +41,6 @@ var data = {
                 },
                 "salesPersonCode": "31",
                 "vin": "W0L0HAF682G021208"
-            },
-            {
-                "Color": "rotx",
-                "Plate": "KO-AS 499x",
-                "brand": "FIAT",
-                "customerNo": "122492x",
-                "customerRegistrationDate": "25.02.2020x",
-                "dateLastServiceContact": "09.09.2021x",
-                "firstRegistrationDate": "14.03.02x",
-                "milage": "12200x",
-                "model": "Schrotthaufenx",
-                "salesPerson": {
-                    "code": "31x",
-                    "eMail": "AhmetG@Mail.comx",
-                    "firstName": "Ahmetx",
-                    "lastName": "Gezerx",
-                    "phoneNo": "0196 666 666x"
-                },
-                "salesPersonCode": "31x",
-                "vin": "W0L0HAF682G021208x"
             }
         ]
     }
@@ -266,6 +246,7 @@ function quickdebug(color) {
     pageButtonStyle.classList.add("pageButtonStyle");
     pageButtonStyle.classList.add("inactive");
 
+    if (data.vehicleDataList.length > 1) {   
     var prevButton = document.createElement("a");
     var prevButtonText = document.createTextNode("<")
     prevButton.classList.add("previous");
@@ -288,6 +269,7 @@ function quickdebug(color) {
     });
     pageButtonStyle.appendChild(nextButton);
     pageButtons.appendChild(pageButtonStyle);
+}
 
     var salesPerson = document.createElement("li");
     var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);

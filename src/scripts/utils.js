@@ -276,29 +276,30 @@ function loggCall(type, data) {
   pageButtonStyle.classList.add("pageButtonStyle");
   pageButtonStyle.classList.add("inactive");
 
-  var prevButton = document.createElement("a");
-  var prevButtonText = document.createTextNode("<")
-  prevButton.classList.add("previous");
-  prevButton.classList.add("round");
-  prevButton.appendChild(prevButtonText);
-  prevButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      lastVehicle(e);
-  });
-  pageButtonStyle.appendChild(prevButton);
+  if (data.vehicleDataList.length > 1) {   
+    var prevButton = document.createElement("a");
+    var prevButtonText = document.createTextNode("<")
+    prevButton.classList.add("previous");
+    prevButton.classList.add("round");
+    prevButton.appendChild(prevButtonText);
+    prevButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lastVehicle(e);
+    });
+    pageButtonStyle.appendChild(prevButton);
 
-  var nextButton = document.createElement("a");
-  var nextButtonText = document.createTextNode(">")
-  nextButton.classList.add("next");
-  nextButton.classList.add("round");
-  nextButton.appendChild(nextButtonText);
-  nextButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nextVehicle(e);
-  });
-  pageButtonStyle.appendChild(nextButton);
-  pageButtons.appendChild(pageButtonStyle);
-
+    var nextButton = document.createElement("a");
+    var nextButtonText = document.createTextNode(">")
+    nextButton.classList.add("next");
+    nextButton.classList.add("round");
+    nextButton.appendChild(nextButtonText);
+    nextButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextVehicle(e);
+    });
+    pageButtonStyle.appendChild(nextButton);
+    pageButtons.appendChild(pageButtonStyle);
+  }
 
   var salesPerson = document.createElement("li");
   var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);
