@@ -335,8 +335,7 @@ function loggCall(type, data) {
   recallButton.addEventListener('click', (e) => {
     e.stopPropagation();
     recall('+4915734692268')
-});
-  };
+  });
 
   var mailToButton = document.createElement('button');
   mailToButton.innerHTML = 'Mail Senden';
