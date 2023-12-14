@@ -83,7 +83,7 @@ function checkCookie() {
             getPermission();
             getBearerToken();
         } else {
-
+            getBearerTokenWithRefresh();
         }
     }
 }
