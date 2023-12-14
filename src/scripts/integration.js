@@ -31,7 +31,7 @@ function testflow3() {
             .then(result => {
                 // console.log(result.access_token),
                 setCookie('WebexToken', result.access_token, 10)
-                setCookie('WebexRefreshToken', result.access_token, 20)
+                setCookie('WebexRefreshToken', result.refresh_token, 30)
             })
             .catch(error => console.log('error', error));
     } else {
