@@ -66,5 +66,3 @@ function checkCookie() {
         alert("Welcome again " + WebexToken);
     }
 }
-
-setCookie('WebexToken', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789123456789', 7)
