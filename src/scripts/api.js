@@ -40,7 +40,7 @@ function recall(destination) {
     checkCookie();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(`Authorization", "Bearer ${WebexToken}`);
+    myHeaders.append("Authorization", `Bearer ${WebexToken}`);
 
     var raw = JSON.stringify({
         "destination": `${destination}`
