@@ -89,14 +89,36 @@ function mailTo(e) {
 
 function pnTo(e) {
     checkCookie();
-    destination = 'kevin.redlich-gaube@haeusler.de';
+    destination = e.currentTarget.parentNode.querySelectorAll('input')[0].value;
+
+    let body = '';
+    let tellist = e.currentTarget.parentNode.parentNode.querySelector('div.personalData').querySelectorAll('li')
+    let tellist2 = e.currentTarget.parentNode.parentNode.querySelector('div.contactDetails').querySelectorAll('li')
+    let tellist3 = e.currentTarget.parentNode.parentNode.querySelector('div.vehicleData').querySelectorAll('li')
+    let tellist4 = e.currentTarget.parentNode.parentNode.querySelector('div.sellerInformations').querySelectorAll('li')
+    tellist.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
+    tellist2.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
+    tellist3.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
+    tellist4.forEach(element => {
+        body = body + element.innerHTML + "\n"
+    });
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${WebexToken}`);
 
     var raw = JSON.stringify({
         "toPersonEmail": `${destination}`,
-        "text": "test"
+        "text": '${body}'
     });
 
     var requestOptions = {
