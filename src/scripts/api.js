@@ -59,14 +59,15 @@ function recall(destination) {
         .catch(error => console.log('error', error));
 }
 
-function mailTo() {
-    console.log('mail gesendet');
+function mailTo(e) {
+    console.log(e.currentTarget.parentNode);
+    console.log("🚀 ~ file: api.js:64 ~ mailTo ~ e:", e)
     destination = 'testkevboy@gmail.com';
     body = 'testshit';
-    window.location.href = `mailto:${destination}?subject=Bitte um Kundenrückruf&body=${body}`;
+    // window.location.href = `mailto:${destination}?subject=Bitte um Kundenrückruf&body=${body}`;
 }
 
-function pnTo() {
+function pnTo(e) {
     checkCookie();
     destination = 'kevin.redlich-gaube@haeusler.de';
     var myHeaders = new Headers();

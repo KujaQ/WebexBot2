@@ -336,21 +336,20 @@ function loggCall(type, data) {
   recallButton.classList.add("is-success");
 
   recallButton.id = 'recallButton';
-  recallButton.addEventListener('click', (e) => {
+  recallButton.onclick = (e) => {
     e.stopPropagation();
     recall('+4915734692268')
-  });
+  }
 
   var mailToButton = document.createElement('button');
   mailToButton.innerHTML = 'Mail Senden';
   mailToButton.classList.add("button");
   mailToButton.classList.add("is-link");
-
   mailToButton.id = 'mailToButton';
-  mailToButton.addEventListener('click', (e) => {
+  mailToButton.onclick = (e) => {
+    mailTo(e);
     e.stopPropagation();
-    mailTo("mailToButton", "Event");
-  });
+  }
 
   var webexMessageButton = document.createElement('button');
   webexMessageButton.innerHTML = 'PN Senden';
@@ -358,10 +357,10 @@ function loggCall(type, data) {
   webexMessageButton.classList.add("is-info");
 
   webexMessageButton.id = 'webexMessageButton';
-  webexMessageButton.addEventListener('click', (e) => {
+  webexMessageButton.onclick = (e) => {
     e.stopPropagation();
-    pnTo("webexMessageButton", "Event");
-  });
+    pnTo(e);
+  }
 
   var info1Ul = document.createElement("ul");
 

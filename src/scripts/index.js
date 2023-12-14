@@ -3,7 +3,6 @@ const app = new window.Webex.Application();
 var id = "";
 var connected = false;
 
-
 // Referenz zur Checkbox erhalten
 var checkbox = document.getElementById('darkmode-toggle');
 var isDarkMode = localStorage.getItem('darkMode') === 'true';
