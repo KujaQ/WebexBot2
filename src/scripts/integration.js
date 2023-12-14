@@ -29,7 +29,7 @@ function testflow3() {
         fetch(`https://webexapis.com/v1/access_token?grant_type=authorization_code&client_id=${clientId}&client_secret=${clientSecret}&code=${parameterValue}&redirect_uri=https://kujaq.github.io/WebexBot2/`, requestOptions)
             .then(response => response.json())
             .then(result => 
-                console.log(result.access_token),
+                // console.log(result.access_token),
                 setCookie(WebexToken, result.access_token, 10)
             )
             .catch(error => console.log('error', error));
