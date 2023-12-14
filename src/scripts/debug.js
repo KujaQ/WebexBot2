@@ -322,7 +322,7 @@ function quickdebug(color) {
 
     recallButton.id = "recallButton";
     recallButton.onclick = function () {
-        recall("recallButton", "Event");
+        recall("+4915734692268");
     };
 
     var mailToButton = document.createElement("button");
