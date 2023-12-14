@@ -38,6 +38,21 @@ function getBearerToken() {
     }
 }
 
+function getBearerTokenWithRefresh() {
+    var requestOptions = {
+        method: 'POST',
+        redirect: 'follow'
+    };
+
+    fetch(`https://webexapis.com/v1/access_token?grant_type=refresh_token&client_id=${clientId}&client_secret=${clientSecret}&refresh_token=${WebexRefreshToken}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            setCookie('WebexToken', result.access_token, 10)
+            setCookie('WebexRefreshToken', result.refresh_token, 30)
+        })
+        .catch(error => console.log('error', error));
+}
+
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -64,11 +79,11 @@ function checkCookie() {
     WebexToken = getCookie("WebexToken");
     if (WebexToken === "") {
         WebexRefreshToken = getCookie("WebexRefreshToken");
-        if (WebexRefreshToken === ""){
+        if (WebexRefreshToken === "") {
             getPermission();
             getBearerToken();
-        }  
+        } else {
+
+        }
     }
-    console.log(WebexToken);
-    console.log(WebexRefreshToken);
 }

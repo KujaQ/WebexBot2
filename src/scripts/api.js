@@ -67,12 +67,11 @@ function mailTo() {
 }
 
 function pnTo() {
-    console.log('pn gesendet');
-    alert('pn gesendet');
+    checkCookie();
     destination = 'kevin.redlich-gaube@haeusler.de';
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", "Bearer ZWE1Njk4NTAtNTc3Ny00NWRhLTk1OTktYWNjNGVkM2Y5ZmNlMDZlYTgxNjctNDEx_PE93_076d4c86-4654-4ddb-b8f3-eaf4e6d62e1d");
+    myHeaders.append("Authorization", `Bearer ${WebexToken}`);
 
     var raw = JSON.stringify({
         "toPersonEmail": `${destination}`,
