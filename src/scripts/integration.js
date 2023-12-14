@@ -39,8 +39,12 @@ function getBearerToken() {
 }
 
 function getBearerTokenWithRefresh() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
     var requestOptions = {
         method: 'POST',
+        headers: myHeaders,
         redirect: 'follow'
     };
 
