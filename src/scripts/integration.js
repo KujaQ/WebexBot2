@@ -2,11 +2,11 @@ const urlflow = "https://webexapis.com/v1/authorize?client_id=C06c3eff2130928e1e
 const clientId = "C06c3eff2130928e1eda4d75e9d68602122f39bc04bd4dcf38256e030b185a85a";
 const clientSecret = "1264d72ce05fa76a4eb797dd007e4039ca10b90fe5777e47eb99a36aa47ef7e8";
 
-function testflow2() {
+function getPermission() {
     window.location.href = urlflow
 }
 
-function testflow3() {
+function getBearerToken() {
     // Get the current URL
     const currentUrl = window.location.href;
 
@@ -62,7 +62,13 @@ function getCookie(cname) {
 
 function checkCookie() {
     WebexToken = getCookie("WebexToken");
-    if (WebexToken != "") {
-        alert("Welcome again " + WebexToken);
+    if (WebexToken === "") {
+        WebexRefreshToken = getCookie("WebexRefreshToken");
+        if (WebexRefreshToken === ""){
+            getPermission();
+            getBearerToken();
+        }  
     }
+    console.log(WebexToken);
+    console.log(WebexRefreshToken);
 }

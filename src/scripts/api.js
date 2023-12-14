@@ -37,9 +37,10 @@ function SDKHook(key, value, data) {
 }
 
 function recall(destination) {
+    checkCookie();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", "Bearer MzdmZGFlY2EtMjhkZC00M2Y1LThjMDctNGMyOWVjMjlkYTUwMzJlMGFkODctMzE2_PE93_08980031-1243-47be-a32c-fd2fee9a0c3b");
+    myHeaders.append(`Authorization", "Bearer ${WebexToken}`);
 
     var raw = JSON.stringify({
         "destination": `${destination}`
@@ -90,7 +91,6 @@ function pnTo() {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
-
 
 function getCustomerData(callState, obj) {
 
