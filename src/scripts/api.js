@@ -118,7 +118,7 @@ function pnTo(e) {
 
     var raw = JSON.stringify({
         "toPersonEmail": `${destination}`,
-        "text": '${body}'
+        "text": `${body}`
     });
 
     var requestOptions = {
