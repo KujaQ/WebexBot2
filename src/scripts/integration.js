@@ -47,7 +47,7 @@ function getBearerTokenWithRefresh() {
     fetch(`https://webexapis.com/v1/access_token?grant_type=refresh_token&client_id=${clientId}&client_secret=${clientSecret}&refresh_token=${WebexRefreshToken}`, requestOptions)
         .then(response => response.text())
         .then(result => {
-            console.log(result.text());
+            console.log(result);
             setCookie('WebexToken', result.access_token, 10)
             setCookie('WebexRefreshToken', result.refresh_token, 30)
         })
