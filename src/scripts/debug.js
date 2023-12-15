@@ -39,8 +39,26 @@ var data = {
                     "lastName": "Gezer",
                     "phoneNo": "0196 666 666"
                 },
-                "salesPersonCode": "31",
-                "vin": "W0L0HAF682G021208"
+                "salesPersonCode": "31x",
+                "vin": "W0L0HAF682G021208x",
+                "Color": "rotx",
+                "Plate": "KO-AS 499x",
+                "brand": "OPELx",
+                "customerNo": "122492x",
+                "customerRegistrationDate": "25.02.2022",
+                "dateLastServiceContact": "09.09.2022",
+                "firstRegistrationDate": "14.03.03",
+                "milage": "122001",
+                "model": "Corsax",
+                "salesPerson": {
+                    "code": "31x",
+                    "eMail": "AhmetG@Mail.comx",
+                    "firstName": "Ahmetx",
+                    "lastName": "Gezerx",
+                    "phoneNo": "0196 666 666x"
+                },
+                "salesPersonCode": "31x",
+                "vin": "W0L0HAF682G021208x"
             }
         ]
     }
