@@ -347,7 +347,7 @@ function loggCall(type, data, incommingTel) {
   }
 
   var mailToButton = document.createElement('button');
-  mailToButton.innerHTML = 'Mail Senden';
+  mailToButton.innerHTML = 'Mail senden';
   mailToButton.classList.add("button");
   mailToButton.classList.add("is-link");
   mailToButton.id = 'mailToButton';
@@ -357,7 +357,7 @@ function loggCall(type, data, incommingTel) {
   }
 
   var webexMessageButton = document.createElement('button');
-  webexMessageButton.innerHTML = 'PN Senden';
+  webexMessageButton.innerHTML = 'PN senden';
   webexMessageButton.classList.add("button");
   webexMessageButton.classList.add("is-info");
 

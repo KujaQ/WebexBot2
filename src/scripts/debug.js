@@ -332,7 +332,7 @@ function quickdebug(color, incommingTel) {
     };
 
     var mailToButton = document.createElement("button");
-    mailToButton.innerHTML = "Mail Senden";
+    mailToButton.innerHTML = "Mail senden";
     mailToButton.classList.add("button");
     mailToButton.classList.add("is-link");
 
@@ -343,7 +343,7 @@ function quickdebug(color, incommingTel) {
     }
 
     var webexMessageButton = document.createElement("button");
-    webexMessageButton.innerHTML = "PN Senden";
+    webexMessageButton.innerHTML = "PN senden";
     webexMessageButton.classList.add("button");
     webexMessageButton.classList.add("is-info");
 
