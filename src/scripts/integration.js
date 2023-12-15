@@ -95,4 +95,4 @@ function checkCookie() {
     }
 }
 
-// checkCookie();
+checkCookie();
