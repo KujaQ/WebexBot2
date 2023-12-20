@@ -164,8 +164,8 @@ function getCustomerData(callState, obj) {
         .then(data => {
             console.log("Antwortdaten:", data);
             if (DoLOG) {console.log("🚀 ~ file: api.js:166 ~ getCustomerData ~ data:", data)}
+            if (DoLOG) {console.log("🚀 ~ file: api.js:167 ~ getCustomerData ~ obj.data.remoteParticipants[0].callerID:", obj.data.remoteParticipants[0].callerID)}
             loggCall(callState, data, obj.data.remoteParticipants[0].callerID);
-            if (DoLOG) {console.log("🚀 ~ file: api.js:170 ~ getCustomerData ~ obj.data.remoteParticipants[0].callerID:", obj.data.remoteParticipants[0].callerID)}
             
         })
         .catch(error => {
