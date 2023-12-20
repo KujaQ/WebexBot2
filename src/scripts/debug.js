@@ -68,8 +68,8 @@ var DoLOG = true;
 
 
 
-data = data.getCustomerInformationResult;
-var length = data.vehicleDataList.length - 1;
+// data = data.getCustomerInformationResult;
+// var length = data.vehicleDataList.length - 1;
 
 
 function quickdebug(color, incommingTel) {
