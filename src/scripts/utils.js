@@ -234,94 +234,96 @@ function loggCall(type, data, incommingTel) {
   customerOrderDate.appendChild(customerOrderDateText);
 
   //Fahrzeug
-  var vehicleBrand = document.createElement("li");
-  var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[currentVehicle].brand}`);
-  vehicleBrand.appendChild(vehicleBrandText);
+  if (data.vehicleDataList.length > 0) {
+    var vehicleBrand = document.createElement("li");
+    var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[currentVehicle].brand}`);
+    vehicleBrand.appendChild(vehicleBrandText);
 
-  var vehicleModel = document.createElement("li");
-  var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[currentVehicle].model}`);
-  vehicleModel.appendChild(vehicleModelText);
+    var vehicleModel = document.createElement("li");
+    var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[currentVehicle].model}`);
+    vehicleModel.appendChild(vehicleModelText);
 
-  var vehicleVIN = document.createElement("li");
-  var vehicleVINText = document.createTextNode(`VIN: ${data.vehicleDataList[currentVehicle].vin}`);
-  vehicleVIN.appendChild(vehicleVINText);
+    var vehicleVIN = document.createElement("li");
+    var vehicleVINText = document.createTextNode(`VIN: ${data.vehicleDataList[currentVehicle].vin}`);
+    vehicleVIN.appendChild(vehicleVINText);
 
-  var vhecileApproval = document.createElement("li");
-  var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`);
-  vhecileApproval.appendChild(vhecileApprovalText);
+    var vhecileApproval = document.createElement("li");
+    var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`);
+    vhecileApproval.appendChild(vhecileApprovalText);
 
-  var vehicleColor = document.createElement("li");
-  var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[currentVehicle].Color}`);
-  vehicleColor.appendChild(vehicleColorText);
+    var vehicleColor = document.createElement("li");
+    var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[currentVehicle].Color}`);
+    vehicleColor.appendChild(vehicleColorText);
 
-  var vehiclePlate = document.createElement("li");
-  var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`);
-  vehiclePlate.appendChild(vehiclePlateText);
+    var vehiclePlate = document.createElement("li");
+    var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`);
+    vehiclePlate.appendChild(vehiclePlateText);
 
-  var vehicleCustomerApproval = document.createElement("li");
-  var vehicleCustomerApprovalText = document.createTextNode(
-      `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`
-  );
-  vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
+    var vehicleCustomerApproval = document.createElement("li");
+    var vehicleCustomerApprovalText = document.createTextNode(
+        `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`
+    );
+    vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
 
-  var lastServiceDate = document.createElement("li");
-  var lastServiceDateText = document.createTextNode(
-      `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`
-  );
-  lastServiceDate.appendChild(lastServiceDateText);
+    var lastServiceDate = document.createElement("li");
+    var lastServiceDateText = document.createTextNode(
+        `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`
+    );
+    lastServiceDate.appendChild(lastServiceDateText);
 
-  var lastKM = document.createElement("li");
-  var lastKMText = document.createTextNode(`Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`);
-  lastKM.appendChild(lastKMText);
+    var lastKM = document.createElement("li");
+    var lastKMText = document.createTextNode(`Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`);
+    lastKM.appendChild(lastKMText);
 
-  //multiple car windows
-  var pageButtons = document.createElement("div");
-  pageButtons.classList.add("pageButtonContainer");
-  pageButtons.classList.add("inactive");
+    //multiple car windows
+    var pageButtons = document.createElement("div");
+    pageButtons.classList.add("pageButtonContainer");
+    pageButtons.classList.add("inactive");
 
-  var pageButtonStyle = document.createElement("div");
-  pageButtonStyle.classList.add("pageButtonStyle");
-  pageButtonStyle.classList.add("inactive");
+    var pageButtonStyle = document.createElement("div");
+    pageButtonStyle.classList.add("pageButtonStyle");
+    pageButtonStyle.classList.add("inactive");
 
-  if (data.vehicleDataList.length > 1) {   
-    var prevButton = document.createElement("a");
-    var prevButtonText = document.createTextNode("<")
-    prevButton.classList.add("previous");
-    prevButton.classList.add("round");
-    prevButton.appendChild(prevButtonText);
-    prevButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        lastVehicle(e);
-    });
-    pageButtonStyle.appendChild(prevButton);
+    if (data.vehicleDataList.length > 1) {   
+      var prevButton = document.createElement("a");
+      var prevButtonText = document.createTextNode("<")
+      prevButton.classList.add("previous");
+      prevButton.classList.add("round");
+      prevButton.appendChild(prevButtonText);
+      prevButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          lastVehicle(e);
+      });
+      pageButtonStyle.appendChild(prevButton);
 
-    var nextButton = document.createElement("a");
-    var nextButtonText = document.createTextNode(">")
-    nextButton.classList.add("next");
-    nextButton.classList.add("round");
-    nextButton.appendChild(nextButtonText);
-    nextButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextVehicle(e);
-    });
-    pageButtonStyle.appendChild(nextButton);
-    pageButtons.appendChild(pageButtonStyle);
+      var nextButton = document.createElement("a");
+      var nextButtonText = document.createTextNode(">")
+      nextButton.classList.add("next");
+      nextButton.classList.add("round");
+      nextButton.appendChild(nextButtonText);
+      nextButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextVehicle(e);
+      });
+      pageButtonStyle.appendChild(nextButton);
+      pageButtons.appendChild(pageButtonStyle);
+    }
+
+    var salesPerson = document.createElement("li");
+    var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);
+    salesPerson.appendChild(salesPersonText);
+
+    var salesPhone = document.createElement("li");
+    var salesPhoneText = document.createTextNode(
+        `Tel. Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`
+    );
+    salesPhone.appendChild(salesPhoneText);
+
+
+    var salesEmail = document.createElement("li");
+    var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`);
+    salesEmail.appendChild(salesEmailText);
   }
-
-  var salesPerson = document.createElement("li");
-  var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);
-  salesPerson.appendChild(salesPersonText);
-
-  var salesPhone = document.createElement("li");
-  var salesPhoneText = document.createTextNode(
-      `Tel. Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`
-  );
-  salesPhone.appendChild(salesPhoneText);
-
-
-  var salesEmail = document.createElement("li");
-  var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`);
-  salesEmail.appendChild(salesEmailText);
 
   var emailDiv = document.createElement("div");
   emailDiv.classList.add('emailContainer');
@@ -395,24 +397,27 @@ function loggCall(type, data, incommingTel) {
 
   var info3Ul = document.createElement("ul");
 
-  info3Ul.appendChild(vehicleBrand);
-  info3Ul.appendChild(vehicleModel);
-  info3Ul.appendChild(vehicleVIN);
-  info3Ul.appendChild(vhecileApproval);
-  info3Ul.appendChild(vehicleColor);
-  info3Ul.appendChild(vehiclePlate);
-  info3Ul.appendChild(vehicleCustomerApproval);
-  info3Ul.appendChild(lastServiceDate);
-  info3Ul.appendChild(lastKM);
-  vehicleData.appendChild(info3Ul);
-  vehicleData.appendChild(pageButtons);
+  if (data.vehicleDataList.length > 0) {
+    info3Ul.appendChild(vehicleBrand);
+    info3Ul.appendChild(vehicleModel);
+    info3Ul.appendChild(vehicleVIN);
+    info3Ul.appendChild(vhecileApproval);
+    info3Ul.appendChild(vehicleColor);
+    info3Ul.appendChild(vehiclePlate);
+    info3Ul.appendChild(vehicleCustomerApproval);
+    info3Ul.appendChild(lastServiceDate);
+    info3Ul.appendChild(lastKM);
+    vehicleData.appendChild(info3Ul);
+    vehicleData.appendChild(pageButtons);
+  }
 
   var info4Ul = document.createElement("ul");
 
-  info4Ul.appendChild(salesPerson);
-  info4Ul.appendChild(salesPhone);
-  info4Ul.appendChild(salesEmail);
-
+  if (data.vehicleDataList.length > 0) {
+    info4Ul.appendChild(salesPerson);
+    info4Ul.appendChild(salesPhone);
+    info4Ul.appendChild(salesEmail);
+  }
   sellerInformations.appendChild(info4Ul);
 
   emailDiv.appendChild(mailToButton);
