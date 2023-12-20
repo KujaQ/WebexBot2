@@ -1,74 +1,38 @@
-var debugMode = false;
+var debugMode = true;
 var currentVehicle = 0;
 var DoLOG = true;
-// var data = {
-//     "getCustomerInformationResult": {
-//         "customerData": {
-//             "city": "KOblenz",
-//             "eMailBusiness": "eMail@Business.de",
-//             "eMailPrivate": "eMail@Privat.de",
-//             "firstName": "Lars",
-//             "handyNoBusiness": "01756213163",
-//             "handyNoPrivate": "016765128974",
-//             "lastName": "Schaub",
-//             "no": "122492",
-//             "phoneNo": "",
-//             "phoneNoBusiness": "0261/73293",
-//             "phoneNoPrivate": "0261/47641",
-//             "postCode": "56001"
-//         },
-//         "serviceOrder": {
-//             "DocNo": "WVAN007945",
-//             "OrderDate": "29.11.2023",
-//             "VIN": "W0L0HAF682G020477"
-//         },
-//         "vehicleDataList": [
-//             {
-//                 "Color": "rot",
-//                 "Plate": "KO-AS 499",
-//                 "brand": "OPEL",
-//                 "customerNo": "122492",
-//                 "customerRegistrationDate": "25.02.2020",
-//                 "dateLastServiceContact": "09.09.2021",
-//                 "firstRegistrationDate": "14.03.02",
-//                 "milage": "12200",
-//                 "model": "Corsa",
-//                 "salesPerson": {
-//                     "code": "31",
-//                     "eMail": "AhmetG@Mail.com",
-//                     "firstName": "Ahmet",
-//                     "lastName": "Gezer",
-//                     "phoneNo": "0196 666 666"
-//                 },
-//                 "salesPersonCode": "31x",
-//                 "vin": "W0L0HAF682G021208x",
-//                 "Color": "rotx",
-//                 "Plate": "KO-AS 499x",
-//                 "brand": "OPELx",
-//                 "customerNo": "122492x",
-//                 "customerRegistrationDate": "25.02.2022",
-//                 "dateLastServiceContact": "09.09.2022",
-//                 "firstRegistrationDate": "14.03.03",
-//                 "milage": "122001",
-//                 "model": "Corsax",
-//                 "salesPerson": {
-//                     "code": "31x",
-//                     "eMail": "AhmetG@Mail.comx",
-//                     "firstName": "Ahmetx",
-//                     "lastName": "Gezerx",
-//                     "phoneNo": "0196 666 666x"
-//                 },
-//                 "salesPersonCode": "31x",
-//                 "vin": "W0L0HAF682G021208x"
-//             }
-//         ]
-//     }
-// }
+
+var data = {
+    "getCustomerInformationResult": {
+        "customerData": {
+            "city": "KOblenz",
+            "eMailBusiness": "eMail@Business.de",
+            "eMailPrivate": "eMail@Privat.de",
+            "firstName": "Lars",
+            "handyNoBusiness": "01756213163",
+            "handyNoPrivate": "016765128974",
+            "lastName": "Schaub",
+            "no": "122492",
+            "phoneNo": "",
+            "phoneNoBusiness": "0261/73293",
+            "phoneNoPrivate": "0261/47641",
+            "postCode": "56001"
+        },
+        "serviceOrder": {
+            "DocNo": "WVAN007945",
+            "OrderDate": "29.11.2023",
+            "VIN": "W0L0HAF682G020477"
+        },
+        "vehicleDataList": [
+
+        ]
+    }
+}
 
 
 
-// data = data.getCustomerInformationResult;
-// var length = data.vehicleDataList.length - 1;
+data = data.getCustomerInformationResult;
+var length = data.vehicleDataList.length - 1;
 
 
 function quickdebug(color, incommingTel) {
@@ -222,94 +186,96 @@ function quickdebug(color, incommingTel) {
     customerOrderDate.appendChild(customerOrderDateText);
 
     //Fahrzeug
-    var vehicleBrand = document.createElement("li");
-    var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[currentVehicle].brand}`);
-    vehicleBrand.appendChild(vehicleBrandText);
+    if (data.vehicleDataList.length > 0) {
+        var vehicleBrand = document.createElement("li");
+        var vehicleBrandText = document.createTextNode(`Marke: ${data.vehicleDataList[currentVehicle].brand}`);
+        vehicleBrand.appendChild(vehicleBrandText);
 
-    var vehicleModel = document.createElement("li");
-    var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[currentVehicle].model}`);
-    vehicleModel.appendChild(vehicleModelText);
+        var vehicleModel = document.createElement("li");
+        var vehicleModelText = document.createTextNode(`Model: ${data.vehicleDataList[currentVehicle].model}`);
+        vehicleModel.appendChild(vehicleModelText);
 
-    var vehicleVIN = document.createElement("li");
-    var vehicleVINText = document.createTextNode(`VIN: ${data.vehicleDataList[currentVehicle].vin}`);
-    vehicleVIN.appendChild(vehicleVINText);
+        var vehicleVIN = document.createElement("li");
+        var vehicleVINText = document.createTextNode(`VIN: ${data.vehicleDataList[currentVehicle].vin}`);
+        vehicleVIN.appendChild(vehicleVINText);
 
-    var vhecileApproval = document.createElement("li");
-    var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`);
-    vhecileApproval.appendChild(vhecileApprovalText);
+        var vhecileApproval = document.createElement("li");
+        var vhecileApprovalText = document.createTextNode(`Erstzulassung: ${data.vehicleDataList[currentVehicle].firstRegistrationDate}`);
+        vhecileApproval.appendChild(vhecileApprovalText);
 
-    var vehicleColor = document.createElement("li");
-    var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[currentVehicle].Color}`);
-    vehicleColor.appendChild(vehicleColorText);
+        var vehicleColor = document.createElement("li");
+        var vehicleColorText = document.createTextNode(`Farbe: ${data.vehicleDataList[currentVehicle].Color}`);
+        vehicleColor.appendChild(vehicleColorText);
 
-    var vehiclePlate = document.createElement("li");
-    var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`);
-    vehiclePlate.appendChild(vehiclePlateText);
+        var vehiclePlate = document.createElement("li");
+        var vehiclePlateText = document.createTextNode(`Kennzeichen: ${data.vehicleDataList[currentVehicle].Plate}`);
+        vehiclePlate.appendChild(vehiclePlateText);
 
-    var vehicleCustomerApproval = document.createElement("li");
-    var vehicleCustomerApprovalText = document.createTextNode(
-        `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`
-    );
-    vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
+        var vehicleCustomerApproval = document.createElement("li");
+        var vehicleCustomerApprovalText = document.createTextNode(
+            `Kunden Zulassungsdatum: ${data.vehicleDataList[currentVehicle].customerRegistrationDate}`
+        );
+        vehicleCustomerApproval.appendChild(vehicleCustomerApprovalText);
 
-    var lastServiceDate = document.createElement("li");
-    var lastServiceDateText = document.createTextNode(
-        `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`
-    );
-    lastServiceDate.appendChild(lastServiceDateText);
+        var lastServiceDate = document.createElement("li");
+        var lastServiceDateText = document.createTextNode(
+            `Letzter Werkstattbesuch: ${data.vehicleDataList[currentVehicle].dateLastServiceContact}`
+        );
+        lastServiceDate.appendChild(lastServiceDateText);
 
-    var lastKM = document.createElement("li");
-    var lastKMText = document.createTextNode(`Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`);
-    lastKM.appendChild(lastKMText);
+        var lastKM = document.createElement("li");
+        var lastKMText = document.createTextNode(`Letzter KM Stand: ${data.vehicleDataList[currentVehicle].milage}`);
+        lastKM.appendChild(lastKMText);
 
-    //multiple car windows
-    var pageButtons = document.createElement("div");
-    pageButtons.classList.add("pageButtonContainer");
-    pageButtons.classList.add("inactive");
+        //multiple car windows
+        var pageButtons = document.createElement("div");
+        pageButtons.classList.add("pageButtonContainer");
+        pageButtons.classList.add("inactive");
 
-    var pageButtonStyle = document.createElement("div");
-    pageButtonStyle.classList.add("pageButtonStyle");
-    pageButtonStyle.classList.add("inactive");
+        var pageButtonStyle = document.createElement("div");
+        pageButtonStyle.classList.add("pageButtonStyle");
+        pageButtonStyle.classList.add("inactive");
 
-    if (data.vehicleDataList.length > 1) {   
-    var prevButton = document.createElement("a");
-    var prevButtonText = document.createTextNode("<")
-    prevButton.classList.add("previous");
-    prevButton.classList.add("round");
-    prevButton.appendChild(prevButtonText);
-    prevButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        lastVehicle(e);
-    });
-    pageButtonStyle.appendChild(prevButton);
+        if (data.vehicleDataList.length > 1) {   
+        var prevButton = document.createElement("a");
+        var prevButtonText = document.createTextNode("<")
+        prevButton.classList.add("previous");
+        prevButton.classList.add("round");
+        prevButton.appendChild(prevButtonText);
+        prevButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lastVehicle(e);
+        });
+        pageButtonStyle.appendChild(prevButton);
 
-    var nextButton = document.createElement("a");
-    var nextButtonText = document.createTextNode(">")
-    nextButton.classList.add("next");
-    nextButton.classList.add("round");
-    nextButton.appendChild(nextButtonText);
-    nextButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextVehicle(e);
-    });
-    pageButtonStyle.appendChild(nextButton);
-    pageButtons.appendChild(pageButtonStyle);
-}
+        var nextButton = document.createElement("a");
+        var nextButtonText = document.createTextNode(">")
+        nextButton.classList.add("next");
+        nextButton.classList.add("round");
+        nextButton.appendChild(nextButtonText);
+        nextButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextVehicle(e);
+        });
+        pageButtonStyle.appendChild(nextButton);
+        pageButtons.appendChild(pageButtonStyle);
+    }
 
-    var salesPerson = document.createElement("li");
-    var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);
-    salesPerson.appendChild(salesPersonText);
+        var salesPerson = document.createElement("li");
+        var salesPersonText = document.createTextNode(`Name: ${data.vehicleDataList[currentVehicle].salesPerson.firstName} ${data.vehicleDataList[currentVehicle].salesPerson.lastName}`);
+        salesPerson.appendChild(salesPersonText);
 
-    var salesPhone = document.createElement("li");
-    var salesPhoneText = document.createTextNode(
-        `Tel. Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`
-    );
-    salesPhone.appendChild(salesPhoneText);
+        var salesPhone = document.createElement("li");
+        var salesPhoneText = document.createTextNode(
+            `Tel. Nr.: ${data.vehicleDataList[currentVehicle].salesPerson.phoneNo}`
+        );
+        salesPhone.appendChild(salesPhoneText);
 
 
-    var salesEmail = document.createElement("li");
-    var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`);
-    salesEmail.appendChild(salesEmailText);
+        var salesEmail = document.createElement("li");
+        var salesEmailText = document.createTextNode(`Email: ${data.vehicleDataList[currentVehicle].salesPerson.eMail}`);
+        salesEmail.appendChild(salesEmailText);
+    }
 
     var emailDiv = document.createElement("div");
     emailDiv.classList.add('emailContainer');
@@ -381,24 +347,25 @@ function quickdebug(color, incommingTel) {
 
     var info3Ul = document.createElement("ul");
 
-    info3Ul.appendChild(vehicleBrand);
-    info3Ul.appendChild(vehicleModel);
-    info3Ul.appendChild(vehicleVIN);
-    info3Ul.appendChild(vhecileApproval);
-    info3Ul.appendChild(vehicleColor);
-    info3Ul.appendChild(vehiclePlate);
-    info3Ul.appendChild(vehicleCustomerApproval);
-    info3Ul.appendChild(lastServiceDate);
-    info3Ul.appendChild(lastKM);
-    vehicleData.appendChild(info3Ul);
-    vehicleData.appendChild(pageButtons);
-
+    if (data.vehicleDataList.length > 0) {
+        info3Ul.appendChild(vehicleBrand);
+        info3Ul.appendChild(vehicleModel);
+        info3Ul.appendChild(vehicleVIN);
+        info3Ul.appendChild(vhecileApproval);
+        info3Ul.appendChild(vehicleColor);
+        info3Ul.appendChild(vehiclePlate);
+        info3Ul.appendChild(vehicleCustomerApproval);
+        info3Ul.appendChild(lastServiceDate);
+        info3Ul.appendChild(lastKM);
+        vehicleData.appendChild(info3Ul);
+        vehicleData.appendChild(pageButtons);
+    }
     var info4Ul = document.createElement("ul");
-
-    info4Ul.appendChild(salesPerson);
-    info4Ul.appendChild(salesPhone);
-    info4Ul.appendChild(salesEmail);
-
+    if (data.vehicleDataList.length > 0) {
+        info4Ul.appendChild(salesPerson);
+        info4Ul.appendChild(salesPhone);
+        info4Ul.appendChild(salesEmail);
+    }
     sellerInformations.appendChild(info4Ul);
 
     emailDiv.appendChild(mailToButton);
@@ -417,5 +384,6 @@ function quickdebug(color, incommingTel) {
 }
 
 if (debugMode === true) {
+    console.log("🚀 ~ file: debug.js:421 ~ debugMode:", debugMode)
     quickdebug("green", '+4915734692268');
 }

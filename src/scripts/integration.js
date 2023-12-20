@@ -3,7 +3,7 @@ const clientId = "C06c3eff2130928e1eda4d75e9d68602122f39bc04bd4dcf38256e030b185a
 const clientSecret = "1264d72ce05fa76a4eb797dd007e4039ca10b90fe5777e47eb99a36aa47ef7e8";
 
 function getPermission() {
-    window.location.href = urlflow
+    if (!debugMode) {window.location.href = urlflow}
 }
 
 function getBearerToken() {
