@@ -1,5 +1,6 @@
 var debugMode = false;
 var currentVehicle = 0;
+var DoLOG = true;
 // var data = {
 //     "getCustomerInformationResult": {
 //         "customerData": {

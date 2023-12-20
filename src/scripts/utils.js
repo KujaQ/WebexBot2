@@ -76,6 +76,7 @@ function toggleActive(event) {
 function loggCall(type, data, incommingTel) {
   // data = getCustomerData('+4917615206382');
   data = data.getCustomerInformationResult;
+  if (DoLOG) {console.log("🚀 ~ file: utils.js:79 ~ loggCall ~ data:", data)}
   var length = data.vehicleDataList.length - 1;
 
 
@@ -427,6 +428,7 @@ function loggCall(type, data, incommingTel) {
   call.appendChild(emailDiv);
   call.appendChild(buttons);
   calls.prepend(call);
+  if (DoLOG) {console.log("🚀 ~ file: utils.js:430 ~ loggCall ~ call:", call)}
 }
 
 function handleDisplayAppInfo() {

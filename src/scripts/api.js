@@ -16,6 +16,7 @@ function restDebugger(key, value, data) {
 function SDKHook(key, value, data) {
 
     const obj = JSON.parse(data);
+    if (DoLOG) {console.log("🚀 ~ file: api.js:19 ~ SDKHook ~ obj:", obj)}
 
     if (obj.data.callType !== "Received") return
 
@@ -162,7 +163,10 @@ function getCustomerData(callState, obj) {
         })
         .then(data => {
             console.log("Antwortdaten:", data);
+            if (DoLOG) {console.log("🚀 ~ file: api.js:166 ~ getCustomerData ~ data:", data)}
             loggCall(callState, data, obj.data.remoteParticipants[0].callerID);
+            if (DoLOG) {console.log("🚀 ~ file: api.js:170 ~ getCustomerData ~ obj.data.remoteParticipants[0].callerID:", obj.data.remoteParticipants[0].callerID)}
+            
         })
         .catch(error => {
             console.error("Fehler bei der Anfrage:", error);
